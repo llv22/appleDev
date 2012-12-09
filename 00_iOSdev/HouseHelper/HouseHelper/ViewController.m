@@ -10,14 +10,37 @@
 
 @interface ViewController ()
 
+- (void) resetToSquare;
+
 @end
 
 @implementation ViewController
+
+- (id)init{
+    self = [super init];
+    if (self) {
+        self->distNorthToSouth = 8000;
+        self->distEastToWest = 5000;
+    }
+    return (self);
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    // desc - located into chengdu central
+    [self resetToSquare];
+}
+
+- (void) resetToSquare{
+    CLLocationCoordinate2D loc = CLLocationCoordinate2DMake(30.657665, 104.065719);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, self->distNorthToSouth, self->distEastToWest);
+    [self->map setRegion:region animated:YES];
+}
+
+- (IBAction)resetToCenter:(id)sender{
+    [self resetToSquare];
 }
 
 - (void)didReceiveMemoryWarning

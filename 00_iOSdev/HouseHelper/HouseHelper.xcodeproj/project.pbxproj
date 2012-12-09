@@ -19,6 +19,8 @@
 		F14200271674D34A00D65D3B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14200261674D34A00D65D3B /* ViewController.m */; };
 		F142002A1674D34A00D65D3B /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14200281674D34A00D65D3B /* ViewController_iPhone.xib */; };
 		F142002D1674D34A00D65D3B /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F142002B1674D34A00D65D3B /* ViewController_iPad.xib */; };
+		F14200341674D70500D65D3B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14200331674D70500D65D3B /* MapKit.framework */; };
+		F14200441674DC6700D65D3B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14200431674DC6700D65D3B /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,9 @@
 		F14200261674D34A00D65D3B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F14200291674D34A00D65D3B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		F142002C1674D34A00D65D3B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		F14200331674D70500D65D3B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F14200351674D89700D65D3B /* readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = readme.rtf; sourceTree = "<group>"; };
+		F14200431674DC6700D65D3B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F14200441674DC6700D65D3B /* CoreLocation.framework in Frameworks */,
+				F14200341674D70500D65D3B /* MapKit.framework in Frameworks */,
 				F142000E1674D34A00D65D3B /* UIKit.framework in Frameworks */,
 				F14200101674D34A00D65D3B /* Foundation.framework in Frameworks */,
 				F14200121674D34A00D65D3B /* CoreGraphics.framework in Frameworks */,
@@ -66,6 +73,7 @@
 		F142000C1674D34A00D65D3B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F14200331674D70500D65D3B /* MapKit.framework */,
 				F142000D1674D34A00D65D3B /* UIKit.framework */,
 				F142000F1674D34A00D65D3B /* Foundation.framework */,
 				F14200111674D34A00D65D3B /* CoreGraphics.framework */,
@@ -104,6 +112,8 @@
 		F142FFFE1674D34A00D65D3B = {
 			isa = PBXGroup;
 			children = (
+				F14200431674DC6700D65D3B /* CoreLocation.framework */,
+				F14200351674D89700D65D3B /* readme.rtf */,
 				F14200131674D34A00D65D3B /* HouseHelper */,
 				F142000C1674D34A00D65D3B /* Frameworks */,
 				F142000A1674D34A00D65D3B /* Products */,
@@ -235,7 +245,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -257,7 +267,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

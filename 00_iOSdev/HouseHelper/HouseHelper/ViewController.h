@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+    IBOutlet MKMapView* map;
+    double distNorthToSouth;
+    double distEastToWest;
+}
+
+- (IBAction)resetToCenter:(id)sender;
 
 @end
