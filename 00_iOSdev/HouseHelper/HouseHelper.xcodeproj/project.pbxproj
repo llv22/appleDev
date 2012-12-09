@@ -1,0 +1,313 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F142000E1674D34A00D65D3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F142000D1674D34A00D65D3B /* UIKit.framework */; };
+		F14200101674D34A00D65D3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F142000F1674D34A00D65D3B /* Foundation.framework */; };
+		F14200121674D34A00D65D3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14200111674D34A00D65D3B /* CoreGraphics.framework */; };
+		F14200181674D34A00D65D3B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F14200161674D34A00D65D3B /* InfoPlist.strings */; };
+		F142001A1674D34A00D65D3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F14200191674D34A00D65D3B /* main.m */; };
+		F142001E1674D34A00D65D3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F142001D1674D34A00D65D3B /* AppDelegate.m */; };
+		F14200201674D34A00D65D3B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F142001F1674D34A00D65D3B /* Default.png */; };
+		F14200221674D34A00D65D3B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F14200211674D34A00D65D3B /* Default@2x.png */; };
+		F14200241674D34A00D65D3B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F14200231674D34A00D65D3B /* Default-568h@2x.png */; };
+		F14200271674D34A00D65D3B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14200261674D34A00D65D3B /* ViewController.m */; };
+		F142002A1674D34A00D65D3B /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14200281674D34A00D65D3B /* ViewController_iPhone.xib */; };
+		F142002D1674D34A00D65D3B /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F142002B1674D34A00D65D3B /* ViewController_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F14200091674D34A00D65D3B /* HouseHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F142000D1674D34A00D65D3B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F142000F1674D34A00D65D3B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F14200111674D34A00D65D3B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F14200151674D34A00D65D3B /* HouseHelper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HouseHelper-Info.plist"; sourceTree = "<group>"; };
+		F14200171674D34A00D65D3B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F14200191674D34A00D65D3B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F142001B1674D34A00D65D3B /* HouseHelper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HouseHelper-Prefix.pch"; sourceTree = "<group>"; };
+		F142001C1674D34A00D65D3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F142001D1674D34A00D65D3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F142001F1674D34A00D65D3B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F14200211674D34A00D65D3B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F14200231674D34A00D65D3B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F14200251674D34A00D65D3B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F14200261674D34A00D65D3B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F14200291674D34A00D65D3B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		F142002C1674D34A00D65D3B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F14200061674D34A00D65D3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F142000E1674D34A00D65D3B /* UIKit.framework in Frameworks */,
+				F14200101674D34A00D65D3B /* Foundation.framework in Frameworks */,
+				F14200121674D34A00D65D3B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F142000A1674D34A00D65D3B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F14200091674D34A00D65D3B /* HouseHelper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F142000C1674D34A00D65D3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F142000D1674D34A00D65D3B /* UIKit.framework */,
+				F142000F1674D34A00D65D3B /* Foundation.framework */,
+				F14200111674D34A00D65D3B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F14200131674D34A00D65D3B /* HouseHelper */ = {
+			isa = PBXGroup;
+			children = (
+				F142001C1674D34A00D65D3B /* AppDelegate.h */,
+				F142001D1674D34A00D65D3B /* AppDelegate.m */,
+				F14200251674D34A00D65D3B /* ViewController.h */,
+				F14200261674D34A00D65D3B /* ViewController.m */,
+				F14200281674D34A00D65D3B /* ViewController_iPhone.xib */,
+				F142002B1674D34A00D65D3B /* ViewController_iPad.xib */,
+				F14200141674D34A00D65D3B /* Supporting Files */,
+			);
+			path = HouseHelper;
+			sourceTree = "<group>";
+		};
+		F14200141674D34A00D65D3B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F14200151674D34A00D65D3B /* HouseHelper-Info.plist */,
+				F14200161674D34A00D65D3B /* InfoPlist.strings */,
+				F14200191674D34A00D65D3B /* main.m */,
+				F142001B1674D34A00D65D3B /* HouseHelper-Prefix.pch */,
+				F142001F1674D34A00D65D3B /* Default.png */,
+				F14200211674D34A00D65D3B /* Default@2x.png */,
+				F14200231674D34A00D65D3B /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F142FFFE1674D34A00D65D3B = {
+			isa = PBXGroup;
+			children = (
+				F14200131674D34A00D65D3B /* HouseHelper */,
+				F142000C1674D34A00D65D3B /* Frameworks */,
+				F142000A1674D34A00D65D3B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F14200081674D34A00D65D3B /* HouseHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F14200301674D34A00D65D3B /* Build configuration list for PBXNativeTarget "HouseHelper" */;
+			buildPhases = (
+				F14200051674D34A00D65D3B /* Sources */,
+				F14200061674D34A00D65D3B /* Frameworks */,
+				F14200071674D34A00D65D3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HouseHelper;
+			productName = HouseHelper;
+			productReference = F14200091674D34A00D65D3B /* HouseHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F14200001674D34A00D65D3B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Ding Orlando";
+			};
+			buildConfigurationList = F14200031674D34A00D65D3B /* Build configuration list for PBXProject "HouseHelper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F142FFFE1674D34A00D65D3B;
+			productRefGroup = F142000A1674D34A00D65D3B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F14200081674D34A00D65D3B /* HouseHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F14200071674D34A00D65D3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F14200181674D34A00D65D3B /* InfoPlist.strings in Resources */,
+				F14200201674D34A00D65D3B /* Default.png in Resources */,
+				F14200221674D34A00D65D3B /* Default@2x.png in Resources */,
+				F14200241674D34A00D65D3B /* Default-568h@2x.png in Resources */,
+				F142002A1674D34A00D65D3B /* ViewController_iPhone.xib in Resources */,
+				F142002D1674D34A00D65D3B /* ViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F14200051674D34A00D65D3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F142001A1674D34A00D65D3B /* main.m in Sources */,
+				F142001E1674D34A00D65D3B /* AppDelegate.m in Sources */,
+				F14200271674D34A00D65D3B /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F14200161674D34A00D65D3B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F14200171674D34A00D65D3B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F14200281674D34A00D65D3B /* ViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F14200291674D34A00D65D3B /* en */,
+			);
+			name = ViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		F142002B1674D34A00D65D3B /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F142002C1674D34A00D65D3B /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F142002E1674D34A00D65D3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F142002F1674D34A00D65D3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F14200311674D34A00D65D3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HouseHelper/HouseHelper-Prefix.pch";
+				INFOPLIST_FILE = "HouseHelper/HouseHelper-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F14200321674D34A00D65D3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HouseHelper/HouseHelper-Prefix.pch";
+				INFOPLIST_FILE = "HouseHelper/HouseHelper-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F14200031674D34A00D65D3B /* Build configuration list for PBXProject "HouseHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F142002E1674D34A00D65D3B /* Debug */,
+				F142002F1674D34A00D65D3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F14200301674D34A00D65D3B /* Build configuration list for PBXNativeTarget "HouseHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F14200311674D34A00D65D3B /* Debug */,
+				F14200321674D34A00D65D3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F14200001674D34A00D65D3B /* Project object */;
+}
