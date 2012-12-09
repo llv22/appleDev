@@ -8,6 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface StretchView : NSView
+@interface StretchView : NSView{
+    NSColor* color;
+    NSBezierPath* path;
+}
+
+- (IBAction)redrawCustomView: (id)sender;
+- (NSPoint)randomPoint;
 
 @end
