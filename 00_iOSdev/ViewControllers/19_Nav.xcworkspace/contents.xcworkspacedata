@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:3.8_DelTab/3.8_DelTab.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:3.3_TBData/3.3_TBData.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:2.14_UITextField/2.14_UITextField.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:2.12_TabBar/2.12_TabBar.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:19_SViewController/19_SViewController.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:2.11_NavBarButton/2.11_NavBarButton.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:2.7_SingleViewController/2.7_SingleViewController.xcodeproj">
+   </FileRef>
+</Workspace>

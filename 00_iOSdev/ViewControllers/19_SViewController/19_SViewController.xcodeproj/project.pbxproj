@@ -1,0 +1,323 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F13923211623089A00EBCE35 /* ColorPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F139231F1623089A00EBCE35 /* ColorPickerController.m */; };
+		F13923221623089A00EBCE35 /* ColorPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13923201623089A00EBCE35 /* ColorPickerController.xib */; };
+		F13E104F161C83F800F6A6A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13E104E161C83F800F6A6A7 /* UIKit.framework */; };
+		F13E1051161C83F800F6A6A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13E1050161C83F800F6A6A7 /* Foundation.framework */; };
+		F13E1053161C83F800F6A6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13E1052161C83F800F6A6A7 /* CoreGraphics.framework */; };
+		F13E1059161C83F800F6A6A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F13E1057161C83F800F6A6A7 /* InfoPlist.strings */; };
+		F13E105B161C83F800F6A6A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F13E105A161C83F800F6A6A7 /* main.m */; };
+		F13E105F161C83F800F6A6A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F13E105E161C83F800F6A6A7 /* AppDelegate.m */; };
+		F13E1061161C83F800F6A6A7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F13E1060161C83F800F6A6A7 /* Default.png */; };
+		F13E1063161C83F800F6A6A7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13E1062161C83F800F6A6A7 /* Default@2x.png */; };
+		F13E1065161C83F800F6A6A7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13E1064161C83F800F6A6A7 /* Default-568h@2x.png */; };
+		F13E106D161C843000F6A6A7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F13E106C161C843000F6A6A7 /* RootViewController.m */; };
+		F183732A161D33F2009A3F36 /* MyNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1837329161D33F2009A3F36 /* MyNib.xib */; };
+		F1A1BC57161E948E00F19461 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A1BC55161E948E00F19461 /* FlipsideViewController.m */; };
+		F1A1BC58161E948E00F19461 /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A1BC56161E948E00F19461 /* FlipsideViewController.xib */; };
+		F1A1BC6C161E9D2B00F19461 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A1BC6A161E9D2B00F19461 /* IndexViewController.m */; };
+		F1A1BC6D161E9D2B00F19461 /* IndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A1BC6B161E9D2B00F19461 /* IndexViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F139231E1623089A00EBCE35 /* ColorPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerController.h; sourceTree = "<group>"; };
+		F139231F1623089A00EBCE35 /* ColorPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerController.m; sourceTree = "<group>"; };
+		F13923201623089A00EBCE35 /* ColorPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPickerController.xib; sourceTree = "<group>"; };
+		F13E104A161C83F800F6A6A7 /* 19_SViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 19_SViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F13E104E161C83F800F6A6A7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F13E1050161C83F800F6A6A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F13E1052161C83F800F6A6A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F13E1056161C83F800F6A6A7 /* 19_SViewController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "19_SViewController-Info.plist"; sourceTree = "<group>"; };
+		F13E1058161C83F800F6A6A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F13E105A161C83F800F6A6A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F13E105C161C83F800F6A6A7 /* 19_SViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "19_SViewController-Prefix.pch"; sourceTree = "<group>"; };
+		F13E105D161C83F800F6A6A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F13E105E161C83F800F6A6A7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F13E1060161C83F800F6A6A7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F13E1062161C83F800F6A6A7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F13E1064161C83F800F6A6A7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F13E106B161C843000F6A6A7 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		F13E106C161C843000F6A6A7 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		F1837329161D33F2009A3F36 /* MyNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyNib.xib; sourceTree = "<group>"; };
+		F1A1BC54161E948E00F19461 /* FlipsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		F1A1BC55161E948E00F19461 /* FlipsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		F1A1BC56161E948E00F19461 /* FlipsideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlipsideViewController.xib; sourceTree = "<group>"; };
+		F1A1BC69161E9D2B00F19461 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
+		F1A1BC6A161E9D2B00F19461 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
+		F1A1BC6B161E9D2B00F19461 /* IndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F13E1047161C83F800F6A6A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F13E104F161C83F800F6A6A7 /* UIKit.framework in Frameworks */,
+				F13E1051161C83F800F6A6A7 /* Foundation.framework in Frameworks */,
+				F13E1053161C83F800F6A6A7 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F13E103F161C83F800F6A6A7 = {
+			isa = PBXGroup;
+			children = (
+				F13E1054161C83F800F6A6A7 /* 19_SViewController */,
+				F13E104D161C83F800F6A6A7 /* Frameworks */,
+				F13E104B161C83F800F6A6A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F13E104B161C83F800F6A6A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F13E104A161C83F800F6A6A7 /* 19_SViewController.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F13E104D161C83F800F6A6A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F13E104E161C83F800F6A6A7 /* UIKit.framework */,
+				F13E1050161C83F800F6A6A7 /* Foundation.framework */,
+				F13E1052161C83F800F6A6A7 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F13E1054161C83F800F6A6A7 /* 19_SViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F13E105D161C83F800F6A6A7 /* AppDelegate.h */,
+				F13E105E161C83F800F6A6A7 /* AppDelegate.m */,
+				F13E106B161C843000F6A6A7 /* RootViewController.h */,
+				F13E106C161C843000F6A6A7 /* RootViewController.m */,
+				F1A1BC54161E948E00F19461 /* FlipsideViewController.h */,
+				F1A1BC55161E948E00F19461 /* FlipsideViewController.m */,
+				F1A1BC69161E9D2B00F19461 /* IndexViewController.h */,
+				F1A1BC6A161E9D2B00F19461 /* IndexViewController.m */,
+				F139231E1623089A00EBCE35 /* ColorPickerController.h */,
+				F139231F1623089A00EBCE35 /* ColorPickerController.m */,
+				F13E1055161C83F800F6A6A7 /* Supporting Files */,
+			);
+			path = 19_SViewController;
+			sourceTree = "<group>";
+		};
+		F13E1055161C83F800F6A6A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F13E1056161C83F800F6A6A7 /* 19_SViewController-Info.plist */,
+				F13E1057161C83F800F6A6A7 /* InfoPlist.strings */,
+				F13E105A161C83F800F6A6A7 /* main.m */,
+				F13E105C161C83F800F6A6A7 /* 19_SViewController-Prefix.pch */,
+				F13E1060161C83F800F6A6A7 /* Default.png */,
+				F13E1062161C83F800F6A6A7 /* Default@2x.png */,
+				F13E1064161C83F800F6A6A7 /* Default-568h@2x.png */,
+				F1837329161D33F2009A3F36 /* MyNib.xib */,
+				F1A1BC56161E948E00F19461 /* FlipsideViewController.xib */,
+				F1A1BC6B161E9D2B00F19461 /* IndexViewController.xib */,
+				F13923201623089A00EBCE35 /* ColorPickerController.xib */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F13E1049161C83F800F6A6A7 /* 19_SViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F13E1068161C83F800F6A6A7 /* Build configuration list for PBXNativeTarget "19_SViewController" */;
+			buildPhases = (
+				F13E1046161C83F800F6A6A7 /* Sources */,
+				F13E1047161C83F800F6A6A7 /* Frameworks */,
+				F13E1048161C83F800F6A6A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = 19_SViewController;
+			productName = 19_SViewController;
+			productReference = F13E104A161C83F800F6A6A7 /* 19_SViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F13E1041161C83F800F6A6A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Ding Orlando";
+			};
+			buildConfigurationList = F13E1044161C83F800F6A6A7 /* Build configuration list for PBXProject "19_SViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F13E103F161C83F800F6A6A7;
+			productRefGroup = F13E104B161C83F800F6A6A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F13E1049161C83F800F6A6A7 /* 19_SViewController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F13E1048161C83F800F6A6A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F13E1059161C83F800F6A6A7 /* InfoPlist.strings in Resources */,
+				F13E1061161C83F800F6A6A7 /* Default.png in Resources */,
+				F13E1063161C83F800F6A6A7 /* Default@2x.png in Resources */,
+				F13E1065161C83F800F6A6A7 /* Default-568h@2x.png in Resources */,
+				F183732A161D33F2009A3F36 /* MyNib.xib in Resources */,
+				F1A1BC58161E948E00F19461 /* FlipsideViewController.xib in Resources */,
+				F1A1BC6D161E9D2B00F19461 /* IndexViewController.xib in Resources */,
+				F13923221623089A00EBCE35 /* ColorPickerController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F13E1046161C83F800F6A6A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F13E105B161C83F800F6A6A7 /* main.m in Sources */,
+				F13E105F161C83F800F6A6A7 /* AppDelegate.m in Sources */,
+				F13E106D161C843000F6A6A7 /* RootViewController.m in Sources */,
+				F1A1BC57161E948E00F19461 /* FlipsideViewController.m in Sources */,
+				F1A1BC6C161E9D2B00F19461 /* IndexViewController.m in Sources */,
+				F13923211623089A00EBCE35 /* ColorPickerController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F13E1057161C83F800F6A6A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F13E1058161C83F800F6A6A7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F13E1066161C83F800F6A6A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F13E1067161C83F800F6A6A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F13E1069161C83F800F6A6A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "19_SViewController/19_SViewController-Prefix.pch";
+				INFOPLIST_FILE = "19_SViewController/19_SViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F13E106A161C83F800F6A6A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "19_SViewController/19_SViewController-Prefix.pch";
+				INFOPLIST_FILE = "19_SViewController/19_SViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F13E1044161C83F800F6A6A7 /* Build configuration list for PBXProject "19_SViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F13E1066161C83F800F6A6A7 /* Debug */,
+				F13E1067161C83F800F6A6A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F13E1068161C83F800F6A6A7 /* Build configuration list for PBXNativeTarget "19_SViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F13E1069161C83F800F6A6A7 /* Debug */,
+				F13E106A161C83F800F6A6A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F13E1041161C83F800F6A6A7 /* Project object */;
+}
