@@ -21,6 +21,9 @@
 		F142002D1674D34A00D65D3B /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F142002B1674D34A00D65D3B /* ViewController_iPad.xib */; };
 		F14200341674D70500D65D3B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14200331674D70500D65D3B /* MapKit.framework */; };
 		F14200441674DC6700D65D3B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14200431674DC6700D65D3B /* CoreLocation.framework */; };
+		F1605DA21675A1F900813DD3 /* MetroStop.m in Sources */ = {isa = PBXBuildFile; fileRef = F1605DA11675A1F900813DD3 /* MetroStop.m */; };
+		F1605DA71675A70700813DD3 /* m2.json in Resources */ = {isa = PBXBuildFile; fileRef = F1605DA61675A70700813DD3 /* m2.json */; };
+		F1605DB71675E75600813DD3 /* MetroStopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F1605DB61675E75600813DD3 /* MetroStopAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,11 @@
 		F14200331674D70500D65D3B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F14200351674D89700D65D3B /* readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = readme.rtf; sourceTree = "<group>"; };
 		F14200431674DC6700D65D3B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F1605DA01675A1F900813DD3 /* MetroStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetroStop.h; sourceTree = "<group>"; };
+		F1605DA11675A1F900813DD3 /* MetroStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetroStop.m; sourceTree = "<group>"; };
+		F1605DA61675A70700813DD3 /* m2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = m2.json; sourceTree = "<group>"; };
+		F1605DB51675E75600813DD3 /* MetroStopAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetroStopAnnotation.h; sourceTree = "<group>"; };
+		F1605DB61675E75600813DD3 /* MetroStopAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetroStopAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 		F142000C1674D34A00D65D3B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F14200431674DC6700D65D3B /* CoreLocation.framework */,
 				F14200331674D70500D65D3B /* MapKit.framework */,
 				F142000D1674D34A00D65D3B /* UIKit.framework */,
 				F142000F1674D34A00D65D3B /* Foundation.framework */,
@@ -88,8 +97,13 @@
 				F142001D1674D34A00D65D3B /* AppDelegate.m */,
 				F14200251674D34A00D65D3B /* ViewController.h */,
 				F14200261674D34A00D65D3B /* ViewController.m */,
+				F1605DA01675A1F900813DD3 /* MetroStop.h */,
+				F1605DA11675A1F900813DD3 /* MetroStop.m */,
+				F1605DB51675E75600813DD3 /* MetroStopAnnotation.h */,
+				F1605DB61675E75600813DD3 /* MetroStopAnnotation.m */,
 				F14200281674D34A00D65D3B /* ViewController_iPhone.xib */,
 				F142002B1674D34A00D65D3B /* ViewController_iPad.xib */,
+				F1605DA51675A6CA00813DD3 /* JSONData */,
 				F14200141674D34A00D65D3B /* Supporting Files */,
 			);
 			path = HouseHelper;
@@ -112,12 +126,19 @@
 		F142FFFE1674D34A00D65D3B = {
 			isa = PBXGroup;
 			children = (
-				F14200431674DC6700D65D3B /* CoreLocation.framework */,
 				F14200351674D89700D65D3B /* readme.rtf */,
 				F14200131674D34A00D65D3B /* HouseHelper */,
 				F142000C1674D34A00D65D3B /* Frameworks */,
 				F142000A1674D34A00D65D3B /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		F1605DA51675A6CA00813DD3 /* JSONData */ = {
+			isa = PBXGroup;
+			children = (
+				F1605DA61675A70700813DD3 /* m2.json */,
+			);
+			name = JSONData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +198,7 @@
 				F14200241674D34A00D65D3B /* Default-568h@2x.png in Resources */,
 				F142002A1674D34A00D65D3B /* ViewController_iPhone.xib in Resources */,
 				F142002D1674D34A00D65D3B /* ViewController_iPad.xib in Resources */,
+				F1605DA71675A70700813DD3 /* m2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +212,8 @@
 				F142001A1674D34A00D65D3B /* main.m in Sources */,
 				F142001E1674D34A00D65D3B /* AppDelegate.m in Sources */,
 				F14200271674D34A00D65D3B /* ViewController.m in Sources */,
+				F1605DA21675A1F900813DD3 /* MetroStop.m in Sources */,
+				F1605DB71675E75600813DD3 /* MetroStopAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +340,7 @@
 				F14200321674D34A00D65D3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
