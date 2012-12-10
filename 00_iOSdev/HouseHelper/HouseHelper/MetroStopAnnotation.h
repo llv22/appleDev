@@ -13,8 +13,10 @@
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readonly) NSString* stopName;
+@property (nonatomic, readonly) NSString* lineNumber;
 
 - (id)initWithLocation:(CLLocationCoordinate2D)coord
-          withStopName:(NSString*)stopName;
+          withStopName:(NSString*)stopName
+        withLineNumber:(NSString*)lineNumber;
 
 @end

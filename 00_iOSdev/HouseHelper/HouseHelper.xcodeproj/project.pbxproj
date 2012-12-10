@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1407B3A167608F900ECB7BC /* m3.json in Resources */ = {isa = PBXBuildFile; fileRef = F1407B39167608F900ECB7BC /* m3.json */; };
+		F1407B3D167609AD00ECB7BC /* m4.json in Resources */ = {isa = PBXBuildFile; fileRef = F1407B3C167609AD00ECB7BC /* m4.json */; };
 		F142000E1674D34A00D65D3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F142000D1674D34A00D65D3B /* UIKit.framework */; };
 		F14200101674D34A00D65D3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F142000F1674D34A00D65D3B /* Foundation.framework */; };
 		F14200121674D34A00D65D3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14200111674D34A00D65D3B /* CoreGraphics.framework */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F1407B39167608F900ECB7BC /* m3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = m3.json; sourceTree = "<group>"; };
+		F1407B3C167609AD00ECB7BC /* m4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = m4.json; sourceTree = "<group>"; };
 		F14200091674D34A00D65D3B /* HouseHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F142000D1674D34A00D65D3B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F142000F1674D34A00D65D3B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -137,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				F1605DA61675A70700813DD3 /* m2.json */,
+				F1407B39167608F900ECB7BC /* m3.json */,
+				F1407B3C167609AD00ECB7BC /* m4.json */,
 			);
 			name = JSONData;
 			sourceTree = "<group>";
@@ -199,6 +205,8 @@
 				F142002A1674D34A00D65D3B /* ViewController_iPhone.xib in Resources */,
 				F142002D1674D34A00D65D3B /* ViewController_iPad.xib in Resources */,
 				F1605DA71675A70700813DD3 /* m2.json in Resources */,
+				F1407B3A167608F900ECB7BC /* m3.json in Resources */,
+				F1407B3D167609AD00ECB7BC /* m4.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

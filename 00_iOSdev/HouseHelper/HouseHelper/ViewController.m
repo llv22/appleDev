@@ -14,9 +14,12 @@
 
 - (void) resetToSquare;
 - (void) initializeMetroLine2;
+- (void) initializeMetroLine4;
+- (void) drawHousing;
 - (NSArray*) jsonToArray:(NSString*)fileName;
-- (void) drawMetroLine: (NSArray*)line
-             withTitle: (NSString*)title;
+- (MKPolyline*) drawMetroLine:(NSArray*)line
+            withTitle:(NSString*)title
+             withgLine:(MKPolyline*)gLine;
 
 @end
 
@@ -70,13 +73,35 @@
 - (void) initializeMetroLine2{
     self->metroLine2 = [self jsonToArray:@"m2"];
     dispatch_async(dispatch_get_main_queue(), ^(void){
-        [self drawMetroLine:self->metroLine2 withTitle:@"mline 2"];
+        [self drawMetroLine:self->metroLine2
+                  withTitle:@"mline-2"
+                  withgLine:self->gLine2];
     });
 }
 
+- (void) initializeMetroLine4{
+    self->metroLine4 = [self jsonToArray:@"m4"];
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        [self drawMetroLine:self->metroLine4
+                  withTitle:@"mline-4"
+                  withgLine:self->gLine4];
+    });
+}
+
+- (void) drawHousing{
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(30.649875, 104.115973);
+//    MKCircle *circle = [MKCircle circleWithCenterCoordinate:coordinate radius:30];
+//    [self->map addOverlay:circle];
+    id<MKAnnotation> obj = [[MetroStopAnnotation alloc]initWithLocation:coordinate
+                                                           withStopName:@"华润二十四城"
+                                                         withLineNumber:@"楼盘"];
+    [self->map addAnnotation:obj];
+}
+
 // TODO : draw metro line with points and connection line in gcd main thread
-- (void) drawMetroLine: (NSArray*)line
-             withTitle: (NSString*)title{
+- (MKPolyline*) drawMetroLine:(NSArray*)line
+             withTitle:(NSString*)title
+             withgLine:(MKPolyline*)gLine{
     MKMapPoint* pointAddr = malloc(sizeof(CLLocationCoordinate2D) * line.count);
     int i = 0;
     for (MetroStop* _stop in line) {
@@ -84,18 +109,24 @@
         MKMapPoint point = MKMapPointForCoordinate(coordinate);
         pointAddr[i] = point;
         
-        id<MKAnnotation> obj = [[MetroStopAnnotation alloc]initWithLocation:coordinate withStopName:_stop.stopName];
+        id<MKAnnotation> obj = [[MetroStopAnnotation alloc]initWithLocation:coordinate
+                                                               withStopName:_stop.stopName
+                                                             withLineNumber:title];
         [self->map addAnnotation:obj];
-        
-//        MKCircle *circle = [MKCircle circleWithCenterCoordinate:coordinate radius:30];
-//        [circle setTitle:_stop.stopName];
-//        [self->map addOverlay:circle];
         i++;
     }
-    self->gLine2 = [MKPolyline polylineWithPoints:pointAddr count:i];
-    self->gLine2.title = title;
-    [self->map addOverlay:self->gLine2];
+    if ([title isEqualToString:@"mline-2"]) {
+        self->gLine2 = [MKPolyline polylineWithPoints:pointAddr count:i];
+        self->gLine2.title = title;
+        [self->map addOverlay:self->gLine2];
+    }
+    else if([title isEqualToString:@"mline-4"]) {
+        self->gLine4 = [MKPolyline polylineWithPoints:pointAddr count:i];
+        self->gLine4.title = title;
+        [self->map addOverlay:self->gLine4];
+    }
     free(pointAddr);
+    return (gLine);
 }
 
 
@@ -118,11 +149,18 @@
     }else{
         MKAnnotationView* annView = nil;
         if ([annotation isKindOfClass:[MetroStopAnnotation class]]){
+            MetroStopAnnotation* _metroStop = (MetroStopAnnotation*)annotation;
             MKPinAnnotationView* _annView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"cluster"];
             if(!_annView){
                 _annView=(MKPinAnnotationView*)[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"cluster"];
-                // desc - display
-                _annView.pinColor = MKPinAnnotationColorPurple;
+                if ([_metroStop.lineNumber isEqualToString:@"楼盘"]) {
+                    // desc - display
+                    _annView.pinColor = MKPinAnnotationColorGreen;
+                }
+                else{
+                    // desc - display
+                    _annView.pinColor = MKPinAnnotationColorPurple;
+                }
                 _annView.canShowCallout = YES;
             }
             else{
@@ -138,15 +176,29 @@
 - (MKOverlayView *)mapView:(MKMapView *)mapView
             viewForOverlay:(id <MKOverlay>)overlay{
     MKOverlayView* overlayview = nil;
-    if (overlay == self->gLine2) {
-        // desc - for metro line 2
-        if( nil == self->gLine2View){
-            self->gLine2View = [[MKPolylineView alloc]initWithPolyline:self->gLine2];
-            self->gLine2View.fillColor = [UIColor redColor];
-            self->gLine2View.strokeColor = [UIColor redColor];
-            self->gLine2View.lineWidth = 2;
+    if ([overlay isKindOfClass:[MKPolyline class]])
+    {
+        MKPolyline* _line = (MKPolyline*)overlay;
+        if ([_line.title isEqualToString:@"mline-2"]) {
+            // desc - for metro line 2
+            if( nil == self->gLine2View){
+                self->gLine2View = [[MKPolylineView alloc]initWithPolyline:self->gLine2];
+                self->gLine2View.fillColor = [UIColor redColor];
+                self->gLine2View.strokeColor = [UIColor redColor];
+                self->gLine2View.lineWidth = 2;
+            }
+            overlayview = self->gLine2View;
         }
-        overlayview = self->gLine2View;
+        else if ([_line.title isEqualToString:@"mline-4"]) {
+            // desc - for metro line 2
+            if( nil == self->gLine4View){
+                self->gLine4View = [[MKPolylineView alloc]initWithPolyline:self->gLine4];
+                self->gLine4View.fillColor = [UIColor redColor];
+                self->gLine4View.strokeColor = [UIColor redColor];
+                self->gLine4View.lineWidth = 2;
+            }
+            overlayview = self->gLine4View;
+        }
     }
     if ([overlay isKindOfClass:[MKCircle class]])
     {
@@ -166,6 +218,8 @@
     self->distNorthToSouth = 8000;
     self->distEastToWest = 5000;
     [self initializeMetroLine2];
+    [self initializeMetroLine4];
+    [self drawHousing];
     
     // desc - located into chengdu central
     [self resetToSquare];

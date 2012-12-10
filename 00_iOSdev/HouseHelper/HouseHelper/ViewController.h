@@ -21,6 +21,12 @@
     NSArray* metroGrahpicLine2;
     MKPolyline* gLine2;
     MKPolylineView* gLine2View;
+    
+    // desc - data and graphic array for Metro line 4
+    NSArray* metroLine4;
+    NSArray* metroGrahpicLine4;
+    MKPolyline* gLine4;
+    MKPolylineView* gLine4View;
 }
 
 - (IBAction)resetToCenter:(id)sender;

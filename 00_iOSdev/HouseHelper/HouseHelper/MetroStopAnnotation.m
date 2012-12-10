@@ -11,17 +11,23 @@
 @implementation MetroStopAnnotation
 
 - (id)initWithLocation:(CLLocationCoordinate2D)coord
-          withStopName:(NSString*)stopName{
+          withStopName:(NSString*)stopName
+          withLineNumber:(NSString*)lineNumber{
     self = [super init];
     if (self) {
         self->_coordinate = coord;
         self->_stopName = stopName;
+        self->_lineNumber = lineNumber;
     }
     return self;
 }
 
 -(NSString*)title{
     return self->_stopName;
+}
+
+-(NSString*)subtitle{
+    return self->_lineNumber;
 }
 
 @end
