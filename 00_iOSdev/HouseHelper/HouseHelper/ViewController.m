@@ -151,7 +151,7 @@
             MetroStopAnnotation* _metroStop = (MetroStopAnnotation*)annotation;
             MKPinAnnotationView* _annView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"cluster"];
             if(!_annView){
-                _annView=(MKPinAnnotationView*)[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"cluster"];
+                _annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"cluster"];
                 if ([_metroStop.lineNumber isEqualToString:@"楼盘"]) {
                     // desc - display
                     _annView.pinColor = MKPinAnnotationColorGreen;
