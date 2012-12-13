@@ -137,7 +137,6 @@
 //    view.rightCalloutAccessoryView = rightButton;
 }
 
-
 //TODO : Zoom-in & Out for deletion and other operations
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id <MKAnnotation>)annotation {
