@@ -13,8 +13,6 @@
 @interface ViewController ()
 
 - (void) resetToSquare;
-- (void) initializeMetroLine2;
-- (void) initializeMetroLine4;
 - (void) drawHousing;
 - (NSArray*) jsonToArray:(NSString*)fileName;
 - (void) drawMetroLine:(NSArray*)line
@@ -78,22 +76,6 @@
     }
 }
 
-- (void) initializeMetroLine2{
-    self->metroLine2 = [self jsonToArray:@"m2"];
-    dispatch_async(dispatch_get_main_queue(), ^(void){
-        [self drawMetroLine:self->metroLine2
-                  withTitle:@"mline-2"];
-    });
-}
-
-- (void) initializeMetroLine4{
-    self->metroLine4 = [self jsonToArray:@"m4"];
-    dispatch_async(dispatch_get_main_queue(), ^(void){
-        [self drawMetroLine:self->metroLine4
-                  withTitle:@"mline-4"];
-    });
-}
-
 - (void) drawHousing{
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(30.649875, 104.115973);
     id<MKAnnotation> obj = [[MetroStopAnnotation alloc]initWithLocation:coordinate
@@ -130,16 +112,6 @@
         [self->map addAnnotation:obj];
         i++;
     }
-//    if ([title isEqualToString:@"mline-2"]) {
-//        self->gLine2 = [MKPolyline polylineWithPoints:pointAddr count:i];
-//        self->gLine2.title = title;
-//        [self->map addOverlay:self->gLine2];
-//    }
-//    else if([title isEqualToString:@"mline-4"]) {
-//        self->gLine4 = [MKPolyline polylineWithPoints:pointAddr count:i];
-//        self->gLine4.title = title;
-//        [self->map addOverlay:self->gLine4];
-//    }
     
     // desc - new array allocation
     if ([title isEqualToString:@"地铁2号线"]) {
@@ -209,26 +181,6 @@
     if ([overlay isKindOfClass:[MKPolyline class]])
     {
         MKPolyline* _line = (MKPolyline*)overlay;
-        if ([_line.title isEqualToString:@"mline-2"]) {
-            // desc - for metro line 2
-            if( nil == self->gLine2View){
-                self->gLine2View = [[MKPolylineView alloc]initWithPolyline:self->gLine2];
-                self->gLine2View.fillColor = [UIColor redColor];
-                self->gLine2View.strokeColor = [UIColor redColor];
-                self->gLine2View.lineWidth = 2;
-            }
-            overlayview = self->gLine2View;
-        }
-        else if ([_line.title isEqualToString:@"mline-4"]) {
-            // desc - for metro line 2
-            if( nil == self->gLine4View){
-                self->gLine4View = [[MKPolylineView alloc]initWithPolyline:self->gLine4];
-                self->gLine4View.fillColor = [UIColor redColor];
-                self->gLine4View.strokeColor = [UIColor redColor];
-                self->gLine4View.lineWidth = 2;
-            }
-            overlayview = self->gLine4View;
-        }
         
         if ([_line.title isEqualToString:@"地铁2号线"]) {
             // desc - for metro line 2
@@ -278,8 +230,6 @@
 	// Do any additional setup after loading the view, typically from a nib
     self->distNorthToSouth = 8000;
     self->distEastToWest = 5000;
-//    [self initializeMetroLine2];
-//    [self initializeMetroLine4];
     [self initializeMetroLines];
     [self drawHousing];
     
