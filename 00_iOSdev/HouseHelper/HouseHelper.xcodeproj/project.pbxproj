@@ -28,6 +28,7 @@
 		F1605DB71675E75600813DD3 /* MetroStopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F1605DB61675E75600813DD3 /* MetroStopAnnotation.m */; };
 		F18CD623167B4D1200D6FA96 /* housing.json in Resources */ = {isa = PBXBuildFile; fileRef = F18CD622167B4D1200D6FA96 /* housing.json */; };
 		F18CD628167B4E0F00D6FA96 /* HouseBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F18CD627167B4E0F00D6FA96 /* HouseBase.m */; };
+		F18CD62B167B4EF300D6FA96 /* HouseBaseAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F18CD62A167B4EF300D6FA96 /* HouseBaseAnnotation.m */; };
 		F1F823011679FF9900C5FDFF /* m5.json in Resources */ = {isa = PBXBuildFile; fileRef = F1F823001679FF9900C5FDFF /* m5.json */; };
 		F1F82303167A01EF00C5FDFF /* m6.json in Resources */ = {isa = PBXBuildFile; fileRef = F1F82302167A01EF00C5FDFF /* m6.json */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		F18CD622167B4D1200D6FA96 /* housing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = housing.json; sourceTree = "<group>"; };
 		F18CD626167B4E0F00D6FA96 /* HouseBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseBase.h; sourceTree = "<group>"; };
 		F18CD627167B4E0F00D6FA96 /* HouseBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseBase.m; sourceTree = "<group>"; };
+		F18CD629167B4EF300D6FA96 /* HouseBaseAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseBaseAnnotation.h; sourceTree = "<group>"; };
+		F18CD62A167B4EF300D6FA96 /* HouseBaseAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseBaseAnnotation.m; sourceTree = "<group>"; };
 		F1F823001679FF9900C5FDFF /* m5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = m5.json; sourceTree = "<group>"; };
 		F1F82302167A01EF00C5FDFF /* m6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = m6.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,8 +113,6 @@
 				F142001D1674D34A00D65D3B /* AppDelegate.m */,
 				F14200251674D34A00D65D3B /* ViewController.h */,
 				F14200261674D34A00D65D3B /* ViewController.m */,
-				F1605DB51675E75600813DD3 /* MetroStopAnnotation.h */,
-				F1605DB61675E75600813DD3 /* MetroStopAnnotation.m */,
 				F14200281674D34A00D65D3B /* ViewController_iPhone.xib */,
 				F142002B1674D34A00D65D3B /* ViewController_iPad.xib */,
 				F18CD625167B4DD700D6FA96 /* DataEntity */,
@@ -163,8 +164,12 @@
 			children = (
 				F1605DA01675A1F900813DD3 /* MetroStop.h */,
 				F1605DA11675A1F900813DD3 /* MetroStop.m */,
+				F1605DB51675E75600813DD3 /* MetroStopAnnotation.h */,
+				F1605DB61675E75600813DD3 /* MetroStopAnnotation.m */,
 				F18CD626167B4E0F00D6FA96 /* HouseBase.h */,
 				F18CD627167B4E0F00D6FA96 /* HouseBase.m */,
+				F18CD629167B4EF300D6FA96 /* HouseBaseAnnotation.h */,
+				F18CD62A167B4EF300D6FA96 /* HouseBaseAnnotation.m */,
 			);
 			name = DataEntity;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				F1605DA21675A1F900813DD3 /* MetroStop.m in Sources */,
 				F1605DB71675E75600813DD3 /* MetroStopAnnotation.m in Sources */,
 				F18CD628167B4E0F00D6FA96 /* HouseBase.m in Sources */,
+				F18CD62B167B4EF300D6FA96 /* HouseBaseAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
