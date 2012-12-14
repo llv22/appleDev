@@ -29,12 +29,16 @@
     self.window.rootViewController = self.viewController;
     
     // desc - monitor the device rotation
+    /** 
+     * deprecated device rotation
+     *
     UIDevice* device = [UIDevice currentDevice];
     [device beginGeneratingDeviceOrientationNotifications];
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(orientationChanged:)
                name:UIDeviceOrientationDidChangeNotification
              object:device];
+     */
     
     [self.window makeKeyAndVisible];
     return YES;

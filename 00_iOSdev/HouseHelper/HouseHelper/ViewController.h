@@ -22,6 +22,12 @@
     MKPolyline* gLine2;
     MKPolylineView* gLine2View;
     
+    // desc - data and graphic array for Metro line 3
+    NSArray* metroLine3;
+    NSArray* metroGrahpicLine3;
+    MKPolyline* gLine3;
+    MKPolylineView* gLine3View;
+    
     // desc - data and graphic array for Metro line 4
     NSArray* metroLine4;
     NSArray* metroGrahpicLine4;

@@ -17,9 +17,8 @@
 - (void) initializeMetroLine4;
 - (void) drawHousing;
 - (NSArray*) jsonToArray:(NSString*)fileName;
-- (MKPolyline*) drawMetroLine:(NSArray*)line
-            withTitle:(NSString*)title
-             withgLine:(MKPolyline*)gLine;
+- (void) drawMetroLine:(NSArray*)line
+             withTitle:(NSString*)title;
 
 @end
 
@@ -45,7 +44,6 @@
 // TODO : read json into NSData* - http://iphoneincubator.com/blog/data-management/how-to-read-a-file-from-your-application-bundle
 - (NSArray*) jsonToArray:(NSString*)fileName{
     NSError* error =nil;
-//    NSLog(@"%@", [[NSBundle mainBundle] resourcePath]);
     NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"json"];
     assert(filePath!=nil);
     NSData *jsonData = [NSData dataWithContentsOfFile:filePath];
@@ -70,12 +68,21 @@
     return ([_tmpMetro copy]);
 }
 
+- (void) initializeMetroLines{
+    for (int i = 2; i < 5; i++) {
+        NSArray* metroline = [self jsonToArray:[NSString stringWithFormat:@"m%d", i]];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self drawMetroLine:metroline
+                      withTitle:[NSString stringWithFormat:@"地铁%d号线", i]];
+        });
+    }
+}
+
 - (void) initializeMetroLine2{
     self->metroLine2 = [self jsonToArray:@"m2"];
     dispatch_async(dispatch_get_main_queue(), ^(void){
         [self drawMetroLine:self->metroLine2
-                  withTitle:@"mline-2"
-                  withgLine:self->gLine2];
+                  withTitle:@"mline-2"];
     });
 }
 
@@ -83,25 +90,33 @@
     self->metroLine4 = [self jsonToArray:@"m4"];
     dispatch_async(dispatch_get_main_queue(), ^(void){
         [self drawMetroLine:self->metroLine4
-                  withTitle:@"mline-4"
-                  withgLine:self->gLine4];
+                  withTitle:@"mline-4"];
     });
 }
 
 - (void) drawHousing{
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(30.649875, 104.115973);
-//    MKCircle *circle = [MKCircle circleWithCenterCoordinate:coordinate radius:30];
-//    [self->map addOverlay:circle];
     id<MKAnnotation> obj = [[MetroStopAnnotation alloc]initWithLocation:coordinate
                                                            withStopName:@"华润二十四城"
                                                          withLineNumber:@"楼盘"];
     [self->map addAnnotation:obj];
+    
+    coordinate = CLLocationCoordinate2DMake(30.548144, 104.047866);
+    obj = [[MetroStopAnnotation alloc]initWithLocation:coordinate
+                                          withStopName:@"锦城南府"
+                                        withLineNumber:@"楼盘"];
+    [self->map addAnnotation:obj];
+    
+    coordinate = CLLocationCoordinate2DMake(30.543709, 104.067907);
+    obj = [[MetroStopAnnotation alloc]initWithLocation:coordinate
+                                          withStopName:@"利通.时代晶座"
+                                        withLineNumber:@"楼盘"];
+    [self->map addAnnotation:obj];
 }
 
 // TODO : draw metro line with points and connection line in gcd main thread
-- (MKPolyline*) drawMetroLine:(NSArray*)line
-             withTitle:(NSString*)title
-             withgLine:(MKPolyline*)gLine{
+- (void) drawMetroLine:(NSArray*)line
+             withTitle:(NSString*)title{
     MKMapPoint* pointAddr = malloc(sizeof(CLLocationCoordinate2D) * line.count);
     int i = 0;
     for (MetroStop* _stop in line) {
@@ -115,18 +130,34 @@
         [self->map addAnnotation:obj];
         i++;
     }
-    if ([title isEqualToString:@"mline-2"]) {
+//    if ([title isEqualToString:@"mline-2"]) {
+//        self->gLine2 = [MKPolyline polylineWithPoints:pointAddr count:i];
+//        self->gLine2.title = title;
+//        [self->map addOverlay:self->gLine2];
+//    }
+//    else if([title isEqualToString:@"mline-4"]) {
+//        self->gLine4 = [MKPolyline polylineWithPoints:pointAddr count:i];
+//        self->gLine4.title = title;
+//        [self->map addOverlay:self->gLine4];
+//    }
+    
+    // desc - new array allocation
+    if ([title isEqualToString:@"地铁2号线"]) {
         self->gLine2 = [MKPolyline polylineWithPoints:pointAddr count:i];
         self->gLine2.title = title;
         [self->map addOverlay:self->gLine2];
     }
-    else if([title isEqualToString:@"mline-4"]) {
+    else if([title isEqualToString:@"地铁3号线"]) {
+        self->gLine3 = [MKPolyline polylineWithPoints:pointAddr count:i];
+        self->gLine3.title = title;
+        [self->map addOverlay:self->gLine3];
+    }
+    else if([title isEqualToString:@"地铁4号线"]) {
         self->gLine4 = [MKPolyline polylineWithPoints:pointAddr count:i];
         self->gLine4.title = title;
         [self->map addOverlay:self->gLine4];
     }
     free(pointAddr);
-    return (gLine);
 }
 
 
@@ -198,6 +229,37 @@
             }
             overlayview = self->gLine4View;
         }
+        
+        if ([_line.title isEqualToString:@"地铁2号线"]) {
+            // desc - for metro line 2
+            if( nil == self->gLine2View){
+                self->gLine2View = [[MKPolylineView alloc]initWithPolyline:self->gLine2];
+                self->gLine2View.fillColor = [UIColor redColor];
+                self->gLine2View.strokeColor = [UIColor redColor];
+                self->gLine2View.lineWidth = 2;
+            }
+            overlayview = self->gLine2View;
+        }
+        else if ([_line.title isEqualToString:@"地铁3号线"]) {
+            // desc - for metro line 3
+            if( nil == self->gLine3View){
+                self->gLine3View = [[MKPolylineView alloc]initWithPolyline:self->gLine3];
+                self->gLine3View.fillColor = [UIColor redColor];
+                self->gLine3View.strokeColor = [UIColor redColor];
+                self->gLine3View.lineWidth = 2;
+            }
+            overlayview = self->gLine3View;
+        }
+        else if ([_line.title isEqualToString:@"地铁4号线"]) {
+            // desc - for metro line 4
+            if( nil == self->gLine4View){
+                self->gLine4View = [[MKPolylineView alloc]initWithPolyline:self->gLine4];
+                self->gLine4View.fillColor = [UIColor redColor];
+                self->gLine4View.strokeColor = [UIColor redColor];
+                self->gLine4View.lineWidth = 2;
+            }
+            overlayview = self->gLine4View;
+        }
     }
     if ([overlay isKindOfClass:[MKCircle class]])
     {
@@ -216,8 +278,9 @@
 	// Do any additional setup after loading the view, typically from a nib
     self->distNorthToSouth = 8000;
     self->distEastToWest = 5000;
-    [self initializeMetroLine2];
-    [self initializeMetroLine4];
+//    [self initializeMetroLine2];
+//    [self initializeMetroLine4];
+    [self initializeMetroLines];
     [self drawHousing];
     
     // desc - located into chengdu central
