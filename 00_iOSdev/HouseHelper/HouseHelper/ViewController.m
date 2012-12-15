@@ -9,14 +9,25 @@
 #import "ViewController.h"
 #import "MetroStop.h"
 #import "MetroStopAnnotation.h"
+#import "HouseBase.h"
+#import "HouseBaseAnnotation.h"
+#import "LinePairs.h"
+
+const int iLineNumberTotal = 6;
 
 @interface ViewController ()
 
 - (void) resetToSquare;
-- (void) drawHousing;
-- (NSArray*) jsonToArray:(NSString*)fileName;
+- (void) initializeMetroLines;
+- (void) initializeHousing;
+- (NSArray*) jsonToArray:(NSString*)fileName
+                 forType:(enum EntityType)type;
 - (void) drawMetroLine:(NSArray*)line
              withTitle:(NSString*)title;
+- (void) drawHousings:(NSArray*)line
+            withTitle:(NSString*)title;
+- (MetroStop*) jsonToMetroStop:(NSDictionary*)item;
+- (HouseBase*) jsonToHouseBase:(NSDictionary*)item;
 
 @end
 
@@ -40,7 +51,8 @@
 // TODO : http://stackoverflow.com/questions/1768937/how-do-i-convert-nsmutablearray-to-nsarray
 // TODO : json metro parser - http://www.raywenderlich.com/5492/working-with-json-in-ios-5
 // TODO : read json into NSData* - http://iphoneincubator.com/blog/data-management/how-to-read-a-file-from-your-application-bundle
-- (NSArray*) jsonToArray:(NSString*)fileName{
+- (NSArray*) jsonToArray:(NSString*)fileName
+                 forType:(enum EntityType)type{
     NSError* error =nil;
     NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"json"];
     assert(filePath!=nil);
@@ -55,45 +67,76 @@
     // desc - convert to entity array
     NSMutableArray* _tmpMetro = [NSMutableArray new];
     for (NSDictionary* item in _jsonRawArray) {
-        NSDecimalNumber* loc = (NSDecimalNumber*)item[@"loc"];
-        NSDecimalNumber* lat = (NSDecimalNumber*)item[@"lat"];
-        NSString* name = item[@"name"];
-        MetroStop* _stop = [[MetroStop alloc]initWithLoc:[loc doubleValue]
-                                                 withLat:[lat doubleValue]
-                                            withStopName:name];
-        [_tmpMetro addObject:_stop];
+        if (type == MetroStopType) {
+            [_tmpMetro addObject:[self jsonToMetroStop:item]];
+        }
+        else if(type == HousingType){
+            [_tmpMetro addObject:[self jsonToHouseBase:item]];
+        }
     }
     return ([_tmpMetro copy]);
 }
 
+- (MetroStop*) jsonToMetroStop:(NSDictionary*)item{
+    NSDecimalNumber* loc = (NSDecimalNumber*)item[@"loc"];
+    NSDecimalNumber* lat = (NSDecimalNumber*)item[@"lat"];
+    NSString* name = item[@"name"];
+    MetroStop* _stop = [[MetroStop alloc]initWithLoc:[loc doubleValue]
+                                             withLat:[lat doubleValue]
+                                        withStopName:name];
+    return (_stop);
+}
+
+- (HouseBase*) jsonToHouseBase:(NSDictionary*)item{
+    NSDecimalNumber* loc = (NSDecimalNumber*)item[@"loc"];
+    NSDecimalNumber* lat = (NSDecimalNumber*)item[@"lat"];
+    NSString* name = item[@"name"];
+    HouseBase* _house = [[HouseBase alloc]initWithLoc:[loc doubleValue]
+                                             withLat:[lat doubleValue]
+                                        withHouseName:name];
+    return (_house);
+}
+
+//TODO : async load metroline from m<Number>.json
 - (void) initializeMetroLines{
-    for (int i = 2; i < 5; i++) {
-        NSArray* metroline = [self jsonToArray:[NSString stringWithFormat:@"m%d", i]];
+    // desc - perhaps dynamically add fields for   ||| MKPolyline* gLine%d; MKPolylineView* gLine%dView; |||
+    // desc - allocation of @"地铁%d号线" -> <gLine%d, gLine%dView> NSMutableDictionary
+    for (int i = 2; i < iLineNumberTotal; i++) {
+        self->gLines[[NSString stringWithFormat:@"地铁%d号线", i]] =
+        [[LinePairs alloc]initWithLine:[NSString stringWithFormat:@"gLine%d", i]
+                          withLineView:[NSString stringWithFormat:@"gLine%dView", i]
+         ];
+    }
+    
+    for (int i = 2; i < iLineNumberTotal; i++) {
         dispatch_async(dispatch_get_main_queue(), ^(void){
+            NSArray* metroline = [self jsonToArray:[NSString stringWithFormat:@"m%d", i]
+                                           forType:MetroStopType];
             [self drawMetroLine:metroline
                       withTitle:[NSString stringWithFormat:@"地铁%d号线", i]];
         });
     }
 }
 
-- (void) drawHousing{
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(30.649875, 104.115973);
-    id<MKAnnotation> obj = [[MetroStopAnnotation alloc]initWithLocation:coordinate
-                                                           withStopName:@"华润二十四城"
-                                                         withLineNumber:@"楼盘"];
-    [self->map addAnnotation:obj];
-    
-    coordinate = CLLocationCoordinate2DMake(30.548144, 104.047866);
-    obj = [[MetroStopAnnotation alloc]initWithLocation:coordinate
-                                          withStopName:@"锦城南府"
-                                        withLineNumber:@"楼盘"];
-    [self->map addAnnotation:obj];
-    
-    coordinate = CLLocationCoordinate2DMake(30.543709, 104.067907);
-    obj = [[MetroStopAnnotation alloc]initWithLocation:coordinate
-                                          withStopName:@"利通.时代晶座"
-                                        withLineNumber:@"楼盘"];
-    [self->map addAnnotation:obj];
+- (void) initializeHousing{
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        NSArray* housing = [self jsonToArray:@"housing"
+                                     forType:HousingType];
+        [self drawHousings:housing
+                 withTitle:@"楼盘"];
+    });
+}
+
+
+- (void) drawHousings:(NSArray*)line
+            withTitle:(NSString*)title{
+    for (HouseBase* item in line) {
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(item.lat, item.loc);
+        id<MKAnnotation> obj = [[HouseBaseAnnotation alloc]initWithLocation:coordinate
+                                                               withHouseName:item.houseName
+                                                           withHouseBuilder:title];
+        [self->map addAnnotation:obj];
+    }
 }
 
 // TODO : draw metro line with points and connection line in gcd main thread
@@ -114,21 +157,13 @@
     }
     
     // desc - new array allocation
-    if ([title isEqualToString:@"地铁2号线"]) {
-        self->gLine2 = [MKPolyline polylineWithPoints:pointAddr count:i];
-        self->gLine2.title = title;
-        [self->map addOverlay:self->gLine2];
-    }
-    else if([title isEqualToString:@"地铁3号线"]) {
-        self->gLine3 = [MKPolyline polylineWithPoints:pointAddr count:i];
-        self->gLine3.title = title;
-        [self->map addOverlay:self->gLine3];
-    }
-    else if([title isEqualToString:@"地铁4号线"]) {
-        self->gLine4 = [MKPolyline polylineWithPoints:pointAddr count:i];
-        self->gLine4.title = title;
-        [self->map addOverlay:self->gLine4];
-    }
+    LinePairs* _linePair = (LinePairs*)self->gLines[title];
+    [self setValue:[MKPolyline polylineWithPoints:pointAddr count:i]
+        forKeyPath:_linePair.gLine];
+    MKPolyline* _gline = (MKPolyline*)[self valueForKeyPath:_linePair.gLine];
+    _gline.title = title;
+    [self->map addOverlay:_gline];
+    
     free(pointAddr);
 }
 
@@ -147,22 +182,27 @@
         MKUserLocation* _userAnnotation = (MKUserLocation*)annotation;
         _userAnnotation.title = @"I'm Here";
         return nil;
-        
     }else{
         MKAnnotationView* annView = nil;
         if ([annotation isKindOfClass:[MetroStopAnnotation class]]){
-            MetroStopAnnotation* _metroStop = (MetroStopAnnotation*)annotation;
-            MKPinAnnotationView* _annView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"cluster"];
+            MKPinAnnotationView* _annView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"metrostop"];
             if(!_annView){
-                _annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"cluster"];
-                if ([_metroStop.lineNumber isEqualToString:@"楼盘"]) {
-                    // desc - display
-                    _annView.pinColor = MKPinAnnotationColorGreen;
-                }
-                else{
-                    // desc - display
-                    _annView.pinColor = MKPinAnnotationColorPurple;
-                }
+                _annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"metrostop"];
+                // desc - display
+                _annView.pinColor = MKPinAnnotationColorPurple;
+                _annView.canShowCallout = YES;
+            }
+            else{
+                _annView.annotation = annotation;
+            }
+            annView = _annView;
+        }
+        else if([annotation isKindOfClass:[HouseBaseAnnotation class]]){
+            MKPinAnnotationView* _annView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"housing"];
+            if(!_annView){
+                _annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"housing"];
+                // desc - display
+                _annView.pinColor = MKPinAnnotationColorGreen;
                 _annView.canShowCallout = YES;
             }
             else{
@@ -181,37 +221,18 @@
     if ([overlay isKindOfClass:[MKPolyline class]])
     {
         MKPolyline* _line = (MKPolyline*)overlay;
+        LinePairs* _linePair = (LinePairs*)self->gLines[_line.title];
         
-        if ([_line.title isEqualToString:@"地铁2号线"]) {
-            // desc - for metro line 2
-            if( nil == self->gLine2View){
-                self->gLine2View = [[MKPolylineView alloc]initWithPolyline:self->gLine2];
-                self->gLine2View.fillColor = [UIColor redColor];
-                self->gLine2View.strokeColor = [UIColor redColor];
-                self->gLine2View.lineWidth = 2;
-            }
-            overlayview = self->gLine2View;
+        NSObject* _lineView = [self valueForKeyPath:_linePair.gLineView];
+        if (nil == _lineView){
+            MKPolylineView* _lineNewView = [[MKPolylineView alloc]initWithPolyline:[self valueForKeyPath:_linePair.gLine]];
+            [self setValue:_lineNewView forKeyPath:_linePair.gLineView];
+            _lineNewView.fillColor = [UIColor redColor];
+            _lineNewView.strokeColor = [UIColor redColor];
+            _lineNewView.lineWidth = 2;
+            _lineView = _lineNewView;
         }
-        else if ([_line.title isEqualToString:@"地铁3号线"]) {
-            // desc - for metro line 3
-            if( nil == self->gLine3View){
-                self->gLine3View = [[MKPolylineView alloc]initWithPolyline:self->gLine3];
-                self->gLine3View.fillColor = [UIColor redColor];
-                self->gLine3View.strokeColor = [UIColor redColor];
-                self->gLine3View.lineWidth = 2;
-            }
-            overlayview = self->gLine3View;
-        }
-        else if ([_line.title isEqualToString:@"地铁4号线"]) {
-            // desc - for metro line 4
-            if( nil == self->gLine4View){
-                self->gLine4View = [[MKPolylineView alloc]initWithPolyline:self->gLine4];
-                self->gLine4View.fillColor = [UIColor redColor];
-                self->gLine4View.strokeColor = [UIColor redColor];
-                self->gLine4View.lineWidth = 2;
-            }
-            overlayview = self->gLine4View;
-        }
+        overlayview = (MKPolylineView*)_lineView;
     }
     if ([overlay isKindOfClass:[MKCircle class]])
     {
@@ -228,10 +249,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib
+    self->gLines = [[NSMutableDictionary alloc]init];
+    
     self->distNorthToSouth = 8000;
     self->distEastToWest = 5000;
     [self initializeMetroLines];
-    [self drawHousing];
+    [self initializeHousing];
     
     // desc - located into chengdu central
     [self resetToSquare];

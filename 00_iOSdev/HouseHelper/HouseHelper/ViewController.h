@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+enum EntityType {
+    MetroStopType = 0,
+    HousingType = 1
+    };
+
 @interface ViewController : UIViewController<MKMapViewDelegate>{
     // desc - map
     IBOutlet MKMapView* map;
@@ -16,23 +21,23 @@
     double distNorthToSouth;
     double distEastToWest;
     
+    NSMutableDictionary* gLines;
+    
     // desc - data and graphic array for Metro line 2
-    NSArray* metroLine2;
-    NSArray* metroGrahpicLine2;
     MKPolyline* gLine2;
     MKPolylineView* gLine2View;
     
     // desc - data and graphic array for Metro line 3
-    NSArray* metroLine3;
-    NSArray* metroGrahpicLine3;
     MKPolyline* gLine3;
     MKPolylineView* gLine3View;
     
     // desc - data and graphic array for Metro line 4
-    NSArray* metroLine4;
-    NSArray* metroGrahpicLine4;
     MKPolyline* gLine4;
     MKPolylineView* gLine4View;
+    
+    // desc - data and graphic array for Metro line 5
+    MKPolyline* gLine5;
+    MKPolylineView* gLine5View;
 }
 
 - (IBAction)resetToCenter:(id)sender;

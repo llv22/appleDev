@@ -10,4 +10,10 @@
 
 @interface HouseBase : MetroStop
 
+@property (strong) NSString* houseName;
+
+- (id)initWithLoc:(double)loc
+          withLat:(double)lat
+     withHouseName:(NSString*)house;
+
 @end

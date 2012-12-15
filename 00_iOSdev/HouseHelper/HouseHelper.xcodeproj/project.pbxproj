@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F13FA712167C2DAA0078C560 /* m7.json in Resources */ = {isa = PBXBuildFile; fileRef = F13FA711167C2DAA0078C560 /* m7.json */; };
+		F13FA716167C38840078C560 /* LinePairs.m in Sources */ = {isa = PBXBuildFile; fileRef = F13FA715167C38840078C560 /* LinePairs.m */; };
 		F1407B3A167608F900ECB7BC /* m4.json in Resources */ = {isa = PBXBuildFile; fileRef = F1407B39167608F900ECB7BC /* m4.json */; };
 		F1407B3D167609AD00ECB7BC /* m3.json in Resources */ = {isa = PBXBuildFile; fileRef = F1407B3C167609AD00ECB7BC /* m3.json */; };
 		F142000E1674D34A00D65D3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F142000D1674D34A00D65D3B /* UIKit.framework */; };
@@ -34,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F13FA711167C2DAA0078C560 /* m7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = m7.json; sourceTree = "<group>"; };
+		F13FA714167C38840078C560 /* LinePairs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinePairs.h; sourceTree = "<group>"; };
+		F13FA715167C38840078C560 /* LinePairs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinePairs.m; sourceTree = "<group>"; };
 		F1407B39167608F900ECB7BC /* m4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = m4.json; sourceTree = "<group>"; };
 		F1407B3C167609AD00ECB7BC /* m3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = m3.json; sourceTree = "<group>"; };
 		F14200091674D34A00D65D3B /* HouseHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +159,7 @@
 				F1407B39167608F900ECB7BC /* m4.json */,
 				F1F823001679FF9900C5FDFF /* m5.json */,
 				F1F82302167A01EF00C5FDFF /* m6.json */,
+				F13FA711167C2DAA0078C560 /* m7.json */,
 				F18CD622167B4D1200D6FA96 /* housing.json */,
 			);
 			name = JSONData;
@@ -162,6 +168,8 @@
 		F18CD625167B4DD700D6FA96 /* DataEntity */ = {
 			isa = PBXGroup;
 			children = (
+				F13FA714167C38840078C560 /* LinePairs.h */,
+				F13FA715167C38840078C560 /* LinePairs.m */,
 				F1605DA01675A1F900813DD3 /* MetroStop.h */,
 				F1605DA11675A1F900813DD3 /* MetroStop.m */,
 				F1605DB51675E75600813DD3 /* MetroStopAnnotation.h */,
@@ -237,6 +245,7 @@
 				F1F823011679FF9900C5FDFF /* m5.json in Resources */,
 				F1F82303167A01EF00C5FDFF /* m6.json in Resources */,
 				F18CD623167B4D1200D6FA96 /* housing.json in Resources */,
+				F13FA712167C2DAA0078C560 /* m7.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +263,7 @@
 				F1605DB71675E75600813DD3 /* MetroStopAnnotation.m in Sources */,
 				F18CD628167B4E0F00D6FA96 /* HouseBase.m in Sources */,
 				F18CD62B167B4EF300D6FA96 /* HouseBaseAnnotation.m in Sources */,
+				F13FA716167C38840078C560 /* LinePairs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

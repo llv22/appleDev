@@ -10,4 +10,24 @@
 
 @implementation HouseBaseAnnotation
 
+- (id)initWithLocation:(CLLocationCoordinate2D)coord
+         withHouseName:(NSString*)houseName
+      withHouseBuilder:(NSString*)houseBuilder{
+    self = [super init];
+    if (self) {
+        self->_coordinate = coord;
+        self->_houseName = houseName;
+        self->_houseBuilder = houseBuilder;
+    }
+    return self;
+}
+
+-(NSString*)title{
+    return self->_houseName;
+}
+
+-(NSString*)subtitle{
+    return self->_houseBuilder;
+}
+
 @end
