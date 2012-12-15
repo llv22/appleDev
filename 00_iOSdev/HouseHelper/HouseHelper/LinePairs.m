@@ -41,7 +41,7 @@
             _cColor = [UIColor magentaColor];
             break;
         default:
-            _cColor = [UIColor purpleColor];
+            _cColor = [UIColor redColor];
             break;
     }
     return _cColor;

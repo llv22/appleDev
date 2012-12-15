@@ -180,8 +180,13 @@ const int iLineNumberTotal = 6;
 //TODO : right-button view
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-//    UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//    view.rightCalloutAccessoryView = rightButton;
+    if([view isKindOfClass:[MKPinAnnotationView class]]){
+        MKPinAnnotationView* _pinView = (MKPinAnnotationView*)view;
+        if (nil != _pinView.annotation && [_pinView.annotation isKindOfClass:[HouseBaseAnnotation class]]) {
+            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            view.rightCalloutAccessoryView = rightButton;
+        }
+    }
 }
 
 //TODO : Zoom-in & Out for deletion and other operations
@@ -200,10 +205,10 @@ const int iLineNumberTotal = 6;
                 // desc - display
                 _annView.pinColor = MKPinAnnotationColorPurple;
                 _annView.canShowCallout = YES;
+                _annView.draggable = YES;
             }
-            else{
-                _annView.annotation = annotation;
-            }
+            
+            _annView.annotation = annotation;
             annView = _annView;
         }
         else if([annotation isKindOfClass:[HouseBaseAnnotation class]]){
@@ -214,9 +219,8 @@ const int iLineNumberTotal = 6;
                 _annView.pinColor = MKPinAnnotationColorGreen;
                 _annView.canShowCallout = YES;
             }
-            else{
-                _annView.annotation = annotation;
-            }
+            
+            _annView.annotation = annotation;
             annView = _annView;
         }
         return annView;
@@ -240,8 +244,10 @@ const int iLineNumberTotal = 6;
         if (nil == _lineView){
             assert(objc_getAssociatedObject(self, charKeyOfgLine));
             MKPolylineView* _lineNewView = [[MKPolylineView alloc]initWithPolyline:objc_getAssociatedObject(self, charKeyOfgLine)];
-            _lineNewView.fillColor = _linePair.colorLine;
-            _lineNewView.strokeColor = _linePair.colorLine;
+            // desc - only read once
+            UIColor* _colorLine = _linePair.colorLine;
+            _lineNewView.fillColor = _colorLine;
+            _lineNewView.strokeColor = _colorLine;
             _lineNewView.lineWidth = 2.3;
             _lineView = _lineNewView;
             objc_setAssociatedObject(self, charKeyOfgLineView, _lineNewView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
