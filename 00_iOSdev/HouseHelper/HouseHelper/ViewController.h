@@ -22,26 +22,6 @@ enum EntityType {
     double distEastToWest;
     
     NSMutableDictionary* gLines;
-    
-    /** - filed with declaration in advance, replace with runtime intergration [Deprecated, as can't declared more fields, as time goes by]
-     *
-    // desc - data and graphic array for Metro line 2
-    MKPolyline* gLine2;
-    MKPolylineView* gLine2View;
-    
-    // desc - data and graphic array for Metro line 3
-    MKPolyline* gLine3;
-    MKPolylineView* gLine3View;
-    
-    // desc - data and graphic array for Metro line 4
-    MKPolyline* gLine4;
-    MKPolylineView* gLine4View;
-    
-    // desc - data and graphic array for Metro line 5
-    MKPolyline* gLine5;
-    MKPolylineView* gLine5View;
-     *
-     **/
 }
 
 - (IBAction)resetToCenter:(id)sender;

@@ -106,6 +106,8 @@ const int iLineNumberTotal = 6;
         self->gLines[[NSString stringWithFormat:@"地铁%d号线", i]] =
         [[LinePairs alloc]initWithLine:[NSString stringWithFormat:@"gLine%d", i]
                           withLineView:[NSString stringWithFormat:@"gLine%dView", i]
+                          withColorInt:i
+                         withTotalLine:iLineNumberTotal
          ];
     }
     
@@ -160,12 +162,6 @@ const int iLineNumberTotal = 6;
     // desc - new array allocation
     LinePairs* _linePair = (LinePairs*)self->gLines[title];
     MKPolyline* _line = [MKPolyline polylineWithPoints:pointAddr count:i];
-    
-    /** - with declariation in advance
-    [self setValue:[MKPolyline polylineWithPoints:pointAddr count:i]
-        forKeyPath:_linePair.gLine];
-     MKPolyline* _gline = (MKPolyline*)[self valueForKeyPath:_linePair.gLine];
-     */
     
     // desc - with objective-c runtime integration, [_linePair.gLine UTF8String] with runtime exception, then returned _gline is null
     // as returned <const char*> pointer, just convert force will be OK
@@ -244,25 +240,13 @@ const int iLineNumberTotal = 6;
         if (nil == _lineView){
             assert(objc_getAssociatedObject(self, charKeyOfgLine));
             MKPolylineView* _lineNewView = [[MKPolylineView alloc]initWithPolyline:objc_getAssociatedObject(self, charKeyOfgLine)];
-            _lineNewView.fillColor = [UIColor redColor];
-            _lineNewView.strokeColor = [UIColor redColor];
-            _lineNewView.lineWidth = 2;
+            _lineNewView.fillColor = _linePair.colorLine;
+            _lineNewView.strokeColor = _linePair.colorLine;
+            _lineNewView.lineWidth = 2.3;
             _lineView = _lineNewView;
             objc_setAssociatedObject(self, charKeyOfgLineView, _lineNewView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
         overlayview = (MKPolylineView*)_lineView;
-        /** - with declariation in advance [Deprecated, as can't declared more fields, as time goes by]
-        NSObject* _lineView = [self valueForKeyPath:_linePair.gLineView];
-        if (nil == _lineView){
-            MKPolylineView* _lineNewView = [[MKPolylineView alloc]initWithPolyline:[self valueForKeyPath:_linePair.gLine]];
-            [self setValue:_lineNewView forKeyPath:_linePair.gLineView];
-            _lineNewView.fillColor = [UIColor redColor];
-            _lineNewView.strokeColor = [UIColor redColor];
-            _lineNewView.lineWidth = 2;
-            _lineView = _lineNewView;
-        }
-        overlayview = (MKPolylineView*)_lineView;
-         */
     }
     if ([overlay isKindOfClass:[MKCircle class]])
     {
