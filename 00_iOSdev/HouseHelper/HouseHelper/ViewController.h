@@ -23,7 +23,7 @@ enum EntityType {
     
     NSMutableDictionary* gLines;
     
-    /** - filed with declaration in advance, replace with runtime intergration
+    /** - filed with declaration in advance, replace with runtime intergration [Deprecated, as can't declared more fields, as time goes by]
      *
     // desc - data and graphic array for Metro line 2
     MKPolyline* gLine2;

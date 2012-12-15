@@ -251,7 +251,7 @@ const int iLineNumberTotal = 6;
             objc_setAssociatedObject(self, charKeyOfgLineView, _lineNewView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
         overlayview = (MKPolylineView*)_lineView;
-        /** - with declariation in advance
+        /** - with declariation in advance [Deprecated, as can't declared more fields, as time goes by]
         NSObject* _lineView = [self valueForKeyPath:_linePair.gLineView];
         if (nil == _lineView){
             MKPolylineView* _lineNewView = [[MKPolylineView alloc]initWithPolyline:[self valueForKeyPath:_linePair.gLine]];
