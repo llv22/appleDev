@@ -12,6 +12,7 @@
 #import "HouseBase.h"
 #import "HouseBaseAnnotation.h"
 #import "LinePairs.h"
+#import <objc/runtime.h>
 
 const int iLineNumberTotal = 6;
 
@@ -158,9 +159,21 @@ const int iLineNumberTotal = 6;
     
     // desc - new array allocation
     LinePairs* _linePair = (LinePairs*)self->gLines[title];
+    MKPolyline* _line = [MKPolyline polylineWithPoints:pointAddr count:i];
+    
+    /** - with declariation in advance
     [self setValue:[MKPolyline polylineWithPoints:pointAddr count:i]
         forKeyPath:_linePair.gLine];
-    MKPolyline* _gline = (MKPolyline*)[self valueForKeyPath:_linePair.gLine];
+     MKPolyline* _gline = (MKPolyline*)[self valueForKeyPath:_linePair.gLine];
+     */
+    
+    // desc - with objective-c runtime integration, [_linePair.gLine UTF8String] with runtime exception, then returned _gline is null
+    // as returned <const char*> pointer, just convert force will be OK
+    // desc - MUST use [NSString defaultCStringEncoding] for cString Encoding system
+    // AND MUST convert <const char*> to <char*> for allowing runtime modification
+    char* charKey = (char*)[_linePair.gLine cStringUsingEncoding:[NSString defaultCStringEncoding]];
+    objc_setAssociatedObject(self, charKey, _line, OBJC_ASSOCIATION_ASSIGN);
+    MKPolyline* _gline = objc_getAssociatedObject(self, charKey);
     _gline.title = title;
     [self->map addOverlay:_gline];
     
@@ -223,6 +236,22 @@ const int iLineNumberTotal = 6;
         MKPolyline* _line = (MKPolyline*)overlay;
         LinePairs* _linePair = (LinePairs*)self->gLines[_line.title];
         
+        // desc - dynamic add field for runtime - Must use [NSString defaultCStringEncoding] for cString Encoding system
+        // AND MUST convert <const char*> to <char*> for allowing runtime modification
+        char* charKeyOfgLine = (char*)[_linePair.gLine cStringUsingEncoding:[NSString defaultCStringEncoding]];
+        char* charKeyOfgLineView = (char*)[_linePair.gLineView cStringUsingEncoding:[NSString defaultCStringEncoding]];
+        id _lineView = objc_getAssociatedObject(self, charKeyOfgLineView);
+        if (nil == _lineView){
+            assert(objc_getAssociatedObject(self, charKeyOfgLine));
+            MKPolylineView* _lineNewView = [[MKPolylineView alloc]initWithPolyline:objc_getAssociatedObject(self, charKeyOfgLine)];
+            _lineNewView.fillColor = [UIColor redColor];
+            _lineNewView.strokeColor = [UIColor redColor];
+            _lineNewView.lineWidth = 2;
+            _lineView = _lineNewView;
+            objc_setAssociatedObject(self, charKeyOfgLineView, _lineNewView, OBJC_ASSOCIATION_RETAIN);
+        }
+        overlayview = (MKPolylineView*)_lineView;
+        /** - with declariation in advance
         NSObject* _lineView = [self valueForKeyPath:_linePair.gLineView];
         if (nil == _lineView){
             MKPolylineView* _lineNewView = [[MKPolylineView alloc]initWithPolyline:[self valueForKeyPath:_linePair.gLine]];
@@ -233,6 +262,7 @@ const int iLineNumberTotal = 6;
             _lineView = _lineNewView;
         }
         overlayview = (MKPolylineView*)_lineView;
+         */
     }
     if ([overlay isKindOfClass:[MKCircle class]])
     {

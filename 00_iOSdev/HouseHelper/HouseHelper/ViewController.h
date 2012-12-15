@@ -23,6 +23,8 @@ enum EntityType {
     
     NSMutableDictionary* gLines;
     
+    /** - filed with declaration in advance, replace with runtime intergration
+     *
     // desc - data and graphic array for Metro line 2
     MKPolyline* gLine2;
     MKPolylineView* gLine2View;
@@ -38,6 +40,8 @@ enum EntityType {
     // desc - data and graphic array for Metro line 5
     MKPolyline* gLine5;
     MKPolylineView* gLine5View;
+     *
+     **/
 }
 
 - (IBAction)resetToCenter:(id)sender;
