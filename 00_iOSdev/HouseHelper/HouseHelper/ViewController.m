@@ -172,7 +172,7 @@ const int iLineNumberTotal = 6;
     // desc - MUST use [NSString defaultCStringEncoding] for cString Encoding system
     // AND MUST convert <const char*> to <char*> for allowing runtime modification
     char* charKey = (char*)[_linePair.gLine cStringUsingEncoding:[NSString defaultCStringEncoding]];
-    objc_setAssociatedObject(self, charKey, _line, OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, charKey, _line, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     MKPolyline* _gline = objc_getAssociatedObject(self, charKey);
     _gline.title = title;
     [self->map addOverlay:_gline];
@@ -248,7 +248,7 @@ const int iLineNumberTotal = 6;
             _lineNewView.strokeColor = [UIColor redColor];
             _lineNewView.lineWidth = 2;
             _lineView = _lineNewView;
-            objc_setAssociatedObject(self, charKeyOfgLineView, _lineNewView, OBJC_ASSOCIATION_RETAIN);
+            objc_setAssociatedObject(self, charKeyOfgLineView, _lineNewView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
         overlayview = (MKPolylineView*)_lineView;
         /** - with declariation in advance
