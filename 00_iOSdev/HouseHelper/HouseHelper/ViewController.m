@@ -176,20 +176,15 @@ const int iLineNumberTotal = 6;
     free(pointAddr);
 }
 
-
-//TODO : right-button view
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-{
-    if([view isKindOfClass:[MKPinAnnotationView class]]){
-        MKPinAnnotationView* _pinView = (MKPinAnnotationView*)view;
-        if (nil != _pinView.annotation && [_pinView.annotation isKindOfClass:[HouseBaseAnnotation class]]) {
-            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-            view.rightCalloutAccessoryView = rightButton;
-        }
-    }
+// TODO : Tapped event - for displaying the detailed information with pop-up
+- (void)                mapView:(MKMapView *)mapView
+                 annotationView:(MKAnnotationView *)view
+  calloutAccessoryControlTapped:(UIControl *)control{
 }
 
-//TODO : Zoom-in & Out for deletion and other operations
+// TODO : Zoom-in & Out for deletion and other operations
+// TODO : right-button view - http://stackoverflow.com/questions/2607431/how-to-tell-a-rightcalloutaccessoryview-has-been-touched-for-mapkit
+// TODO : http://stackoverflow.com/questions/2763284/placing-arrow-of-uipopovercontroller-at-annotation-point-on-mapkit
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id <MKAnnotation>)annotation {
     if ([annotation isKindOfClass:[MKUserLocation class]]){
@@ -217,6 +212,8 @@ const int iLineNumberTotal = 6;
                 _annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"housing"];
                 // desc - display
                 _annView.pinColor = MKPinAnnotationColorGreen;
+                UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+                _annView.rightCalloutAccessoryView = rightButton;
                 _annView.canShowCallout = YES;
             }
             

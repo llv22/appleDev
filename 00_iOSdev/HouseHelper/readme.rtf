@@ -46,4 +46,21 @@ See result in NSLog console:\
 \f2\b\fs22 \cf0 \CocoaLigature0 2012-12-15 15:11:01.073 HouseHelper[9926:c07] 30\
 2012-12-15 15:11:01.086 HouseHelper[9926:c07] 30\
 2012-12-15 15:11:01.087 HouseHelper[9926:c07] 30\
-2012-12-15 15:11:01.088 HouseHelper[9926:c07] 30}
+2012-12-15 15:11:01.088 HouseHelper[9926:c07] 30\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\b0\fs24 \cf0 \CocoaLigature1 * Tapped events for popover or navigation
+\f1\fs22 \CocoaLigature0 \
+\pard\tx529\pardeftab529\pardirnatural
+\cf5 // TODO : too late for adding UIButton navigation event\cf0 \
+\cf5 //- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view\cf0 \
+\cf5 //\{\cf0 \
+\cf5 //    if([view isKindOfClass:[MKPinAnnotationView class]])\{\cf0 \
+\cf5 //        MKPinAnnotationView* _pinView = (MKPinAnnotationView*)view;\cf0 \
+\cf5 //        if (nil != _pinView.annotation && [_pinView.annotation isKindOfClass:[HouseBaseAnnotation class]]) \{\cf0 \
+\cf5 //            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];\cf0 \
+\cf5 //            view.rightCalloutAccessoryView = rightButton;\cf0 \
+\cf5 //        \}\cf0 \
+\cf5 //    \}\cf0 \
+\cf5 //\}}
