@@ -167,6 +167,7 @@ const int iLineNumberTotal = 6;
 - (void)                mapView:(MKMapView *)mapView
                  annotationView:(MKAnnotationView *)view
   calloutAccessoryControlTapped:(UIControl *)control{
+    
 }
 
 // TODO : Zoom-in & Out for deletion and other operations

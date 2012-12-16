@@ -11,8 +11,6 @@
 
 @interface AppDelegate (PrivateMethods)
 
-- (void)orientationChanged:(NSNotification*) note;
-
 @end
 
 @implementation AppDelegate
@@ -28,24 +26,8 @@
     }
     self.window.rootViewController = self.viewController;
     
-    // desc - monitor the device rotation
-    /** 
-     * deprecated device rotation
-     *
-    UIDevice* device = [UIDevice currentDevice];
-    [device beginGeneratingDeviceOrientationNotifications];
-    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self selector:@selector(orientationChanged:)
-               name:UIDeviceOrientationDidChangeNotification
-             object:device];
-     */
-    
     [self.window makeKeyAndVisible];
     return YES;
-}
-
-- (void)orientationChanged:(NSNotification*) note{
-    NSLog(@"orientationChanged : %d", [[note object]orientation]);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
