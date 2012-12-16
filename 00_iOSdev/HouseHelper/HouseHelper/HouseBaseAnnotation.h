@@ -9,14 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface HouseBaseAnnotation : NSObject<MKAnnotation>
+@class HouseBase;
+
+@interface HouseBaseAnnotation : NSObject<MKAnnotation>{
+}
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-@property (nonatomic, readonly) NSString* houseName;
+@property (nonatomic, getter = getHouseName) NSString* houseName;
 @property (nonatomic, readonly) NSString* houseBuilder;
+@property (nonatomic, readonly) HouseBase* house;
 
-- (id)initWithLocation:(CLLocationCoordinate2D)coord
-         withHouseName:(NSString*)houseName
+- (id)initWithLocation:(HouseBase*)h
       withHouseBuilder:(NSString*)houseBuilder;
 
 @end

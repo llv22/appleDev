@@ -121,9 +121,7 @@ const int iLineNumberTotal = 6;
 - (void) drawHousings:(NSArray*)line
             withTitle:(NSString*)title{
     for (HouseBase* item in line) {
-        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(item.lat, item.loc);
-        id<MKAnnotation> obj = [[HouseBaseAnnotation alloc]initWithLocation:coordinate
-                                                               withHouseName:item.houseName
+        id<MKAnnotation> obj = [[HouseBaseAnnotation alloc]initWithLocation:item
                                                            withHouseBuilder:title];
         [self->map addAnnotation:obj];
     }
@@ -171,7 +169,10 @@ const int iLineNumberTotal = 6;
     HouseBaseAnnotation* _houseAnnotation = (HouseBaseAnnotation*)[view annotation];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         // desc - iphone
-        DetailViewController *_detailController = [[DetailViewController alloc]initWithNibName:@"DetailViewController_iPhone" bundle:nil];
+        DetailViewController *_detailController = [[DetailViewController alloc]initWithNibName:@"DetailViewController_iPhone"
+                                                                                        bundle:nil
+                                                                                         house:_houseAnnotation.house
+                                                   ];
         _detailController.title = _houseAnnotation.title;
         // desc - only valid before pushing item into callback item
         UIBarButtonItem* back = [[UIBarButtonItem alloc]initWithTitle:@"返回"
@@ -186,7 +187,10 @@ const int iLineNumberTotal = 6;
         // desc - close annotation, http://stackoverflow.com/questions/1193928/how-to-close-a-callout-for-mkannotation-in-a-mkmapview
         [self->map deselectAnnotation:_houseAnnotation animated:YES];
         // desc - show popover
-        DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
+        DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone"
+                                                                          bundle:nil
+                                                                           house:_houseAnnotation.house
+                                    ];
         vc.contentSizeForViewInPopover = CGSizeMake(320, 380);
         vc.title = _houseAnnotation.title;
         UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];

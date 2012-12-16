@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class HouseBase;
+
 @interface DetailViewController : UITableViewController<UISearchBarDelegate, UISearchDisplayDelegate>
+
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+                house:(HouseBase*)houseData;
 
 @end

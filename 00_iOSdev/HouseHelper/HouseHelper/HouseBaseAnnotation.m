@@ -7,23 +7,27 @@
 //
 
 #import "HouseBaseAnnotation.h"
+#import "HouseBase.h"
 
 @implementation HouseBaseAnnotation
 
-- (id)initWithLocation:(CLLocationCoordinate2D)coord
-         withHouseName:(NSString*)houseName
+- (id)initWithLocation:(HouseBase*)h
       withHouseBuilder:(NSString*)houseBuilder{
     self = [super init];
     if (self) {
-        self->_coordinate = coord;
-        self->_houseName = houseName;
+        self->_house = h;
         self->_houseBuilder = houseBuilder;
+        self->_coordinate = CLLocationCoordinate2DMake(self->_house.lat, self->_house.loc);
     }
     return self;
 }
 
 -(NSString*)title{
-    return self->_houseName;
+    return self.houseName;
+}
+
+- (NSString*) getHouseName{
+    return (self->_house.houseName);
 }
 
 -(NSString*)subtitle{

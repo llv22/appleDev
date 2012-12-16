@@ -22,4 +22,8 @@
     return (self);
 }
 
+- (NSString*)description{
+    return [NSString stringWithFormat:@"%f:%f - %@", self.lat, self.loc, self->_houseName];
+}
+
 @end

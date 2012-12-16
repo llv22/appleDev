@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "HouseBase.h"
 
 @interface DetailViewController ()
 
@@ -14,11 +15,22 @@
 
 @implementation DetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil{
+    NSException* _privatectorException = [NSException exceptionWithName:@"PrivateOverrideConstructor"
+                                                                 reason:@"Private Constructor not allowed to be call"
+                                                               userInfo:nil];
+    @throw _privatectorException;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+                house:(HouseBase*)houseData
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        NSLog(@"%@", [houseData description]);
     }
     return self;
 }
