@@ -168,37 +168,50 @@ const int iLineNumberTotal = 6;
 - (void)                mapView:(MKMapView *)mapView
                  annotationView:(MKAnnotationView *)view
   calloutAccessoryControlTapped:(UIControl *)control{
+    HouseBaseAnnotation* _houseAnnotation = (HouseBaseAnnotation*)[view annotation];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         // desc - iphone
         DetailViewController *_detailController = [[DetailViewController alloc]initWithNibName:@"DetailViewController_iPhone" bundle:nil];
+        _detailController.title = _houseAnnotation.title;
+        // desc - only valid before pushing item into callback item
+        UIBarButtonItem* back = [[UIBarButtonItem alloc]initWithTitle:@"返回"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:nil
+                                                               action:nil];
+        self.navigationItem.backBarButtonItem = back;
         [self.navigationController pushViewController:_detailController animated:YES];
     }
     else{
         // desc - ipad
-        dispatch_async(dispatch_get_main_queue(),
-                       ^{
-                           // desc - close annotation, http://stackoverflow.com/questions/1193928/how-to-close-a-callout-for-mkannotation-in-a-mkmapview
-                           [self->map deselectAnnotation:[view annotation] animated:YES];
-                           // desc - show popover
-                           DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
-                           UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
-                           UIPopoverController* pop = [[UIPopoverController alloc] initWithContentViewController:nav];
-                           self.currentPopover = pop;
-                           [pop presentPopoverFromRect:CGRectMake(0, 0, 15, 15)
-                                                inView:view
-                              permittedArrowDirections:UIPopoverArrowDirectionAny
-                                              animated:YES];
-                           
-                           // desc - comment out next line and you'll see that Bad Things can happen can summmon same popover twice, also note that this line must come *after* we present the popover or it is ineffectual
-                           // [iOS 5] all of that is still true, except that instead of summoning same popover twice, we now crash if next line is commented out when tapping button with popover showing this is because as we assign a new popover controller to
-                           // currentPop......the previous popover controller is dealloced while its popover is showing, which is illegal (sort of nice, really)
-                           pop.passthroughViews = nil;
-                           // desc - make ourselves delegate so we learn when popover is dismissed
-                           pop.delegate = self;
-                       });
+        // desc - close annotation, http://stackoverflow.com/questions/1193928/how-to-close-a-callout-for-mkannotation-in-a-mkmapview
+        [self->map deselectAnnotation:_houseAnnotation animated:YES];
+        // desc - show popover
+        DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
+        vc.contentSizeForViewInPopover = CGSizeMake(320, 380);
+        vc.title = _houseAnnotation.title;
+        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        UIPopoverController* pop = [[UIPopoverController alloc] initWithContentViewController:nav];
+        self.currentPopover = pop;
+
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.2];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [pop presentPopoverFromRect:CGRectMake(0, 0, 15, 15)
+                             inView:view
+           permittedArrowDirections:UIPopoverArrowDirectionAny
+                           animated:YES];
+        [UIView commitAnimations];
+        
+        // desc - comment out next line and you'll see that Bad Things can happen can summmon same popover twice, also note that this line must come *after* we present the popover or it is ineffectual
+        // [iOS 5] all of that is still true, except that instead of summoning same popover twice, we now crash if next line is commented out when tapping button with popover showing this is because as we assign a new popover controller to
+        // currentPop......the previous popover controller is dealloced while its popover is showing, which is illegal (sort of nice, really)
+        pop.passthroughViews = nil;
+        // desc - make ourselves delegate so we learn when popover is dismissed
+        pop.delegate = self;
     }
 }
 
+// TODO : dismisal the popover controller view
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)pc {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         if (self.currentPopover) {
@@ -297,6 +310,9 @@ const int iLineNumberTotal = 6;
                                                                              target:self
                                                                              action:@selector(resetToCenter:)];
     [self.navigationItem setRightBarButtonItem:refreshBtn animated:YES];
+    // desc - http://stackoverflow.com/questions/1449339/how-do-i-change-the-title-of-the-back-button-on-a-navigation-bar
+    // how-to reset navigation back button title
+    self.title = nil;
     
     // desc - initialization of ui and center size
     self->gLines = [[NSMutableDictionary alloc]init];
@@ -320,8 +336,9 @@ const int iLineNumberTotal = 6;
 
 // TODO : auto-rotate
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
-    // desc - if Portrait direction or landscape, return YES
-    return (toInterfaceOrientation == UIInterfaceOrientationPortrait) || UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+    // desc - if Portrait direction or landscape, return YES [in order to rotate all]
+    return YES;
+//    return (toInterfaceOrientation == UIInterfaceOrientationPortrait) || UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
 }
 
 - (void)didReceiveMemoryWarning

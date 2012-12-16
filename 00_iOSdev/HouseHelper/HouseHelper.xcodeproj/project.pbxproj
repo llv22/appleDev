@@ -61,7 +61,7 @@
 		F14200291674D34A00D65D3B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		F142002C1674D34A00D65D3B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		F14200331674D70500D65D3B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		F14200351674D89700D65D3B /* readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = readme.rtf; sourceTree = "<group>"; };
+		F14200351674D89700D65D3B /* readme.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = readme.rtfd; sourceTree = "<group>"; };
 		F14200431674DC6700D65D3B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F1605DA01675A1F900813DD3 /* MetroStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetroStop.h; sourceTree = "<group>"; };
 		F1605DA11675A1F900813DD3 /* MetroStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetroStop.m; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		F142FFFE1674D34A00D65D3B = {
 			isa = PBXGroup;
 			children = (
-				F14200351674D89700D65D3B /* readme.rtf */,
+				F14200351674D89700D65D3B /* readme.rtfd */,
 				F14200131674D34A00D65D3B /* HouseHelper */,
 				F142000C1674D34A00D65D3B /* Frameworks */,
 				F142000A1674D34A00D65D3B /* Products */,

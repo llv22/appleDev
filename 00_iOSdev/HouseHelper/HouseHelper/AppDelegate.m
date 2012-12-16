@@ -29,6 +29,7 @@
     self.navigationController = [[UINavigationController alloc]initWithRootViewController:self.viewController];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     self.window.rootViewController = self.navigationController;
+//    [self.window addSubview:self.navigationController.view];
     
     [self.window makeKeyAndVisible];
     return YES;

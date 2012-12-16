@@ -1,0 +1,145 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset134 STHeitiSC-Light;
+\f3\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red14\green14\blue255;\red0\green116\blue0;\red170\green13\blue145;
+\red46\green13\blue110;\red63\green110\blue116;\red196\green26\blue22;\red92\green38\blue153;\red28\green0\blue207;
+}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 1, Preparation of NIB template \
+* Dump of "NSLayoutConstraint crashed ViewController"\
+Solution : 
+\b disable the Use auto-layout
+\b0 \
+http://stackoverflow.com/questions/11252057/nslayoutconstraint-crashes-viewcontroller\
+* Initialization of Nib and class hooks - see official guide of {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/mac/#DOCUMENTATION/Cocoa/Conceptual/LoadingResources/CocoaNibs/CocoaNibs.html"}}{\fldrslt 
+\f1\fs22 \cf2 \CocoaLigature0 https://developer.apple.com/library/mac/#DOCUMENTATION/Cocoa/Conceptual/LoadingResources/CocoaNibs/CocoaNibs.html}}\
+Solution : using 
+\f1\fs22 \CocoaLigature0 viewDidLoad 
+\f0\fs24 \CocoaLigature1 instead of 
+\f1\fs22 \cf3 \CocoaLigature0 init 
+\f0\fs24 \cf0 \CocoaLigature1 or 
+\f1\fs22 \CocoaLigature0 awakeFromNib
+\f0\fs24 \CocoaLigature1 \
+\pard\tx529\pardeftab529\pardirnatural
+
+\f1\fs22 \cf0 \CocoaLigature0 \
+\pard\tx529\pardeftab529\pardirnatural
+\cf3 /**\
+ * not called\
+ *\
+- (id)init\{\
+    self = [super init];\
+    if (self) \{\
+    \}\
+    return (self);\
+\}*/\cf0 \
+\
+\cf3 // TODO : initWithNibName delegate callback - {\field{\*\fldinst{HYPERLINK "http://stackoverflow.com/questions/5146791/instantiating-a-uiview-subclass-with-a-delegate-using-a-nib-file"}}{\fldrslt \cf2 http://stackoverflow.com/questions/5146791/instantiating-a-uiview-subclass-with-a-delegate-using-a-nib-file}}\cf0 \
+\cf3 // desc - {\field{\*\fldinst{HYPERLINK "http://stackoverflow.com/questions/943905/awakefromnib-is-not-called-in-my-viewcontroller"}}{\fldrslt \cf2 http://stackoverflow.com/questions/943905/awakefromnib-is-not-called-in-my-viewcontroller}} ***NOT CALLED REASON***\cf0 \
+\cf3 // desc - {\field{\*\fldinst{HYPERLINK "http://stackoverflow.com/questions/1588813/why-wont-my-awakefromnib-fire"}}{\fldrslt \cf2 http://stackoverflow.com/questions/1588813/why-wont-my-awakefromnib-fire}} ***NOT CALLED REASON***\cf0 \
+\cf3 // desc - official guide {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/mac/#DOCUMENTATION/Cocoa/Conceptual/LoadingResources/CocoaNibs/CocoaNibs.html"}}{\fldrslt \cf2 https://developer.apple.com/library/mac/#DOCUMENTATION/Cocoa/Conceptual/LoadingResources/CocoaNibs/CocoaNibs.html}} ***NOT CALLED REASON***\cf0 \
+- (\cf4 void\cf0 ) awakeFromNib\{\
+    [\cf4 super\cf0  \cf5 awakeFromNib\cf0 ];\
+\}
+\f0\fs24 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+2, Geo data source\
+metro 4 line : http://baike.baidu.com/view/3346217.htm\
+metro 3 line : http://baike.baidu.com/view/3346218.htm\
+metro 5 line : http://baike.baidu.com/view/3346224.htm?fromTaglist\
+metro 6 line : http://baike.baidu.com/view/3346220.htm?fromTaglist\
+metro 7 line : http://baike.baidu.com.cn/view/3346223.htm\
+\
+3, refactoring of the existing application\
+* UI layout and item organi
+\f2 z
+\f0 ation\
+* objC runtime integration -  
+\f1\fs22 \cf5 \CocoaLigature0 objc_getAssociatedObject and objc_setAssociatedObject\
+
+\f0\fs24 \cf0 \CocoaLigature1 * NSString* to char* conversion\
+* objC runtime integration
+\f1\fs22 \CocoaLigature0 \
+\pard\tx529\pardeftab529\pardirnatural
+\cf0         \cf4 id\cf0  _lineView = \cf5 objc_getAssociatedObject\cf0 (\cf4 self\cf0 , 
+\f3\b [_linePair.\cf6 gLineView\cf0  \cf5 cString\cf0 ]
+\f1\b0 );\
+Exception as follow:\
+/Users/llv22/Documents/01_devsrc/08_appleDevs/00_iOSdev/HouseHelper/HouseHelper/ViewController.m:235:56: 'cString' is deprecated: first deprecated in iOS 2.0\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1 see reference of http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/DeprecationAppendix/AppendixADeprecatedAPI.html\
+\
+The default Encoding on MacOSX system is \
+
+\f1\fs22 \cf3 \CocoaLigature0 //    NSLog(@"%d", [NSString defaultCStringEncoding]); -> NSMacOSRomanStringEncoding
+\f0\fs24 \cf0 \CocoaLigature1 \
+\
+See result in NSLog console:\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3\b\fs22 \cf0 \CocoaLigature0 2012-12-15 15:11:01.073 HouseHelper[9926:c07] 30\
+2012-12-15 15:11:01.086 HouseHelper[9926:c07] 30\
+2012-12-15 15:11:01.087 HouseHelper[9926:c07] 30\
+2012-12-15 15:11:01.088 HouseHelper[9926:c07] 30\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\b0\fs24 \cf0 \CocoaLigature1 * Tapped events for popover or navigation\
+1, Adding UIButtonTypeDetailDisclosure event at the right delegate time
+\f1\fs22 \CocoaLigature0 \
+\pard\tx529\pardeftab529\pardirnatural
+\cf3 // TODO : too late for adding UIButton navigation event\cf0 \
+\cf3 //- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view\cf0 \
+\cf3 //\{\cf0 \
+\cf3 //    if([view isKindOfClass:[MKPinAnnotationView class]])\{\cf0 \
+\cf3 //        MKPinAnnotationView* _pinView = (MKPinAnnotationView*)view;\cf0 \
+\cf3 //        if (nil != _pinView.annotation && [_pinView.annotation isKindOfClass:[HouseBaseAnnotation class]]) \{\cf0 \
+\cf3 //            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];\cf0 \
+\cf3 //            view.rightCalloutAccessoryView = rightButton;\cf0 \
+\cf3 //        \}\cf0 \
+\cf3 //    \}\cf0 \
+\cf3 //\}
+\f0\fs24 \cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 2, Navigation on iphone version for tapping event\
+\
+3, Popover on ipad version for tapping event\
+\
+* issue with the following code:\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f1\fs22 \cf3 \CocoaLigature0 // desc - ipad\cf0 \
+        \cf6 DetailViewController\cf0 * vc = [[\cf6 DetailViewController\cf0  \cf5 alloc\cf0 ] \cf5 initWithNibName\cf0 :\cf7 @"DetailViewController_iPhone"\cf0  \cf5 bundle\cf0 :\cf4 nil\cf0 ];\
+        \cf8 UINavigationController\cf0 * nav = [[\cf8 UINavigationController\cf0  \cf5 alloc\cf0 ] \cf5 initWithRootViewController\cf0 :vc];\
+        \cf8 UIPopoverController\cf0 * pop = [[\cf8 UIPopoverController\cf0  \cf5 alloc\cf0 ] \cf5 initWithContentViewController\cf0 :nav];\
+        [pop \cf5 presentPopoverFromRect\cf0 :\cf5 CGRectMake\cf0 (\cf9 0\cf0 ,\cf9 100\cf0 ,\cf9 100\cf0 ,\cf9 100\cf0 )\
+                             \cf5 inView\cf0 :\cf4 self\cf0 .\cf8 view\cf0 \
+                    \cf5 permittedArrowDirections\cf0 :\cf5 UIPopoverArrowDirectionAny\cf0 \
+                                    \cf5 animated\cf0 :\cf4 YES\cf0 ];
+\f0\fs24 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 * issue callstack\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3\b\fs22 \cf0 \CocoaLigature0 2012-12-16 12:07:16.465 HouseHelper[4022:c07] *** Terminating app due to uncaught exception 'NSGenericException', reason: '-[UIPopoverController dealloc] reached while popover is still visible.'\
+*** First throw call stack:\
+(0x159d022 0x1021cd6 0x1545a48 0x15459b9 0x621587 0x1034e3d 0x1034e00 0x45c4 0xb4f8c 0xc08ba 0x159ee99 0x18714e 0x1870e6 0x22dade 0x22dfa7 0x22d266 0x1ac3c0 0x1ac5e6 0x192dc4 0x186634 0x1487ef5 0x1571195 0x14d5ff2 0x14d48da 0x14d3d84 0x14d3c9b 0x14867d8 0x148688a 0x184626 0x219d 0x20c5 0x1)\
+terminate called throwing an exception\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\b0\fs24 \cf0 \CocoaLigature1 * deselect annotation with callout-view: http://stackoverflow.com/questions/1193928/how-to-close-a-callout-for-mkannotation-in-a-mkmapview \
+\
+* UITableView should have at least bind with one table
+\b  [TableView::view -> view owner]
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 {{\NeXTGraphic Pasted Graphic.tiff \width20640 \height8400
+}¬}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 \
+}
