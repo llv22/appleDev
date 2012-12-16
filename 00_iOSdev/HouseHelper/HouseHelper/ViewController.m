@@ -16,7 +16,7 @@
 
 const int iLineNumberTotal = 6;
 
-@interface ViewController ()
+@interface ViewController (PrivateMethods)
 
 - (void) resetToSquare;
 - (void) initializeMetroLines;
@@ -34,24 +34,10 @@ const int iLineNumberTotal = 6;
 
 @implementation ViewController
 
-/**
- * not called
- *
-- (id)init{
-    self = [super init];
-    if (self) {
-    }
-    return (self);
-}*/
-
-// TODO : initWithNibName delegate callback - http://stackoverflow.com/questions/5146791/instantiating-a-uiview-subclass-with-a-delegate-using-a-nib-file
-- (void) awakeFromNib{
-    [super awakeFromNib];
-}
-
+#pragma mark - JSON to module mapping
 // TODO : http://stackoverflow.com/questions/1768937/how-do-i-convert-nsmutablearray-to-nsarray
-// TODO : json metro parser - http://www.raywenderlich.com/5492/working-with-json-in-ios-5
-// TODO : read json into NSData* - http://iphoneincubator.com/blog/data-management/how-to-read-a-file-from-your-application-bundle
+// 1, json metro parser - http://www.raywenderlich.com/5492/working-with-json-in-ios-5
+// 2, read json into NSData* - http://iphoneincubator.com/blog/data-management/how-to-read-a-file-from-your-application-bundle
 - (NSArray*) jsonToArray:(NSString*)fileName
                  forType:(enum EntityType)type{
     NSError* error =nil;
@@ -98,6 +84,7 @@ const int iLineNumberTotal = 6;
     return (_house);
 }
 
+#pragma mark - initialization of metroline and housing
 //TODO : async load metroline from m<Number>.json
 - (void) initializeMetroLines{
     // desc - perhaps dynamically add fields for   ||| MKPolyline* gLine%d; MKPolylineView* gLine%dView; |||
@@ -129,7 +116,6 @@ const int iLineNumberTotal = 6;
                  withTitle:@"楼盘"];
     });
 }
-
 
 - (void) drawHousings:(NSArray*)line
             withTitle:(NSString*)title{
@@ -176,15 +162,16 @@ const int iLineNumberTotal = 6;
     free(pointAddr);
 }
 
-// TODO : Tapped event - for displaying the detailed information with pop-up
+#pragma mark - MapAnnotationView, overlayView and tapping events
+// TODO : Tapped event - for displaying the detailed information with pop-up on ipad/navigation on iphone
 - (void)                mapView:(MKMapView *)mapView
                  annotationView:(MKAnnotationView *)view
   calloutAccessoryControlTapped:(UIControl *)control{
 }
 
 // TODO : Zoom-in & Out for deletion and other operations
-// TODO : right-button view - http://stackoverflow.com/questions/2607431/how-to-tell-a-rightcalloutaccessoryview-has-been-touched-for-mapkit
-// TODO : http://stackoverflow.com/questions/2763284/placing-arrow-of-uipopovercontroller-at-annotation-point-on-mapkit
+// 1, right-button view - http://stackoverflow.com/questions/2607431/how-to-tell-a-rightcalloutaccessoryview-has-been-touched-for-mapkit
+// 2, popver-controller - http://stackoverflow.com/questions/2763284/placing-arrow-of-uipopovercontroller-at-annotation-point-on-mapkit
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id <MKAnnotation>)annotation {
     if ([annotation isKindOfClass:[MKUserLocation class]]){
@@ -224,7 +211,6 @@ const int iLineNumberTotal = 6;
     }
 }
 
-#pragma mark - adding MKPolyLine
 - (MKOverlayView *)mapView:(MKMapView *)mapView
             viewForOverlay:(id <MKOverlay>)overlay{
     MKOverlayView* overlayview = nil;
