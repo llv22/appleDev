@@ -175,30 +175,36 @@ const int iLineNumberTotal = 6;
     }
     else{
         // desc - ipad
-        DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
-        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        UIPopoverController* pop = [[UIPopoverController alloc] initWithContentViewController:nav];
-        // comment out next line and you'll see the bug when navigating back and forth between different sized content views
-        // [iOS 5] bug still present in iOS 5
-//        nav.delegate = self;
-        self.currentPopover = pop;
-        //pop.popoverLayoutMargins = UIEdgeInsetsMake(0,100,100,100);
-        [pop presentPopoverFromRect:CGRectMake(0,0,0,0)
-                             inView:view
-                    permittedArrowDirections:UIPopoverArrowDirectionAny
-                                    animated:YES];
-        
-        // comment out next line and you'll see that Bad Things can happen
-        // can summmon same popover twice
-        // also note that this line must come *after* we present the popover or it is ineffectual
-        // [iOS 5] all of that is still true, except that instead of summoning same popover twice,
-        // we now crash if next line is commented out when tapping button with popover showing
-        // this is because as we assign a new popover controller to currentPop...
-        // ...the previous popover controller is dealloced while its popover is showing,
-        // which is illegal (sort of nice, really)
-        pop.passthroughViews = nil;
-        // make ourselves delegate so we learn when popover is dismissed
-        pop.delegate = self;
+        dispatch_async(dispatch_get_main_queue(),
+                       ^{
+                           // desc - close annotation, http://stackoverflow.com/questions/1193928/how-to-close-a-callout-for-mkannotation-in-a-mkmapview
+                           [self->map deselectAnnotation:[view annotation] animated:YES];
+                           // desc - show popover
+                           DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
+                           UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
+                           UIPopoverController* pop = [[UIPopoverController alloc] initWithContentViewController:nav];
+                           self.currentPopover = pop;
+                           [pop presentPopoverFromRect:CGRectMake(0, 0, 15, 15)
+                                                inView:view
+                              permittedArrowDirections:UIPopoverArrowDirectionAny
+                                              animated:YES];
+                           
+                           // desc - comment out next line and you'll see that Bad Things can happen can summmon same popover twice, also note that this line must come *after* we present the popover or it is ineffectual
+                           // [iOS 5] all of that is still true, except that instead of summoning same popover twice, we now crash if next line is commented out when tapping button with popover showing this is because as we assign a new popover controller to
+                           // currentPop......the previous popover controller is dealloced while its popover is showing, which is illegal (sort of nice, really)
+                           pop.passthroughViews = nil;
+                           // desc - make ourselves delegate so we learn when popover is dismissed
+                           pop.delegate = self;
+                       });
+    }
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)pc {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        if (self.currentPopover) {
+            [self.currentPopover dismissPopoverAnimated:YES];
+            self.currentPopover = nil;
+        }
     }
 }
 
