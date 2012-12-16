@@ -28,6 +28,8 @@
 		F1605DA21675A1F900813DD3 /* MetroStop.m in Sources */ = {isa = PBXBuildFile; fileRef = F1605DA11675A1F900813DD3 /* MetroStop.m */; };
 		F1605DA71675A70700813DD3 /* m2.json in Resources */ = {isa = PBXBuildFile; fileRef = F1605DA61675A70700813DD3 /* m2.json */; };
 		F1605DB71675E75600813DD3 /* MetroStopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F1605DB61675E75600813DD3 /* MetroStopAnnotation.m */; };
+		F1739D2F167D7B670047EB36 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1739D2D167D7B670047EB36 /* DetailViewController.m */; };
+		F1739D32167D7BBB0047EB36 /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1739D31167D7BBB0047EB36 /* DetailViewController_iPhone.xib */; };
 		F18CD623167B4D1200D6FA96 /* housing.json in Resources */ = {isa = PBXBuildFile; fileRef = F18CD622167B4D1200D6FA96 /* housing.json */; };
 		F18CD628167B4E0F00D6FA96 /* HouseBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F18CD627167B4E0F00D6FA96 /* HouseBase.m */; };
 		F18CD62B167B4EF300D6FA96 /* HouseBaseAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F18CD62A167B4EF300D6FA96 /* HouseBaseAnnotation.m */; };
@@ -66,6 +68,9 @@
 		F1605DA61675A70700813DD3 /* m2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = m2.json; sourceTree = "<group>"; };
 		F1605DB51675E75600813DD3 /* MetroStopAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetroStopAnnotation.h; sourceTree = "<group>"; };
 		F1605DB61675E75600813DD3 /* MetroStopAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetroStopAnnotation.m; sourceTree = "<group>"; };
+		F1739D2C167D7B670047EB36 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		F1739D2D167D7B670047EB36 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		F1739D31167D7BBB0047EB36 /* DetailViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		F18CD622167B4D1200D6FA96 /* housing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = housing.json; sourceTree = "<group>"; };
 		F18CD626167B4E0F00D6FA96 /* HouseBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseBase.h; sourceTree = "<group>"; };
 		F18CD627167B4E0F00D6FA96 /* HouseBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseBase.m; sourceTree = "<group>"; };
@@ -120,6 +125,9 @@
 				F14200261674D34A00D65D3B /* ViewController.m */,
 				F14200281674D34A00D65D3B /* ViewController_iPhone.xib */,
 				F142002B1674D34A00D65D3B /* ViewController_iPad.xib */,
+				F1739D2C167D7B670047EB36 /* DetailViewController.h */,
+				F1739D2D167D7B670047EB36 /* DetailViewController.m */,
+				F1739D31167D7BBB0047EB36 /* DetailViewController_iPhone.xib */,
 				F18CD625167B4DD700D6FA96 /* DataEntity */,
 				F1605DA51675A6CA00813DD3 /* JSONData */,
 				F14200141674D34A00D65D3B /* Supporting Files */,
@@ -246,6 +254,7 @@
 				F1F82303167A01EF00C5FDFF /* m6.json in Resources */,
 				F18CD623167B4D1200D6FA96 /* housing.json in Resources */,
 				F13FA712167C2DAA0078C560 /* m7.json in Resources */,
+				F1739D32167D7BBB0047EB36 /* DetailViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +273,7 @@
 				F18CD628167B4E0F00D6FA96 /* HouseBase.m in Sources */,
 				F18CD62B167B4EF300D6FA96 /* HouseBaseAnnotation.m in Sources */,
 				F13FA716167C38840078C560 /* LinePairs.m in Sources */,
+				F1739D2F167D7B670047EB36 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

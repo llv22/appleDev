@@ -167,7 +167,12 @@ const int iLineNumberTotal = 6;
 - (void)                mapView:(MKMapView *)mapView
                  annotationView:(MKAnnotationView *)view
   calloutAccessoryControlTapped:(UIControl *)control{
-    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        // desc - iphone
+    }
+    else{
+        // desc - ipad
+    }
 }
 
 // TODO : Zoom-in & Out for deletion and other operations
