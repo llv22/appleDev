@@ -30,6 +30,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    // desc - only edit button is valid, as navigation should be only used in iphone version
     UIBarButtonItem* edit = [[UIBarButtonItem alloc]initWithTitle:@"编辑"
                                                             style:UIBarButtonItemStylePlain
                                                            target:nil

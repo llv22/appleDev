@@ -191,7 +191,10 @@ const int iLineNumberTotal = 6;
         vc.title = _houseAnnotation.title;
         UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
         UIPopoverController* pop = [[UIPopoverController alloc] initWithContentViewController:nav];
+        
+        // desc - rotation and dismisal control
         self.currentPopover = pop;
+        self.currentpopoverAnnotationView = view;
 
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.2];
@@ -211,12 +214,26 @@ const int iLineNumberTotal = 6;
     }
 }
 
+// TODO : rotation handling for popover controller - http://developer.apple.com/library/ios/#qa/qa1694/_index.html
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        if (self.currentPopover && self.currentpopoverAnnotationView) {
+            [self.currentPopover presentPopoverFromRect:CGRectMake(0, 0, 15, 15)
+                                                 inView:self.currentpopoverAnnotationView
+                               permittedArrowDirections:UIPopoverArrowDirectionAny
+                                               animated:YES];
+        }
+    }
+}
+
 // TODO : dismisal the popover controller view
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)pc {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         if (self.currentPopover) {
             [self.currentPopover dismissPopoverAnimated:YES];
             self.currentPopover = nil;
+            self.currentpopoverAnnotationView = nil;
         }
     }
 }

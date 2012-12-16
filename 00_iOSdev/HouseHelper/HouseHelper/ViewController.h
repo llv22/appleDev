@@ -25,6 +25,7 @@ enum EntityType {
 }
 
 @property (nonatomic, strong) UIPopoverController* currentPopover;
+@property (nonatomic, retain) MKAnnotationView* currentpopoverAnnotationView;
 
 - (IBAction)resetToCenter:(id)sender;
 
