@@ -253,13 +253,18 @@ const int iLineNumberTotal = 6;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib
-    self->gLines = [[NSMutableDictionary alloc]init];
+    // desc - right navigation button
+    UIBarButtonItem *pauseBtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                             target:self
+                                                                             action:@selector(resetToCenter:)];
+    [self.navigationItem setRightBarButtonItem:pauseBtn animated:YES];
     
+    // desc - initialization of ui and center size
+    self->gLines = [[NSMutableDictionary alloc]init];
     self->distNorthToSouth = 8000;
     self->distEastToWest = 5000;
     [self initializeMetroLines];
     [self initializeHousing];
-    
     // desc - located into chengdu central
     [self resetToSquare];
 }

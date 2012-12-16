@@ -15,6 +15,7 @@
 
 @implementation AppDelegate
 
+// TODO : update navigationbar style - http://stackoverflow.com/questions/5376326/uinavigationcontroller-style
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -24,7 +25,10 @@
     } else {
         self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
     }
-    self.window.rootViewController = self.viewController;
+    // desc - navigation establishment
+    self.navigationController = [[UINavigationController alloc]initWithRootViewController:self.viewController];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    self.window.rootViewController = self.navigationController;
     
     [self.window makeKeyAndVisible];
     return YES;
