@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DetailViewController.h"
 #import "MetroStop.h"
 #import "MetroStopAnnotation.h"
 #import "HouseBase.h"
@@ -169,9 +170,35 @@ const int iLineNumberTotal = 6;
   calloutAccessoryControlTapped:(UIControl *)control{
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         // desc - iphone
+        DetailViewController *_detailController = [[DetailViewController alloc]initWithNibName:@"DetailViewController_iPhone" bundle:nil];
+        [self.navigationController pushViewController:_detailController animated:YES];
     }
     else{
         // desc - ipad
+        DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
+        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        UIPopoverController* pop = [[UIPopoverController alloc] initWithContentViewController:nav];
+        // comment out next line and you'll see the bug when navigating back and forth between different sized content views
+        // [iOS 5] bug still present in iOS 5
+//        nav.delegate = self;
+        self.currentPopover = pop;
+        //pop.popoverLayoutMargins = UIEdgeInsetsMake(0,100,100,100);
+        [pop presentPopoverFromRect:CGRectMake(0,0,0,0)
+                             inView:view
+                    permittedArrowDirections:UIPopoverArrowDirectionAny
+                                    animated:YES];
+        
+        // comment out next line and you'll see that Bad Things can happen
+        // can summmon same popover twice
+        // also note that this line must come *after* we present the popover or it is ineffectual
+        // [iOS 5] all of that is still true, except that instead of summoning same popover twice,
+        // we now crash if next line is commented out when tapping button with popover showing
+        // this is because as we assign a new popover controller to currentPop...
+        // ...the previous popover controller is dealloced while its popover is showing,
+        // which is illegal (sort of nice, really)
+        pop.passthroughViews = nil;
+        // make ourselves delegate so we learn when popover is dismissed
+        pop.delegate = self;
     }
 }
 

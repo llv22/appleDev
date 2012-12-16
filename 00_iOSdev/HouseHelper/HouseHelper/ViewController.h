@@ -14,7 +14,7 @@ enum EntityType {
     HousingType = 1
     };
 
-@interface ViewController : UIViewController<MKMapViewDelegate>{
+@interface ViewController : UIViewController<MKMapViewDelegate, UIPopoverControllerDelegate>{
     // desc - map
     IBOutlet MKMapView* map;
     // desc - screen section
@@ -23,6 +23,8 @@ enum EntityType {
     
     NSMutableDictionary* gLines;
 }
+
+@property (nonatomic, strong) UIPopoverController* currentPopover;
 
 - (IBAction)resetToCenter:(id)sender;
 
