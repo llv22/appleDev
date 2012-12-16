@@ -249,15 +249,16 @@ const int iLineNumberTotal = 6;
     return overlayview;
 }
 
+#pragma mark - View and click event on UIControl
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib
     // desc - right navigation button
-    UIBarButtonItem *pauseBtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+    UIBarButtonItem *refreshBtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                                              target:self
                                                                              action:@selector(resetToCenter:)];
-    [self.navigationItem setRightBarButtonItem:pauseBtn animated:YES];
+    [self.navigationItem setRightBarButtonItem:refreshBtn animated:YES];
     
     // desc - initialization of ui and center size
     self->gLines = [[NSMutableDictionary alloc]init];
@@ -269,14 +270,14 @@ const int iLineNumberTotal = 6;
     [self resetToSquare];
 }
 
+- (IBAction)resetToCenter:(id)sender{
+    [self resetToSquare];
+}
+
 - (void) resetToSquare{
     CLLocationCoordinate2D loc = CLLocationCoordinate2DMake(30.657665, 104.065719);
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, self->distNorthToSouth, self->distEastToWest);
     [self->map setRegion:region animated:YES];
-}
-
-- (IBAction)resetToCenter:(id)sender{
-    [self resetToSquare];
 }
 
 // TODO : auto-rotate
