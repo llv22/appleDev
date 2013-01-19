@@ -18,6 +18,8 @@
     if (self) {
         // Initialization code here.
         NSLog(@"initializing view");
+        // desc - prepare attribute
+        [self prepareAttributes];
         bgColor = [NSColor yellowColor];
         string = @"";
     }
@@ -38,6 +40,8 @@
 - (void)setString:(NSString *)c{
     self->string = c;
     NSLog(@"The string is now %@", c);
+    // desc - refresh view
+    [self setNeedsDisplay:TRUE];
 }
 
 - (NSString*)string{
@@ -50,6 +54,8 @@
     NSRect bounds = [self bounds];
     [self->bgColor set];
     [NSBezierPath fillRect:bounds];
+    // desc - draw string in center
+    [self drawStringCenteredIn:bounds];
     
     if ([[self window] firstResponder] == self &&
         [NSGraphicsContext currentContextDrawingToScreen] //?
@@ -131,6 +137,48 @@
 - (void)mouseExited:(NSEvent *)theEvent{
     isHighted = NO;
     [self setNeedsDisplay:YES];
+}
+
+#pragma mark - preparation attributes
+
+- (void)prepareAttributes{
+    self->attributes = [NSMutableDictionary dictionary];
+    [self->attributes setObject:[NSFont userFontOfSize:75]
+                         forKey:NSFontAttributeName];
+    [self->attributes setObject:[NSColor redColor]
+                         forKey:NSForegroundColorAttributeName];
+}
+
+- (void)drawStringCenteredIn:(NSRect)r{
+    NSSize strSize = [string sizeWithAttributes:self->attributes];
+    NSPoint strOrigin;
+    strOrigin.x = r.origin.x + (r.size.width - strSize.width)/2;
+    strOrigin.y = r.origin.y + (r.size.height - strSize.height)/2;
+    [string drawAtPoint:strOrigin
+         withAttributes:self->attributes];
+}
+
+#pragma mark - save as pdf
+- (IBAction)savePDF:(id)sender{
+    __block NSSavePanel *panel = [NSSavePanel savePanel];
+    [panel setAllowedFileTypes:[NSArray arrayWithObject:@"pdf"]];
+     
+    [panel beginSheetModalForWindow:[self window]
+                  completionHandler:^(NSInteger result) {
+                      if (result == NSOKButton) {
+                          NSRect r = [self bounds];
+                          NSData *data = [self dataWithEPSInsideRect:r];
+                          NSError *error;
+                          BOOL successful = [data writeToURL:[panel URL]
+                                                     options:0
+                                                       error:&error];
+                          if (successful) {
+                              NSAlert *a = [NSAlert alertWithError:error];
+                              [a runModal];
+                          }
+                      }
+                      panel = nil; //desc - avoid cycle reference
+                  }];
 }
 
 @end

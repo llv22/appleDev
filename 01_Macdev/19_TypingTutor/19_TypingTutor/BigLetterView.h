@@ -12,9 +12,13 @@
     NSColor *bgColor;
     NSString *string;
     BOOL isHighted;
+    // desc - 20 text with attribute
+    NSMutableDictionary *attributes;
 }
 
 @property(strong) NSColor* bgColor;
 @property(copy) NSString* string;
+
+- (IBAction)savePDF:(id)sender;
 
 @end
