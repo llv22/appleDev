@@ -173,6 +173,7 @@
                                                      options:0
                                                        error:&error];
                           if (successful) {
+                              // desc - with issue, can't open pdf
                               NSAlert *a = [NSAlert alertWithError:error];
                               [a runModal];
                           }
