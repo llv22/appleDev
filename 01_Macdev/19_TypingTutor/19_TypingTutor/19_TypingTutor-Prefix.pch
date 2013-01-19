@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the '19_TypingTutor' target in the '19_TypingTutor' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
