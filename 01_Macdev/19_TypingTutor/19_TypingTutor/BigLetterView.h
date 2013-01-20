@@ -20,5 +20,6 @@
 @property(copy) NSString* string;
 
 - (IBAction)savePDF:(id)sender;
+- (void)prepareAttributes;
 
 @end

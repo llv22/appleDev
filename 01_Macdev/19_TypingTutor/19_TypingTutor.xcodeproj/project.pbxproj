@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F117A15D16ABA77700BEC621 /* readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = readme.rtf; sourceTree = "<group>"; };
 		F137C55C16A95ADA001B3970 /* 19_TypingTutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 19_TypingTutor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F137C56016A95ADA001B3970 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F137C56316A95ADA001B3970 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -78,6 +79,7 @@
 		F137C55116A95ADA001B3970 = {
 			isa = PBXGroup;
 			children = (
+				F117A15D16ABA77700BEC621 /* readme.rtf */,
 				F137C56616A95ADA001B3970 /* 19_TypingTutor */,
 				F137C58316A95ADA001B3970 /* 19_TypingTutorTests */,
 				F137C55F16A95ADA001B3970 /* Frameworks */,
@@ -452,6 +454,7 @@
 				F137C59016A95ADA001B3970 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F137C59116A95ADA001B3970 /* Build configuration list for PBXNativeTarget "19_TypingTutorTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +463,7 @@
 				F137C59316A95ADA001B3970 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

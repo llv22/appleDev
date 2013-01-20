@@ -64,9 +64,9 @@
         NSSetFocusRingStyle(NSFocusRingOnly);
         [NSBezierPath fillRect:bounds];
         [NSGraphicsContext restoreGraphicsState];
-//        [[NSColor keyboardFocusIndicatorColor] set];
-//        [NSBezierPath setDefaultLineWidth:4.0];
-//        [NSBezierPath strokeRect:bounds];
+        //        [[NSColor keyboardFocusIndicatorColor] set];
+        //        [NSBezierPath setDefaultLineWidth:4.0];
+        //        [NSBezierPath strokeRect:bounds];
     }
 }
 
@@ -82,7 +82,7 @@
 
 - (BOOL) resignFirstResponder{
     NSLog(@"Resigning");
-//    [self setNeedsDisplay:YES];
+    //    [self setNeedsDisplay:YES];
     [self setKeyboardFocusRingNeedsDisplayInRect:[self bounds]];
     return YES;
 }
@@ -119,8 +119,8 @@
 
 - (void) viewDidMoveToWindow{
     int options = NSTrackingMouseEnteredAndExited |
-                    NSTrackingActiveAlways |
-                    NSTrackingInVisibleRect;
+    NSTrackingActiveAlways |
+    NSTrackingInVisibleRect;
     
     NSTrackingArea *ta = [[NSTrackingArea alloc]initWithRect:NSZeroRect
                                                      options:options
@@ -162,17 +162,17 @@
 - (IBAction)savePDF:(id)sender{
     __block NSSavePanel *panel = [NSSavePanel savePanel];
     [panel setAllowedFileTypes:[NSArray arrayWithObject:@"pdf"]];
-     
+    
     [panel beginSheetModalForWindow:[self window]
                   completionHandler:^(NSInteger result) {
                       if (result == NSOKButton) {
                           NSRect r = [self bounds];
-                          NSData *data = [self dataWithEPSInsideRect:r];
+                          NSData *data = [self dataWithPDFInsideRect:r];
                           NSError *error;
                           BOOL successful = [data writeToURL:[panel URL]
                                                      options:0
                                                        error:&error];
-                          if (successful) {
+                          if (!successful) {
                               // desc - with issue, can't open pdf
                               NSAlert *a = [NSAlert alertWithError:error];
                               [a runModal];
