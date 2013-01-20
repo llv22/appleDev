@@ -10,6 +10,8 @@
 
 @implementation BigLetterView
 
+@synthesize bold, italic;
+
 //@synthesize bgColor = bgColor, string = string;
 
 - (id)initWithFrame:(NSRect)frame
@@ -141,12 +143,31 @@
 
 #pragma mark - preparation attributes
 
+// desc - prepare attributes on shawdow
 - (void)prepareAttributes{
     self->attributes = [NSMutableDictionary dictionary];
     [self->attributes setObject:[NSFont userFontOfSize:75]
                          forKey:NSFontAttributeName];
     [self->attributes setObject:[NSColor redColor]
                          forKey:NSForegroundColorAttributeName];
+    
+    NSShadow *shadow = [[NSShadow alloc]init];
+    [shadow setShadowBlurRadius:3.0];
+    [shadow setShadowColor:[NSColor blackColor]];
+    // desc - width and height
+    [shadow setShadowOffset:NSMakeSize(0, -8)];
+    [self->attributes setObject:shadow
+                         forKey:NSShadowAttributeName];
+    
+	NSFont *font = [NSFont userFontOfSize:75];
+	NSFontManager *fontManager = [NSFontManager sharedFontManager];
+	if ([self italic])
+		font = [fontManager convertFont:font toHaveTrait:NSItalicFontMask];
+	if ([self bold])
+		font = [fontManager convertFont:font toHaveTrait:NSBoldFontMask];
+	
+	[self->attributes setObject:font
+				   forKey:NSFontAttributeName];
 }
 
 - (void)drawStringCenteredIn:(NSRect)r{
@@ -180,6 +201,43 @@
                       }
                       panel = nil; //desc - avoid cycle reference
                   }];
+}
+
+#pragma mark - swith on/off bold or italic
+- (IBAction)toggleBold:(id)sender{
+    NSMenuItem* _item = (NSMenuItem*)sender;
+    if(_item.state == NSOnState){
+        [_item setState:NSOffState];
+    }
+    else if (_item.state == NSOffState){
+        [_item setState:NSOnState];
+    }
+	[self setBold:[sender state] == NSOnState];
+}
+
+- (IBAction)toggleItalic:(id)sender{
+    NSMenuItem* _item = (NSMenuItem*)sender;
+    if(_item.state == NSOnState){
+        [_item setState:NSOffState];
+    }
+    else if (_item.state == NSOffState){
+        [_item setState:NSOnState];
+    }
+	[self setItalic:[sender state] == NSOnState];
+}
+
+- (void)setBold:(BOOL)bold_
+{
+	bold = bold_;
+	[self prepareAttributes];
+	[self setNeedsDisplay:YES];
+}
+
+- (void)setItalic:(BOOL)italic_
+{
+	italic = italic_;
+	[self prepareAttributes];
+	[self setNeedsDisplay:YES];
 }
 
 @end
