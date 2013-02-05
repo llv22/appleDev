@@ -1,0 +1,29 @@
+<!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>The Core iOS 6 Developer’s Cookbook - Erica Sadun</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://www.google.com.hk/jsapi"></script>
+    <script type="text/javascript">
+      google.load("books", "0", {"language": "en"});
+
+      function alertNotFound() {
+          alert("could not embed the book!");
+      }
+
+      function alertInitialized() {
+          alert("book successfully loaded and initialized!");
+      }
+
+      function initialize() {
+          var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+          viewer.load('ISBN:0133120821', alertNotFound, alertInitialized);
+      }
+
+      google.setOnLoadCallback(initialize);
+    </script>
+    <div id="viewerCanvas" style="width: 600px; height: 500px"></div>
+  </body>
+</html>
