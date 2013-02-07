@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1134A2D16C3AE2E00EE1E63 /* iOS6coreTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = F1134A2C16C3AE2E00EE1E63 /* iOS6coreTemplate.html */; };
 		F174FEAF16C0F39E00E6C68B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F174FEAE16C0F39E00E6C68B /* UIKit.framework */; };
 		F174FEB116C0F39E00E6C68B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F174FEB016C0F39E00E6C68B /* Foundation.framework */; };
 		F174FEB316C0F39E00E6C68B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F174FEB216C0F39E00E6C68B /* CoreGraphics.framework */; };
@@ -19,10 +20,10 @@
 		F174FEC816C0F39E00E6C68B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F174FEC716C0F39E00E6C68B /* ViewController.m */; };
 		F174FECB16C0F39E00E6C68B /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F174FEC916C0F39E00E6C68B /* ViewController_iPhone.xib */; };
 		F174FECE16C0F39E00E6C68B /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F174FECC16C0F39E00E6C68B /* ViewController_iPad.xib */; };
-		F174FED516C0F4D600E6C68B /* iOS6core.html in Resources */ = {isa = PBXBuildFile; fileRef = F174FED416C0F4D600E6C68B /* iOS6core.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F1134A2C16C3AE2E00EE1E63 /* iOS6coreTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = iOS6coreTemplate.html; sourceTree = "<group>"; };
 		F174FEAB16C0F39E00E6C68B /* OnlineGoogleBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineGoogleBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F174FEAE16C0F39E00E6C68B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F174FEB016C0F39E00E6C68B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -94,6 +95,7 @@
 				F174FEC916C0F39E00E6C68B /* ViewController_iPhone.xib */,
 				F174FECC16C0F39E00E6C68B /* ViewController_iPad.xib */,
 				F174FED416C0F4D600E6C68B /* iOS6core.html */,
+				F1134A2C16C3AE2E00EE1E63 /* iOS6coreTemplate.html */,
 				F174FEB516C0F39E00E6C68B /* Supporting Files */,
 			);
 			path = OnlineGoogleBook;
@@ -170,7 +172,7 @@
 				F174FEC516C0F39E00E6C68B /* Default-568h@2x.png in Resources */,
 				F174FECB16C0F39E00E6C68B /* ViewController_iPhone.xib in Resources */,
 				F174FECE16C0F39E00E6C68B /* ViewController_iPad.xib in Resources */,
-				F174FED516C0F4D600E6C68B /* iOS6core.html in Resources */,
+				F1134A2D16C3AE2E00EE1E63 /* iOS6coreTemplate.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +318,7 @@
 				F174FED316C0F39E00E6C68B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
