@@ -24,14 +24,14 @@
 
 /* Begin PBXFileReference section */
 		F1134A2C16C3AE2E00EE1E63 /* iOS6coreTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = iOS6coreTemplate.html; sourceTree = "<group>"; };
-		F174FEAB16C0F39E00E6C68B /* OnlineGoogleBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineGoogleBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F174FEAB16C0F39E00E6C68B /* OnlineGBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineGBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F174FEAE16C0F39E00E6C68B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F174FEB016C0F39E00E6C68B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F174FEB216C0F39E00E6C68B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F174FEB616C0F39E00E6C68B /* OnlineGoogleBook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnlineGoogleBook-Info.plist"; sourceTree = "<group>"; };
+		F174FEB616C0F39E00E6C68B /* OnlineGBooks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnlineGBooks-Info.plist"; sourceTree = "<group>"; };
 		F174FEB816C0F39E00E6C68B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F174FEBA16C0F39E00E6C68B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F174FEBC16C0F39E00E6C68B /* OnlineGoogleBook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnlineGoogleBook-Prefix.pch"; sourceTree = "<group>"; };
+		F174FEBC16C0F39E00E6C68B /* OnlineGBooks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnlineGBooks-Prefix.pch"; sourceTree = "<group>"; };
 		F174FEBD16C0F39E00E6C68B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F174FEBE16C0F39E00E6C68B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F174FEC016C0F39E00E6C68B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		F174FEAC16C0F39E00E6C68B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F174FEAB16C0F39E00E6C68B /* OnlineGoogleBook.app */,
+				F174FEAB16C0F39E00E6C68B /* OnlineGBooks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,10 +104,10 @@
 		F174FEB516C0F39E00E6C68B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F174FEB616C0F39E00E6C68B /* OnlineGoogleBook-Info.plist */,
+				F174FEB616C0F39E00E6C68B /* OnlineGBooks-Info.plist */,
 				F174FEB716C0F39E00E6C68B /* InfoPlist.strings */,
 				F174FEBA16C0F39E00E6C68B /* main.m */,
-				F174FEBC16C0F39E00E6C68B /* OnlineGoogleBook-Prefix.pch */,
+				F174FEBC16C0F39E00E6C68B /* OnlineGBooks-Prefix.pch */,
 				F174FEC016C0F39E00E6C68B /* Default.png */,
 				F174FEC216C0F39E00E6C68B /* Default@2x.png */,
 				F174FEC416C0F39E00E6C68B /* Default-568h@2x.png */,
@@ -118,9 +118,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F174FEAA16C0F39E00E6C68B /* OnlineGoogleBook */ = {
+		F174FEAA16C0F39E00E6C68B /* OnlineGBooks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F174FED116C0F39E00E6C68B /* Build configuration list for PBXNativeTarget "OnlineGoogleBook" */;
+			buildConfigurationList = F174FED116C0F39E00E6C68B /* Build configuration list for PBXNativeTarget "OnlineGBooks" */;
 			buildPhases = (
 				F174FEA716C0F39E00E6C68B /* Sources */,
 				F174FEA816C0F39E00E6C68B /* Frameworks */,
@@ -130,9 +130,9 @@
 			);
 			dependencies = (
 			);
-			name = OnlineGoogleBook;
+			name = OnlineGBooks;
 			productName = OnlineGoogleBook;
-			productReference = F174FEAB16C0F39E00E6C68B /* OnlineGoogleBook.app */;
+			productReference = F174FEAB16C0F39E00E6C68B /* OnlineGBooks.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -144,7 +144,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Ding Orlando";
 			};
-			buildConfigurationList = F174FEA616C0F39E00E6C68B /* Build configuration list for PBXProject "OnlineGoogleBook" */;
+			buildConfigurationList = F174FEA616C0F39E00E6C68B /* Build configuration list for PBXProject "OnlineGBooks" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -156,7 +156,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F174FEAA16C0F39E00E6C68B /* OnlineGoogleBook */,
+				F174FEAA16C0F39E00E6C68B /* OnlineGBooks */,
 			);
 		};
 /* End PBXProject section */
@@ -281,9 +281,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OnlineGoogleBook/OnlineGoogleBook-Prefix.pch";
-				INFOPLIST_FILE = "OnlineGoogleBook/OnlineGoogleBook-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "OnlineGoogleBook/OnlineGBooks-Prefix.pch";
+				INFOPLIST_FILE = "OnlineGoogleBook/OnlineGBooks-Info.plist";
+				PRODUCT_NAME = OnlineGBooks;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -292,9 +292,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OnlineGoogleBook/OnlineGoogleBook-Prefix.pch";
-				INFOPLIST_FILE = "OnlineGoogleBook/OnlineGoogleBook-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "OnlineGoogleBook/OnlineGBooks-Prefix.pch";
+				INFOPLIST_FILE = "OnlineGoogleBook/OnlineGBooks-Info.plist";
+				PRODUCT_NAME = OnlineGBooks;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -302,7 +302,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F174FEA616C0F39E00E6C68B /* Build configuration list for PBXProject "OnlineGoogleBook" */ = {
+		F174FEA616C0F39E00E6C68B /* Build configuration list for PBXProject "OnlineGBooks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F174FECF16C0F39E00E6C68B /* Debug */,
@@ -311,7 +311,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F174FED116C0F39E00E6C68B /* Build configuration list for PBXNativeTarget "OnlineGoogleBook" */ = {
+		F174FED116C0F39E00E6C68B /* Build configuration list for PBXNativeTarget "OnlineGBooks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F174FED216C0F39E00E6C68B /* Debug */,
