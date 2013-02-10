@@ -46,7 +46,7 @@ NSString* strApisFile = @"iOS6apis";
     NSString* strWebContent = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     // desc - replace string with parameter, book id = hcz96jeSLe8C
     // parameters list in order - why is 100% will be replaced with 100 via %@
-    // see objective-c programming of http://mustache.github.com via texttemplate similar djano in objective-c
+    // see objective-c programming of http://mustache.github.com via texttemplate similar djano in objective-c, also check up with http://code.google.com/p/djolt/source/checkout
     // strWebContent = [NSString stringWithFormat:strWebContent, @"hcz96jeSLe8C"];
     strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"{{id}}" withString:@"hcz96jeSLe8C"];
     
