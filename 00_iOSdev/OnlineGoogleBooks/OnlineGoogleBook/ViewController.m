@@ -44,7 +44,14 @@ NSString* strApisFile = @"iOS6apis";
     NSURL* url = [NSURL fileURLWithPath:path];
     NSError* error = nil;
     NSString* strWebContent = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    // desc - replace string with parameter, book id = hcz96jeSLe8C
+    // parameters list in order - why is 100% will be replaced with 100 via %@
+    // see objective-c programming of http://mustache.github.com via texttemplate similar djano in objective-c
+    // strWebContent = [NSString stringWithFormat:strWebContent, @"hcz96jeSLe8C"];
+    strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"{{id}}" withString:@"hcz96jeSLe8C"];
+    
     /**
+     * desc - replacement of string content https://github.com/groue/GRMustache
      * desc - replace with UI size, http://stackoverflow.com/questions/668228/string-replacement-in-objective-c
     int iViewWidth = self->webview.frame.size.width, iViewHeight = self->webview.frame.size.height;
     strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"$width$" withString:[NSString stringWithFormat:@"%d", iViewWidth]];
