@@ -1,0 +1,24 @@
+<!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Books Embedded Viewer API Example</title>
+    <script type="text/javascript" src="http://www.google.com.hk/jsapi"></script>
+    <script type="text/javascript">
+      google.load("books", "0");
+
+      function initialize() {
+        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+        //TODO : refer to http://books.google.com.hk/books?id=hcz96jeSLe8C&dq=The+Core+iOS+6+Developer’s+Cookbook&hl=zh-CN&source=gbs_navlinks_s
+        //TODO : invalid to load ISBN:0133120821
+        viewer.load('ISBN:0133120821');
+      }
+
+      google.setOnLoadCallback(initialize);
+    </script>
+  </head>
+  <body>
+    <div id="viewerCanvas" style="width: 600px; height: 500px"></div>
+  </body>
+</html>

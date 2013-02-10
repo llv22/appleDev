@@ -1,0 +1,35 @@
+<!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>The Core iOS 6 Developer’s Cookbook - Erica Sadun</title>
+    <script src="http://www.google.com.hk/jsapi"></script>
+    <script>
+    function nextStep(viewer) {
+    window.setTimeout(function() {
+      viewer.nextPage();
+      nextStep(viewer);
+    }, 12000);
+    }
+    
+    function initialize() {
+        var viewer = new google.books.DefaultViewer(document.getElementById('viewport'));
+        //viewer.load('ISBN:0133120821');
+        /**
+         * https://developers.google.com/books/docs/v1/using?hl=de#ids
+         **/
+         //query for https://www.googleapis.com/books/v1/volumes?q=iOS6+Core+Developer+Cookbook
+       // viewer.load('http://books.google.com.hk/books?printsec=frontcover&id=hcz96jeSLe8C&hl=zh-CN&source=gbs_embed');
+       viewer.load('http://books.google.com.hk/books?id=hcz96jeSLe8C&pg=PT27&dq=iOS6+Core+Developer+Cookbook&hl=&cd=1&source=gbs_api');
+        nextStep(viewer);
+    }
+    
+    google.setOnLoadCallback(initialize);
+    var params = {language: "zh-CN"};
+    google.load('books', '0', params);
+    </script>
+  </head>
+  <body style="margin:0;padding:0;overflow:auto">
+    <div style="width:100%;height:100%;overflow:hidden" id="viewport" ></div>
+  </body>
+</html>

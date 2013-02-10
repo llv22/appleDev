@@ -8,10 +8,13 @@
 
 #import "ViewController.h"
 
+NSString* strPrevFile = @"iOS6preTemplate";
+NSString* strApisFile = @"iOS6apis";
+
 @interface ViewController ()
 
-- (void) loadHtmlStringLocally;
-- (void) loadHtmlResourceLocally;
+- (void) loadHtmlStringLocally : (NSString*)fTemplate;
+- (void) loadHtmlResourceLocally : (NSString*)fTemplate;
 
 @end
 
@@ -21,12 +24,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [self loadHtmlStringLocally];
+    [self loadHtmlStringLocally: strApisFile];
 }
 
 // desc - load html via String in UIWebContainer - not used now
-- (void) loadHtmlResourceLocally{
-    NSString* path = [[NSBundle mainBundle]pathForResource:@"iOS6core" ofType:@"html"];
+- (void) loadHtmlResourceLocally : (NSString*)fTemplate{
+    NSString* path = [[NSBundle mainBundle]pathForResource:fTemplate ofType:@"html"];
     NSURL* url = [NSURL fileURLWithPath:path];
     NSURLRequest* req = [[NSURLRequest alloc]initWithURL:url];
     [self->webview loadRequest:req];
@@ -36,17 +39,18 @@
 // requirements :
 //      1, need to adjust for UIContainer to UI status
 //      2, need to add UI status refreshment
-- (void) loadHtmlStringLocally{
-    NSString* path = [[NSBundle mainBundle]pathForResource:@"iOS6coreTemplate" ofType:@"html"];
+- (void) loadHtmlStringLocally : (NSString*)fTemplate{
+    NSString* path = [[NSBundle mainBundle]pathForResource:fTemplate ofType:@"html"];
     NSURL* url = [NSURL fileURLWithPath:path];
     NSError* error = nil;
     NSString* strWebContent = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
-//    NSLog(@"%f, %f", self->webview.frame.size.width, self->webview.frame.size.height);
+    /**
+     * desc - replace with UI size, http://stackoverflow.com/questions/668228/string-replacement-in-objective-c
     int iViewWidth = self->webview.frame.size.width, iViewHeight = self->webview.frame.size.height;
-    
-    //desc - replace with UI size, http://stackoverflow.com/questions/668228/string-replacement-in-objective-c
     strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"$width$" withString:[NSString stringWithFormat:@"%d", iViewWidth]];
     strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"$height$" withString:[NSString stringWithFormat:@"%d", iViewHeight]];
+     **/
+    
     [self->webview sizeToFit];
     [self->webview loadHTMLString:strWebContent baseURL:url];
 }
