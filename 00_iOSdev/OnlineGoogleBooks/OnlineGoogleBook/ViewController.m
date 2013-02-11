@@ -71,15 +71,28 @@ NSString* strApisFile = @"iOS6apis";
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
+#ifdef DEBUG
     NSLog(@"started");
+#endif
+    UIActivityIndicatorView *v = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    v.center = CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0);
+    v.tag = 1001;
+    [self.view addSubview:v];
+    [v startAnimating];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
-    NSLog(@"finished");}
+#ifdef DEBUG
+    NSLog(@"finished");
+#endif
+    [[self.view viewWithTag:1001] removeFromSuperview];
+}
 
 - (void)        webView:(UIWebView *)webView
    didFailLoadWithError:(NSError *)error{
+#ifdef DEBUG
     NSLog(@"failed");
+#endif
 }
 
 @end
