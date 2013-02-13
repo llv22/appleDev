@@ -21,6 +21,10 @@
 		F174FECB16C0F39E00E6C68B /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F174FEC916C0F39E00E6C68B /* ViewController_iPhone.xib */; };
 		F174FECE16C0F39E00E6C68B /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F174FECC16C0F39E00E6C68B /* ViewController_iPad.xib */; };
 		F1BD884716CB33DA00225CFB /* readme.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = F1BD884616CB33DA00225CFB /* readme.rtfd */; };
+		F1BD884916CB395B00225CFB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BD884816CB395B00225CFB /* CoreData.framework */; };
+		F1BD884D16CB399600225CFB /* GbookModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1BD884B16CB399600225CFB /* GbookModel.xcdatamodeld */; };
+		F1BD885016CB3A7000225CFB /* PersistStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BD884F16CB3A7000225CFB /* PersistStatus.m */; };
+		F1BD885316CB3B4000225CFB /* DataModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BD885216CB3B4000225CFB /* DataModelStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,12 @@
 		F174FECA16C0F39E00E6C68B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		F174FECD16C0F39E00E6C68B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		F1BD884616CB33DA00225CFB /* readme.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = readme.rtfd; sourceTree = "<group>"; };
+		F1BD884816CB395B00225CFB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F1BD884C16CB399600225CFB /* GbookModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GbookModel.xcdatamodel; sourceTree = "<group>"; };
+		F1BD884E16CB3A7000225CFB /* PersistStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistStatus.h; sourceTree = "<group>"; };
+		F1BD884F16CB3A7000225CFB /* PersistStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistStatus.m; sourceTree = "<group>"; };
+		F1BD885116CB3B4000225CFB /* DataModelStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelStore.h; sourceTree = "<group>"; };
+		F1BD885216CB3B4000225CFB /* DataModelStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BD884916CB395B00225CFB /* CoreData.framework in Frameworks */,
 				F174FEAF16C0F39E00E6C68B /* UIKit.framework in Frameworks */,
 				F174FEB116C0F39E00E6C68B /* Foundation.framework in Frameworks */,
 				F174FEB316C0F39E00E6C68B /* CoreGraphics.framework in Frameworks */,
@@ -80,6 +91,7 @@
 		F174FEAD16C0F39E00E6C68B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1BD884816CB395B00225CFB /* CoreData.framework */,
 				F174FEAE16C0F39E00E6C68B /* UIKit.framework */,
 				F174FEB016C0F39E00E6C68B /* Foundation.framework */,
 				F174FEB216C0F39E00E6C68B /* CoreGraphics.framework */,
@@ -97,6 +109,7 @@
 				F174FEC916C0F39E00E6C68B /* ViewController_iPhone.xib */,
 				F174FECC16C0F39E00E6C68B /* ViewController_iPad.xib */,
 				F111FDAB16C7AA58008BC22C /* iOS6apis.html */,
+				F1BD884A16CB397100225CFB /* Datamodel */,
 				F174FEB516C0F39E00E6C68B /* Supporting Files */,
 			);
 			path = OnlineGoogleBook;
@@ -114,6 +127,18 @@
 				F174FEC416C0F39E00E6C68B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1BD884A16CB397100225CFB /* Datamodel */ = {
+			isa = PBXGroup;
+			children = (
+				F1BD884B16CB399600225CFB /* GbookModel.xcdatamodeld */,
+				F1BD884E16CB3A7000225CFB /* PersistStatus.h */,
+				F1BD884F16CB3A7000225CFB /* PersistStatus.m */,
+				F1BD885116CB3B4000225CFB /* DataModelStore.h */,
+				F1BD885216CB3B4000225CFB /* DataModelStore.m */,
+			);
+			name = Datamodel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +213,9 @@
 				F174FEBB16C0F39E00E6C68B /* main.m in Sources */,
 				F174FEBF16C0F39E00E6C68B /* AppDelegate.m in Sources */,
 				F174FEC816C0F39E00E6C68B /* ViewController.m in Sources */,
+				F1BD884D16CB399600225CFB /* GbookModel.xcdatamodeld in Sources */,
+				F1BD885016CB3A7000225CFB /* PersistStatus.m in Sources */,
+				F1BD885316CB3B4000225CFB /* DataModelStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +351,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F1BD884B16CB399600225CFB /* GbookModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F1BD884C16CB399600225CFB /* GbookModel.xcdatamodel */,
+			);
+			currentVersion = F1BD884C16CB399600225CFB /* GbookModel.xcdatamodel */;
+			path = GbookModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F174FEA316C0F39E00E6C68B /* Project object */;
 }
