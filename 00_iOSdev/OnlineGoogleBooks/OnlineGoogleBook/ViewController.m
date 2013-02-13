@@ -8,8 +8,8 @@
 
 #import "ViewController.h"
 
-NSString* strPrevFile = @"iOS6preTemplate";
 NSString* strApisFile = @"iOS6apis";
+const int iUIActivityIndicatorId = 1001;
 
 @interface ViewController ()
 
@@ -76,7 +76,7 @@ NSString* strApisFile = @"iOS6apis";
 #endif
     UIActivityIndicatorView *v = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     v.center = CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0);
-    v.tag = 1001;
+    v.tag = iUIActivityIndicatorId;
     [self.view addSubview:v];
     [v startAnimating];
 }
@@ -85,7 +85,7 @@ NSString* strApisFile = @"iOS6apis";
 #ifdef DEBUG
     NSLog(@"finished");
 #endif
-    [[self.view viewWithTag:1001] removeFromSuperview];
+    [[self.view viewWithTag:iUIActivityIndicatorId] removeFromSuperview];
 }
 
 - (void)        webView:(UIWebView *)webView

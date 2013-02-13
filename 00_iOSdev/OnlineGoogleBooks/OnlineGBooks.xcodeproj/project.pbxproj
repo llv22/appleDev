@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F111FDAC16C7AA58008BC22C /* iOS6apis.html in Resources */ = {isa = PBXBuildFile; fileRef = F111FDAB16C7AA58008BC22C /* iOS6apis.html */; };
-		F1134A2D16C3AE2E00EE1E63 /* iOS6preTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = F1134A2C16C3AE2E00EE1E63 /* iOS6preTemplate.html */; };
 		F174FEAF16C0F39E00E6C68B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F174FEAE16C0F39E00E6C68B /* UIKit.framework */; };
 		F174FEB116C0F39E00E6C68B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F174FEB016C0F39E00E6C68B /* Foundation.framework */; };
 		F174FEB316C0F39E00E6C68B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F174FEB216C0F39E00E6C68B /* CoreGraphics.framework */; };
@@ -26,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		F111FDAB16C7AA58008BC22C /* iOS6apis.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = iOS6apis.html; sourceTree = "<group>"; };
-		F1134A2C16C3AE2E00EE1E63 /* iOS6preTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = iOS6preTemplate.html; sourceTree = "<group>"; };
 		F174FEAB16C0F39E00E6C68B /* OnlineGBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineGBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F174FEAE16C0F39E00E6C68B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F174FEB016C0F39E00E6C68B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -98,7 +96,6 @@
 				F174FEC716C0F39E00E6C68B /* ViewController.m */,
 				F174FEC916C0F39E00E6C68B /* ViewController_iPhone.xib */,
 				F174FECC16C0F39E00E6C68B /* ViewController_iPad.xib */,
-				F1134A2C16C3AE2E00EE1E63 /* iOS6preTemplate.html */,
 				F111FDAB16C7AA58008BC22C /* iOS6apis.html */,
 				F174FEB516C0F39E00E6C68B /* Supporting Files */,
 			);
@@ -176,7 +173,6 @@
 				F174FEC516C0F39E00E6C68B /* Default-568h@2x.png in Resources */,
 				F174FECB16C0F39E00E6C68B /* ViewController_iPhone.xib in Resources */,
 				F174FECE16C0F39E00E6C68B /* ViewController_iPad.xib in Resources */,
-				F1134A2D16C3AE2E00EE1E63 /* iOS6preTemplate.html in Resources */,
 				F111FDAC16C7AA58008BC22C /* iOS6apis.html in Resources */,
 				F1BD884716CB33DA00225CFB /* readme.rtfd in Resources */,
 			);
