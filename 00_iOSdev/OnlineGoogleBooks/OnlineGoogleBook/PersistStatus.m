@@ -12,4 +12,14 @@
 
 @synthesize iCurrentPage;
 
+- (void)awakeFromFetch
+{
+    [super awakeFromFetch];
+}
+
+- (void)awakeFromInsert
+{
+    [super awakeFromInsert];
+}
+
 @end

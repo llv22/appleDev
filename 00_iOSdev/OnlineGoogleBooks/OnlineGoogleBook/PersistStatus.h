@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface PersistStatus : NSManagedObject{
-    @private
-}
+@interface PersistStatus : NSManagedObject
 
-@property (nonatomic, retain) NSNumber *iCurrentPage;
+@property (nonatomic) int32_t iCurrentPage;
 
 @end

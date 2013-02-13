@@ -7,19 +7,45 @@
 //
 
 #import "DataModelStore.h"
+#import "PersistStatus.h"
 #import <CoreData/CoreData.h>
 
 @implementation DataModelStore
 
+// desc - refer to DataModelStore - /Users/llv22/Documents/01_devsrc/08_appleDevs/00_iOSdev/iOSGuideSamples/iOS Programming 3e Solutions/17. Homepwner/Homepwner/Homepwner/BNRItemStore.m
++ (DataModelStore*) defaultStore{
+    static DataModelStore *sharedStore = nil;
+    if(!sharedStore)
+        sharedStore = [[super allocWithZone:nil] init];
+    
+    return sharedStore;
+}
+
++ (id)allocWithZone:(NSZone *)zone
+{
+    return [self defaultStore];
+}
+
+- (NSString *)itemArchivePath
+{
+    NSArray *documentDirectories =
+    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                        NSUserDomainMask, YES);
+    
+    // Get one and only document directory from that list
+    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+    
+    return [documentDirectory stringByAppendingPathComponent:@"store.data"];
+}
+
 - (id)init{
-    if ([DataModelStore defaultStore]) {
-        return [DataModelStore defaultStore];
-    }
     if (self = [super init]) {
         self->model = [NSManagedObjectModel mergedModelFromBundles:nil];
-        NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:model];
-        // desc - http://ken.bokele.com/?ArticleID=86399
-        NSString *path = [NSString stringWithFormat:@"%@\%@", NSHomeDirectory(), @"store.data"];
+        NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self->model];
+        
+        // Where does the SQLite file go?
+        NSString *path = [self itemArchivePath];
+
         NSURL *storeURL = [NSURL fileURLWithPath:path];
         NSError *error = nil;
         if (![psc addPersistentStoreWithType:NSSQLiteStoreType
@@ -32,6 +58,7 @@
         self->context = [[NSManagedObjectContext alloc]init];
         [self->context setPersistentStoreCoordinator:psc];
         [self->context setUndoManager:nil];
+        [self fetchData];
     }
     
     return self;
@@ -53,10 +80,18 @@
         [request setEntity:e];
         NSError *error;
         NSArray *result = [self->context executeFetchRequest:request error:&error];
-        if (!request || [result count] < 1) {
+        if (!request) {
             [NSException raise:@"Fetch failed" format:@"Reason: %@", [error localizedDescription]];
         }
-        self->status = result[0];
+        self->allItems = [result mutableCopy];
+        if ([result count ] == 0){
+            // not valid for initialization
+//            PersistStatus *_status = [[PersistStatus alloc]init];
+            PersistStatus *_status = [NSEntityDescription insertNewObjectForEntityForName:@"PersistStatus"
+                                                                   inManagedObjectContext:self->context];
+            self->allItems[0] = _status;
+        }
+        self->status = self->allItems[0];
     }
 }
 
@@ -64,12 +99,5 @@
     [self fetchData];
     return self->status;
 }
-
-+ (DataModelStore*) defaultStore{
-    if (self) {
-    }
-    return self;
-}
-
 
 @end

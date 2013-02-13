@@ -12,6 +12,7 @@
 
 @interface DataModelStore : NSObject{
     PersistStatus *status;
+    NSMutableArray *allItems;
     NSManagedObjectContext *context;
     NSManagedObjectModel *model;
 }
