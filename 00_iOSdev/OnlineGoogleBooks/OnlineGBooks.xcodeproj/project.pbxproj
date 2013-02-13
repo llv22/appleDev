@@ -21,6 +21,7 @@
 		F174FEC816C0F39E00E6C68B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F174FEC716C0F39E00E6C68B /* ViewController.m */; };
 		F174FECB16C0F39E00E6C68B /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F174FEC916C0F39E00E6C68B /* ViewController_iPhone.xib */; };
 		F174FECE16C0F39E00E6C68B /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F174FECC16C0F39E00E6C68B /* ViewController_iPad.xib */; };
+		F1BD884716CB33DA00225CFB /* readme.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = F1BD884616CB33DA00225CFB /* readme.rtfd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		F174FEC716C0F39E00E6C68B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F174FECA16C0F39E00E6C68B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		F174FECD16C0F39E00E6C68B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		F1BD884616CB33DA00225CFB /* readme.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = readme.rtfd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		F174FEA216C0F39E00E6C68B = {
 			isa = PBXGroup;
 			children = (
+				F1BD884616CB33DA00225CFB /* readme.rtfd */,
 				F174FEB416C0F39E00E6C68B /* OnlineGoogleBook */,
 				F174FEAD16C0F39E00E6C68B /* Frameworks */,
 				F174FEAC16C0F39E00E6C68B /* Products */,
@@ -175,6 +178,7 @@
 				F174FECE16C0F39E00E6C68B /* ViewController_iPad.xib in Resources */,
 				F1134A2D16C3AE2E00EE1E63 /* iOS6preTemplate.html in Resources */,
 				F111FDAC16C7AA58008BC22C /* iOS6apis.html in Resources */,
+				F1BD884716CB33DA00225CFB /* readme.rtfd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
