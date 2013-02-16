@@ -42,25 +42,23 @@ const char* _queueName = "com.orlando.backqueue";
 - (id)init{
     if (self = [super init]) {
         self->queue = dispatch_queue_create(_queueName, DISPATCH_QUEUE_SERIAL);
-        dispatch_async(self->queue, ^{
-            // desc - migrated into GCD thread
-            self->model = [NSManagedObjectModel mergedModelFromBundles:nil];
-            NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self->model];
-            NSString *path = [self itemArchivePath];
-            NSURL *storeURL = [NSURL fileURLWithPath:path];
-            NSError *error = nil;
-            if (![psc addPersistentStoreWithType:NSSQLiteStoreType
-                                   configuration:nil
-                                             URL:storeURL
-                                         options:nil
-                                           error:&error]) {
-                [NSException raise:@"Open failed" format:@"Reason: %@", [error localizedDescription]];
-            }
-            self->context = [[NSManagedObjectContext alloc]init];
-            [self->context setPersistentStoreCoordinator:psc];
-            [self->context setUndoManager:nil];
-            [self fetchData];
-        });
+        //desc - not suitable for asynchronization model
+        self->model = [NSManagedObjectModel mergedModelFromBundles:nil];
+        NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self->model];
+        NSString *path = [self itemArchivePath];
+        NSURL *storeURL = [NSURL fileURLWithPath:path];
+        NSError *error = nil;
+        if (![psc addPersistentStoreWithType:NSSQLiteStoreType
+                                configuration:nil
+                                         URL:storeURL
+                                     options:nil
+                                       error:&error]) {
+            [NSException raise:@"Open failed" format:@"Reason: %@", [error localizedDescription]];
+        }
+        self->context = [[NSManagedObjectContext alloc]init];
+        [self->context setPersistentStoreCoordinator:psc];
+        [self->context setUndoManager:nil];
+        [self fetchData];
     }
     
     return self;

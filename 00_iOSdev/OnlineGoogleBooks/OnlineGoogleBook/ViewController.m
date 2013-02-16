@@ -18,6 +18,12 @@ const int iUIActivityIndicatorId = 1001;
 - (void) loadHtmlStringLocally : (NSString*)fTemplate;
 - (void) loadHtmlResourceLocally : (NSString*)fTemplate;
 
+- (void) registerNotifications;
+- (void) removeNotifications;
+
+- (void) handleEnteredBackground : (UIApplication *)application;
+- (void) handleEnteredForeground : (UIApplication *)application;
+
 @end
 
 @implementation ViewController
@@ -26,7 +32,45 @@ const int iUIActivityIndicatorId = 1001;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self registerNotifications];
     [self loadHtmlStringLocally: strApisFile];
+}
+
+- (void)viewWillUnload{
+    [self removeNotifications];
+}
+
+#pragma mark - notification center
+- (void) registerNotifications{
+    // desc - register the notification center events, see http://stackoverflow.com/questions/4846822/iphone-use-of-background-foreground-methods-in-appdelegate
+    // desc - http://stackoverflow.com/questions/5410667/nsnotificationcenter-code-works-in-iphone-but-not-on-ipad
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleEnteredBackground:)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleEnteredForeground:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
+}
+
+- (void) removeNotifications{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidEnterBackgroundNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationWillEnterForegroundNotification
+                                                  object:nil];
+}
+
+// desc - remember current page
+- (void) handleEnteredBackground : (UIApplication *)application{
+    NSLog(@"background - on %d page of ebook", [DataModelStore defaultStore].iCurrentPage);
+}
+
+// desc - reload current page with refreshment
+- (void) handleEnteredForeground : (UIApplication *)application{
+    NSLog(@"foreground - on %d page of ebook", [DataModelStore defaultStore].iCurrentPage);
 }
 
 // desc - load html via String in UIWebContainer - not used now
@@ -50,8 +94,10 @@ const int iUIActivityIndicatorId = 1001;
     // parameters list in order - why is 100% will be replaced with 100 via %@
     // see objective-c programming of http://mustache.github.com via texttemplate similar djano in objective-c, also check up with http://code.google.com/p/djolt/source/checkout
     // strWebContent = [NSString stringWithFormat:strWebContent, @"hcz96jeSLe8C"];
-    strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"{{id}}" withString:@"hcz96jeSLe8C"];
-    
+    strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"{{id}}"
+                                                             withString:@"hcz96jeSLe8C"];
+    strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"{{pageNumber}}"
+                                                             withString:[NSString stringWithFormat:@"%d", [DataModelStore defaultStore].iCurrentPage]];
     /**
      * desc - replacement of string content https://github.com/groue/GRMustache
      * desc - replace with UI size, http://stackoverflow.com/questions/668228/string-replacement-in-objective-c
@@ -104,6 +150,33 @@ const int iUIActivityIndicatorId = 1001;
 #ifdef DEBUG
     NSLog(@"failed");
 #endif
+}
+
+- (BOOL)            webView:(UIWebView *)webView
+ shouldStartLoadWithRequest:(NSURLRequest *)request
+             navigationType:(UIWebViewNavigationType)navigationType{
+#ifdef DEBUG
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        NSLog(@"navigation - UIWebViewNavigationTypeLinkClicked");
+    }
+    else if (navigationType == UIWebViewNavigationTypeFormSubmitted) {
+        NSLog(@"navigation - UIWebViewNavigationTypeFormSubmitted");
+    }
+    else if (navigationType == UIWebViewNavigationTypeBackForward) {
+        NSLog(@"navigation - UIWebViewNavigationTypeBackForward");
+    }
+    else if (navigationType == UIWebViewNavigationTypeReload) {
+        NSLog(@"navigation - UIWebViewNavigationTypeReload");
+    }
+    else if (navigationType == UIWebViewNavigationTypeFormResubmitted) {
+        NSLog(@"navigation - UIWebViewNavigationTypeFormResubmitted");
+    }
+    else if (navigationType == UIWebViewNavigationTypeOther) {
+        // desc - only valid for navigation done
+        NSLog(@"navigation - UIWebViewNavigationTypeOther");
+    }
+#endif
+    return (YES);
 }
 
 @end

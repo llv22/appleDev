@@ -5,17 +5,20 @@
         <title>The Core iOS 6 Developer’s Cookbook - Erica Sadun</title>
         <script src="http://www.google.com.hk/jsapi"></script>
         <script>
-            function nextStep(viewer) {
-                window.setTimeout(function() {
-                                  viewer.nextPage();
-                                  nextStep(viewer);
-                                  }, 3000);
-            }
+            var viewer = null;
             
             function initialize() {
-                var viewer = new google.books.DefaultViewer(document.getElementById('viewport'));
-                viewer.load('http://books.google.com.hk/books?printsec=frontcover&id={{id}}&source=gbs_embed');
-                //nextStep(viewer);
+                viewer = new google.books.DefaultViewer(document.getElementById('viewport'));
+                viewer.load('http://books.google.com.hk/books?printsec=frontcover&id={{id}}&pg=PT{{pageNumber}}&source=gbs_embed', viewerLoadFail, null);
+            }
+            
+            function viewerLoadFail() {
+                document.getElementById('viewport').style.display = 'none';
+            }
+            
+            function viewerLoadSuccess() {
+                if (!viewer) return;
+//                viewer.goToPage({{pageNumber}});
             }
             
             google.setOnLoadCallback(initialize);
