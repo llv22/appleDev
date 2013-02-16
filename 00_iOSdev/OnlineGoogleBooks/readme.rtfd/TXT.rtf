@@ -1,6 +1,8 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Bold;}
-{\colortbl;\red255\green255\blue255;}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Bold;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red170\green13\blue145;\red100\green56\blue32;\red92\green38\blue153;
+\red0\green116\blue0;\red46\green13\blue110;}
 \margl1440\margr1440\vieww9000\viewh8400\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
 
@@ -10,9 +12,45 @@
 \b ?
 \b0 ]\
 persisted model - refer to /Users/llv22/Documents/01_devsrc/08_appleDevs/00_iOSdev/iOSGuideSamples/iOS Programming 3e Solutions/17. Homepwner/Homepwner\
-Issue : 
+\
+Issue 1 : 
 \f1\b\fs22 \CocoaLigature0 oreData: error: Failed to call designated initializer on NSManagedObject class 'PersistStatus' \
 
 \f0\b0\fs24 \CocoaLigature1 Solution reference : http://stackoverflow.com/questions/9130177/error-coredata-error-failed-to-call-designated-initializer-on-nsmanagedobjec\
+	--> issue embedded :  DataModelStore :: 
+\f2\fs22 \CocoaLigature0 - (\cf2 BOOL\cf0 ) saveChanges //TODO: self->status not persisted\cf3 \
+\pard\tx529\pardeftab529\pardirnatural
+\cf0 \
+\cf2 @interface\cf0  PersistStatus : \cf4 NSManagedObject\cf0 \
+\cf2 @property\cf0  (\cf2 nonatomic\cf0 ) \cf4 int32_t\cf0  iCurrentPage;\
+\cf2 @end\
+\
+@implementation\cf0  PersistStatus\
+\pard\tx529\pardeftab529\pardirnatural
+\cf5 // desc - for xcdatamodeld should be @dynamic, persisted model should be synchronized here\cf0 \
+\pard\tx529\pardeftab529\pardirnatural
+\cf2 @dynamic\cf0  iCurrentPage;\
+\
+- (\cf2 void\cf0 )awakeFromFetch\
+\{\
+    [\cf2 super\cf0  \cf6 awakeFromFetch\cf0 ];\
+\}\
+\
+- (\cf2 void\cf0 )awakeFromInsert\
+\{\
+    [\cf2 super\cf0  \cf6 awakeFromInsert\cf0 ];\
+\}\
+\cf2 @end\
+\
+
+\f1\b *** the property of \cf0 iCurrentPage *** should be @dynamic for hook of datamodeld
+\f2\b0 .
+\f0\fs24 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+Issue 2 : 
+\f1\b\fs22 \CocoaLigature0 2013-02-16 11:05:26.575 OnlineGBooks[931:2703] void SendDelegateMessage(NSInvocation *): delegate (webView:didFinishLoadForFrame:) failed to return after waiting 10 seconds. main run loop mode: kCFRunLoopDefaultMode\
+
+\f0\b0\fs24 \CocoaLigature1 Solution reference : migrate operation to gcd queue with operation dependencies [not done]\
 \
 2, Bookshelf skeleton - CollectionView [?]}

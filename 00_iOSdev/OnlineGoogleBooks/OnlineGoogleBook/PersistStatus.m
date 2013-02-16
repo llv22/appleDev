@@ -10,7 +10,8 @@
 
 @implementation PersistStatus
 
-@synthesize iCurrentPage;
+// desc - for xcdatamodeld should be @dynamic, persisted model should be synchronized here
+@dynamic iCurrentPage;
 
 - (void)awakeFromFetch
 {

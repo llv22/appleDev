@@ -18,9 +18,6 @@ const int iUIActivityIndicatorId = 1001;
 - (void) loadHtmlStringLocally : (NSString*)fTemplate;
 - (void) loadHtmlResourceLocally : (NSString*)fTemplate;
 
-- (BOOL) savePageNumber : (int)iCurrentPage;
-- (PersistStatus*) loadStatus;
-
 @end
 
 @implementation ViewController
@@ -84,7 +81,6 @@ const int iUIActivityIndicatorId = 1001;
     v.tag = iUIActivityIndicatorId;
     [self.view addSubview:v];
     [v startAnimating];
-    NSLog(@"load page %d", [self loadStatus].iCurrentPage);
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
@@ -92,19 +88,15 @@ const int iUIActivityIndicatorId = 1001;
     NSLog(@"finished");
 #endif
     [[self.view viewWithTag:iUIActivityIndicatorId] removeFromSuperview];
-    [self savePageNumber:1];
-}
-
-- (BOOL) savePageNumber : (int)iCurrentPage{
-    DataModelStore* _sharedModel = [DataModelStore defaultStore];
-    PersistStatus* _status = [_sharedModel statusOfDataModel];
-    _status.iCurrentPage = iCurrentPage;
-    return [_sharedModel saveChanges];
-}
-
-- (PersistStatus*) loadStatus{
-    DataModelStore* _sharedModel = [DataModelStore defaultStore];
-    return [_sharedModel statusOfDataModel];
+    /**
+     * status of page range
+     *
+    [[DataModelStore defaultStore] savePageNumber:1 callback:^(BOOL success) {
+        NSLog(@"save page status : %d", success);
+        NSLog(@"current persisted page number : %d", [DataModelStore defaultStore].iCurrentPage);
+    }];
+     *
+     **/
 }
 
 - (void)        webView:(UIWebView *)webView
