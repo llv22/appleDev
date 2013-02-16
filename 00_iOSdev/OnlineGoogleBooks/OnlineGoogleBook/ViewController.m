@@ -74,7 +74,7 @@ const int iUIActivityIndicatorId = 1001;
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
 #ifdef DEBUG
-    NSLog(@"started");
+    NSLog(@"webview started");
 #endif
     UIActivityIndicatorView *v = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     v.center = CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0);
@@ -85,7 +85,7 @@ const int iUIActivityIndicatorId = 1001;
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
 #ifdef DEBUG
-    NSLog(@"finished");
+    NSLog(@"webview finished");
 #endif
     [[self.view viewWithTag:iUIActivityIndicatorId] removeFromSuperview];
     /**
