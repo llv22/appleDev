@@ -20,6 +20,8 @@
 		F174FEC816C0F39E00E6C68B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F174FEC716C0F39E00E6C68B /* ViewController.m */; };
 		F174FECB16C0F39E00E6C68B /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F174FEC916C0F39E00E6C68B /* ViewController_iPhone.xib */; };
 		F174FECE16C0F39E00E6C68B /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F174FECC16C0F39E00E6C68B /* ViewController_iPad.xib */; };
+		F18AC75516D0BDAB007C17BA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F18AC75416D0BDAB007C17BA /* Icon.png */; };
+		F18AC75716D0BE68007C17BA /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F18AC75616D0BE68007C17BA /* Icon@2x.png */; };
 		F1BD884716CB33DA00225CFB /* readme.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = F1BD884616CB33DA00225CFB /* readme.rtfd */; };
 		F1BD884916CB395B00225CFB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BD884816CB395B00225CFB /* CoreData.framework */; };
 		F1BD884D16CB399600225CFB /* GbookModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1BD884B16CB399600225CFB /* GbookModel.xcdatamodeld */; };
@@ -46,6 +48,8 @@
 		F174FEC716C0F39E00E6C68B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F174FECA16C0F39E00E6C68B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		F174FECD16C0F39E00E6C68B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		F18AC75416D0BDAB007C17BA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		F18AC75616D0BE68007C17BA /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		F1BD884616CB33DA00225CFB /* readme.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = readme.rtfd; sourceTree = "<group>"; };
 		F1BD884816CB395B00225CFB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F1BD884C16CB399600225CFB /* GbookModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GbookModel.xcdatamodel; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				F174FEB716C0F39E00E6C68B /* InfoPlist.strings */,
 				F174FEBA16C0F39E00E6C68B /* main.m */,
 				F174FEBC16C0F39E00E6C68B /* OnlineGBooks-Prefix.pch */,
+				F18AC75416D0BDAB007C17BA /* Icon.png */,
+				F18AC75616D0BE68007C17BA /* Icon@2x.png */,
 				F174FEC016C0F39E00E6C68B /* Default.png */,
 				F174FEC216C0F39E00E6C68B /* Default@2x.png */,
 				F174FEC416C0F39E00E6C68B /* Default-568h@2x.png */,
@@ -200,6 +206,8 @@
 				F174FECE16C0F39E00E6C68B /* ViewController_iPad.xib in Resources */,
 				F111FDAC16C7AA58008BC22C /* iOS6apis.html in Resources */,
 				F1BD884716CB33DA00225CFB /* readme.rtfd in Resources */,
+				F18AC75516D0BDAB007C17BA /* Icon.png in Resources */,
+				F18AC75716D0BE68007C17BA /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
