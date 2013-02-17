@@ -15,9 +15,6 @@
     NSMutableArray *allItems;
     NSManagedObjectContext *context;
     NSManagedObjectModel *model;
-    
-    // desc - serial queue to persist filed, *** not in main thread queue ***
-    dispatch_queue_t queue;
 }
 
 @property (nonatomic, getter = getiCurrentPage) int32_t iCurrentPage;
@@ -30,5 +27,6 @@
 - (void) savePageNumber : (int)iCurrentPage
                callback :(void (^)(BOOL))mycallback;
 - (int32_t) getiCurrentPage;
++ (dispatch_queue_t) sharedBackgroundQueue;
 
 @end

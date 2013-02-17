@@ -11,6 +11,8 @@
 #import "PersistStatus.h"
 
 NSString* strApisFile = @"iOS6apis";
+NSString* strBookId = @"hcz96jeSLe8C";
+//NSString* strBookId = @"Py8u3Obs4f4C";
 const int iUIActivityIndicatorId = 1001;
 
 @interface ViewController ()
@@ -23,6 +25,8 @@ const int iUIActivityIndicatorId = 1001;
 
 - (void) handleEnteredBackground : (UIApplication *)application;
 - (void) handleEnteredForeground : (UIApplication *)application;
+
+- (void) saveCurrentPage;
 
 @end
 
@@ -42,8 +46,9 @@ const int iUIActivityIndicatorId = 1001;
 
 #pragma mark - notification center
 - (void) registerNotifications{
-    // desc - register the notification center events, see http://stackoverflow.com/questions/4846822/iphone-use-of-background-foreground-methods-in-appdelegate
-    // desc - http://stackoverflow.com/questions/5410667/nsnotificationcenter-code-works-in-iphone-but-not-on-ipad
+    // desc - register the notification center events
+    // see 1, http://stackoverflow.com/questions/4846822/iphone-use-of-background-foreground-methods-in-appdelegate
+    //     2, http://stackoverflow.com/questions/5410667/nsnotificationcenter-code-works-in-iphone-but-not-on-ipad
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleEnteredBackground:)
                                                  name:UIApplicationDidEnterBackgroundNotification
@@ -63,14 +68,31 @@ const int iUIActivityIndicatorId = 1001;
                                                   object:nil];
 }
 
-// desc - remember current page
+// desc - remember current page and persisted into sqllite
 - (void) handleEnteredBackground : (UIApplication *)application{
+#ifdef DEBUG
     NSLog(@"background - on %d page of ebook", [DataModelStore defaultStore].iCurrentPage);
+#endif
+    [self saveCurrentPage];
+}
+
+- (void) saveCurrentPage{
+    // desc - guess current page for http://stackoverflow.com/questions/992348/reading-html-content-from-a-uiwebview, with detection bug
+    NSString* strRetValue = [self->webview stringByEvaluatingJavaScriptFromString:@"viewerCurrentPage();"];
+    if ([strRetValue length] != 0) {
+        if ([DataModelStore defaultStore].iCurrentPage != [strRetValue intValue]) {
+            [[DataModelStore defaultStore] savePageNumber:[strRetValue intValue] callback:^(BOOL success) {
+                NSLog(@"current persisted page number : %d", [DataModelStore defaultStore].iCurrentPage);
+            }];
+        }
+    }
 }
 
 // desc - reload current page with refreshment
 - (void) handleEnteredForeground : (UIApplication *)application{
+#ifdef DEBUG
     NSLog(@"foreground - on %d page of ebook", [DataModelStore defaultStore].iCurrentPage);
+#endif
 }
 
 // desc - load html via String in UIWebContainer - not used now
@@ -85,6 +107,7 @@ const int iUIActivityIndicatorId = 1001;
 // requirements :
 //      1, need to adjust for UIContainer to UI status
 //      2, need to add UI status refreshment
+// issue - how-to split the logic into background quene and main thread queue
 - (void) loadHtmlStringLocally : (NSString*)fTemplate{
     NSString* path = [[NSBundle mainBundle]pathForResource:fTemplate ofType:@"html"];
     NSURL* url = [NSURL fileURLWithPath:path];
@@ -93,18 +116,10 @@ const int iUIActivityIndicatorId = 1001;
     // desc - replace string with parameter, book id = hcz96jeSLe8C
     // parameters list in order - why is 100% will be replaced with 100 via %@
     // see objective-c programming of http://mustache.github.com via texttemplate similar djano in objective-c, also check up with http://code.google.com/p/djolt/source/checkout
-    // strWebContent = [NSString stringWithFormat:strWebContent, @"hcz96jeSLe8C"];
     strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"{{id}}"
-                                                             withString:@"hcz96jeSLe8C"];
+                                                             withString:strBookId];
     strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"{{pageNumber}}"
                                                              withString:[NSString stringWithFormat:@"%d", [DataModelStore defaultStore].iCurrentPage]];
-    /**
-     * desc - replacement of string content https://github.com/groue/GRMustache
-     * desc - replace with UI size, http://stackoverflow.com/questions/668228/string-replacement-in-objective-c
-    int iViewWidth = self->webview.frame.size.width, iViewHeight = self->webview.frame.size.height;
-    strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"$width$" withString:[NSString stringWithFormat:@"%d", iViewWidth]];
-    strWebContent = [strWebContent stringByReplacingOccurrencesOfString:@"$height$" withString:[NSString stringWithFormat:@"%d", iViewHeight]];
-     **/
     
     [self->webview sizeToFit];
     [self->webview loadHTMLString:strWebContent baseURL:url];
@@ -134,15 +149,6 @@ const int iUIActivityIndicatorId = 1001;
     NSLog(@"webview finished");
 #endif
     [[self.view viewWithTag:iUIActivityIndicatorId] removeFromSuperview];
-    /**
-     * status of page range
-     *
-    [[DataModelStore defaultStore] savePageNumber:1 callback:^(BOOL success) {
-        NSLog(@"save page status : %d", success);
-        NSLog(@"current persisted page number : %d", [DataModelStore defaultStore].iCurrentPage);
-    }];
-     *
-     **/
 }
 
 - (void)        webView:(UIWebView *)webView

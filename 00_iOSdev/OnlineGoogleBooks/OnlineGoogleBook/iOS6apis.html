@@ -1,5 +1,6 @@
 <!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
         <title>The Core iOS 6 Developer’s Cookbook - Erica Sadun</title>
@@ -7,9 +8,12 @@
         <script>
             var viewer = null;
             
+            var params = {language: "en"};
+            google.load('books', '0', params);
+            
             function initialize() {
                 viewer = new google.books.DefaultViewer(document.getElementById('viewport'));
-                viewer.load('http://books.google.com.hk/books?printsec=frontcover&id={{id}}&pg=PT{{pageNumber}}&source=gbs_embed', viewerLoadFail, null);
+                viewer.load('http://books.google.com.hk/books?id={{id}}&printsec=frontcover', viewerLoadFail, viewerLoadSuccess);
             }
             
             function viewerLoadFail() {
@@ -18,12 +22,18 @@
             
             function viewerLoadSuccess() {
                 if (!viewer) return;
-//                viewer.goToPage({{pageNumber}});
+                var isGoToEnable = viewer.goToPage({{pageNumber}});
+                if(!isGoToEnable){
+                    alert("can't jump to page - " + {{pageNumber}});
+                }
+            }
+            
+            function viewerCurrentPage() {
+                if (!viewer) return "0";
+                return viewer.getPageNumber();
             }
             
             google.setOnLoadCallback(initialize);
-            var params = {language: "en"};
-            google.load('books', '0', params);
             </script>
     </head>
     <body style="margin:0;padding:0;overflow:auto">

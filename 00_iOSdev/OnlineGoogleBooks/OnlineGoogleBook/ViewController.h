@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController<UIWebViewDelegate>{
+@interface ViewController : UIViewController<UIWebViewDelegate, UIGestureRecognizerDelegate>{
     IBOutlet UIWebView* webview;
 }
 

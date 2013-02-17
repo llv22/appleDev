@@ -31,6 +31,14 @@ const char* _queueName = "com.orlando.backqueue";
     return [self defaultStore];
 }
 
++ (dispatch_queue_t) sharedBackgroundQueue{
+    static dispatch_queue_t _sharedqueue = nil;
+    if (_sharedqueue) {
+        _sharedqueue = dispatch_queue_create(_queueName, DISPATCH_QUEUE_SERIAL);
+    }
+    return _sharedqueue;
+}
+
 - (NSString *)itemArchivePath
 {
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -41,7 +49,6 @@ const char* _queueName = "com.orlando.backqueue";
 
 - (id)init{
     if (self = [super init]) {
-        self->queue = dispatch_queue_create(_queueName, DISPATCH_QUEUE_SERIAL);
         //desc - not suitable for asynchronization model
         self->model = [NSManagedObjectModel mergedModelFromBundles:nil];
         NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self->model];
@@ -101,7 +108,7 @@ const char* _queueName = "com.orlando.backqueue";
 
 - (void) savePageNumber : (int)iCurrentPage
                callback :(void (^)(BOOL))mycallback {
-    dispatch_async(self->queue, ^{
+    dispatch_async([DataModelStore sharedBackgroundQueue], ^{
         PersistStatus* _status = [[DataModelStore defaultStore] statusOfDataModel];
         _status.iCurrentPage = iCurrentPage;
         BOOL successful = [[DataModelStore defaultStore] saveChanges];
