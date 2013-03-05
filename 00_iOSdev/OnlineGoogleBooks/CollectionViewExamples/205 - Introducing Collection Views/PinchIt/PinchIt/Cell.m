@@ -93,6 +93,8 @@
  */
 
 #import "Cell.h"
+//missing reference of CALayer
+#import <QuartzCore/QuartzCore.h>
 
 @implementation Cell
 
