@@ -118,6 +118,7 @@
     {
         NSString *searchTerm = self.searches[indexPath.section];
         FlickrPhoto *photo = self.searchResults[searchTerm][indexPath.row];
+        //desc - show handler for UIStoryboardSegue transformation
         [self performSegueWithIdentifier:@"ShowFlickrPhoto" sender:photo];               
         [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
     }
