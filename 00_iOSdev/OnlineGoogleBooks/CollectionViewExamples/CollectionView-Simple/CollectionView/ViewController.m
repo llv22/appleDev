@@ -86,12 +86,11 @@ NSString *kCellID = @"cellID";                          // UICollectionViewCell 
     if ([[segue identifier] isEqualToString:@"showDetail"])
     {
         NSIndexPath *selectedIndexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
-        
         // load the image, to prevent it from being cached we use 'initWithContentsOfFile'
         NSString *imageNameToLoad = [NSString stringWithFormat:@"%d_full", selectedIndexPath.row];
         NSString *pathToImage = [[NSBundle mainBundle] pathForResource:imageNameToLoad ofType:@"JPG"];
         UIImage *image = [[UIImage alloc] initWithContentsOfFile:pathToImage];
-        
+        // navigate to target item
         DetailViewController *detailViewController = [segue destinationViewController];
         detailViewController.image = image;
     }
