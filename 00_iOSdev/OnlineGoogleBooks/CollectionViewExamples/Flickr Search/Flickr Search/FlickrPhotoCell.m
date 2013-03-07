@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Brandon Trebitowski. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "FlickrPhotoCell.h"
 #import "FlickrPhoto.h"
 #import "Flickr.h"
