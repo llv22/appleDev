@@ -33,4 +33,14 @@
     return NULL;
 }
 
+-(UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingDecorationElementOfKind:(NSString *)elementKind
+                                                                                    atIndexPath:(NSIndexPath *)decorationIndexPath{
+    return NULL;
+}
+
+-(UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingDecorationElementOfKind:(NSString *)elementKind
+                                                                                     atIndexPath:(NSIndexPath *)decorationIndexPath{
+    return NULL;
+}
+
 @end
