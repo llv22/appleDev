@@ -9,6 +9,11 @@
 //  1, http://blogs.captechconsulting.com/blog/paul-dakessian/ios-6-tutorial-getting-started-collection-views
 //  2, http://stackoverflow.com/questions/12810628/uicollectionview-decoration-view
 //  3, http://www.appcoda.com/ios-programming-uicollectionview-tutorial/
+//  4, http://nshipster.com/uicollectionview/
+//
+//  example of collection view under iOS 4.3-
+//  1, https://github.com/steipete/PSTCollectionView
+//  2, http://code4app.com/ios/类似NewsStand书架效果/4fdd40d66803fadf22000000
 //
 
 #import "DecorationViewCell.h"
