@@ -10,6 +10,7 @@
 //  2, http://stackoverflow.com/questions/12810628/uicollectionview-decoration-view
 //  3, http://www.appcoda.com/ios-programming-uicollectionview-tutorial/
 //  4, http://nshipster.com/uicollectionview/
+//  5, http://www.skeuo.com/uicollectionview-custom-layout-tutorial
 //
 //  example of collection view under iOS 4.3-
 //  1, https://github.com/steipete/PSTCollectionView
@@ -18,6 +19,9 @@
 
 #import "DecorationViewCell.h"
 #import "DecorationLayout.h"
+
+// see http://stackoverflow.com/questions/6828831/sending-const-nsstring-to-parameter-of-type-nsstring-discards-qualifier
+static NSString * const DECORID = @"DecorationViewForCell";
 
 @implementation DecorationLayout
 
