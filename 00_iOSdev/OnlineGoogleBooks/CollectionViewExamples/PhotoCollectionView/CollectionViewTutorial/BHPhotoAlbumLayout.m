@@ -149,7 +149,6 @@ static NSString * const BHPhotoEmblemKind = @"Emblem";
 
     // desc - try to disable frame
     emblemAttributes.frame = [self frameForEmblem];
-    
     newLayoutInfo[BHPhotoEmblemKind] = @{indexPath: emblemAttributes};
     
     for (NSInteger section = 0; section < sectionCount; section++) {

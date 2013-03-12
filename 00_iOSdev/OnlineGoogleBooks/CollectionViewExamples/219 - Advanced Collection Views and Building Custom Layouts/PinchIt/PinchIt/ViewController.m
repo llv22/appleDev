@@ -102,6 +102,8 @@
 {
     UIPinchGestureRecognizer* pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
     [self.collectionView addGestureRecognizer:pinchRecognizer];
+    UIImage *patternImage = [UIImage imageNamed:@"CustomizeBookshelf"];
+    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
     [self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"MY_CELL"];
 }
 

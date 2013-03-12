@@ -102,15 +102,24 @@
 {
     UIPinchGestureRecognizer* pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
     [self.collectionView addGestureRecognizer:pinchRecognizer];
+    
+//    UIImage *patternImage = [UIImage imageWithContentsOfFile:
+//                             [[NSBundle mainBundle] pathForResource:@"Bookshelf" ofType:@"jpg"]];
+    
+    UIImage *patternImage = [UIImage imageNamed:@"CustomizeBookshelf"];
+    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+                             
     [self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"MY_CELL"];
 }
 
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
+- (NSInteger)collectionView:(UICollectionView *)view
+     numberOfItemsInSection:(NSInteger)section;
 {
     return 63;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     Cell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"MY_CELL" forIndexPath:indexPath];
     return cell;
@@ -125,15 +134,12 @@
         CGPoint initialPinchPoint = [sender locationInView:self.collectionView];
         NSIndexPath* pinchedCellPath = [self.collectionView indexPathForItemAtPoint:initialPinchPoint];
         pinchLayout.pinchedCellPath = pinchedCellPath;
-        
     }
-    
     else if (sender.state == UIGestureRecognizerStateChanged)
     {
         pinchLayout.pinchedCellScale = sender.scale;
         pinchLayout.pinchedCellCenter = [sender locationInView:self.collectionView];
     }
-    
     else
     {
         [self.collectionView performBatchUpdates:^{
