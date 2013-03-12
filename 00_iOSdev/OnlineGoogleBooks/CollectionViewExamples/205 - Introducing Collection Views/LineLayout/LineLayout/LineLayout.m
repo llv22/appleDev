@@ -140,8 +140,8 @@
     return array;
 }
 
-
-- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset
+                                 withScrollingVelocity:(CGPoint)velocity
 {
     CGFloat offsetAdjustment = MAXFLOAT;
     CGFloat horizontalCenter = proposedContentOffset.x + (CGRectGetWidth(self.collectionView.bounds) / 2.0);

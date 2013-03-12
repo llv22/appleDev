@@ -94,10 +94,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PinchLayout : UICollectionViewFlowLayout
+UIKIT_EXTERN NSString * const BHPhotoAlbumLayoutAlbumTitleKind;
+
+@interface PinchLayout : UICollectionViewFlowLayout//UICollectionViewLayout
 
 @property (nonatomic, assign) CGFloat pinchedCellScale;
 @property (nonatomic, assign) CGPoint pinchedCellCenter;
 @property (nonatomic, strong) NSIndexPath* pinchedCellPath;
+
+@property (nonatomic) UIEdgeInsets itemInsets;
+@property (nonatomic) CGSize itemSize;
+@property (nonatomic) CGFloat interItemSpacingY;
+@property (nonatomic) NSInteger numberOfColumns;
+@property (nonatomic) CGFloat titleHeight;
 
 @end

@@ -107,12 +107,14 @@
     self.collectionView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
 }
 
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
+- (NSInteger)collectionView:(UICollectionView *)view
+     numberOfItemsInSection:(NSInteger)section;
 {
     return self.cellCount;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     Cell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"MY_CELL" forIndexPath:indexPath];
     return cell;
