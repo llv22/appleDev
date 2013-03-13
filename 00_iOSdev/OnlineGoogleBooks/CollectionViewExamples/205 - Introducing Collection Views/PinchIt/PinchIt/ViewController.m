@@ -105,7 +105,6 @@
     
 //    UIImage *patternImage = [UIImage imageWithContentsOfFile:
 //                             [[NSBundle mainBundle] pathForResource:@"Bookshelf" ofType:@"jpg"]];
-    
     UIImage *patternImage = [UIImage imageNamed:@"CustomizeBookshelf"];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
                              

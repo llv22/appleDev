@@ -17,7 +17,7 @@
 		77DEF7CC157ED9380057C06D /* PinchLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DEF7CB157ED9380057C06D /* PinchLayout.m */; };
 		77DEF7CF157ED94C0057C06D /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DEF7CE157ED94C0057C06D /* Cell.m */; };
 		77DEF7D1157EDCFF0057C06D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DEF7D0157EDCFF0057C06D /* QuartzCore.framework */; };
-		F146FBFF16EF6B3A00418391 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F146FBFE16EF6B3A00418391 /* Default-568h@2x.png */; };
+		F138C08E16F05F5000D58ACD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F138C08D16F05F5000D58ACD /* Default-568h@2x.png */; };
 		F146FC0716EF772500418391 /* Bookshelf-568h@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F146FC0016EF772500418391 /* Bookshelf-568h@2x~iphone.jpg */; };
 		F146FC0816EF772500418391 /* Bookshelf-Landscape@2x~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F146FC0116EF772500418391 /* Bookshelf-Landscape@2x~ipad.jpg */; };
 		F146FC0916EF772500418391 /* Bookshelf-Landscape~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F146FC0216EF772500418391 /* Bookshelf-Landscape~ipad.jpg */; };
@@ -47,7 +47,7 @@
 		77DEF7CD157ED94C0057C06D /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		77DEF7CE157ED94C0057C06D /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		77DEF7D0157EDCFF0057C06D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		F146FBFE16EF6B3A00418391 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		F138C08D16F05F5000D58ACD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F146FC0016EF772500418391 /* Bookshelf-568h@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bookshelf-568h@2x~iphone.jpg"; sourceTree = "<group>"; };
 		F146FC0116EF772500418391 /* Bookshelf-Landscape@2x~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bookshelf-Landscape@2x~ipad.jpg"; sourceTree = "<group>"; };
 		F146FC0216EF772500418391 /* Bookshelf-Landscape~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bookshelf-Landscape~ipad.jpg"; sourceTree = "<group>"; };
@@ -121,6 +121,7 @@
 		77DEF7B4157ED8390057C06D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F138C08D16F05F5000D58ACD /* Default-568h@2x.png */,
 				F146FC0E16EF77CB00418391 /* CustomizeBookshelf.png */,
 				F146FC0016EF772500418391 /* Bookshelf-568h@2x~iphone.jpg */,
 				F146FC0116EF772500418391 /* Bookshelf-Landscape@2x~ipad.jpg */,
@@ -129,7 +130,6 @@
 				F146FC0416EF772500418391 /* Bookshelf@2x.jpg */,
 				F146FC0516EF772500418391 /* Bookshelf@2x~ipad.jpg */,
 				F146FC0616EF772500418391 /* Bookshelf~ipad.jpg */,
-				F146FBFE16EF6B3A00418391 /* Default-568h@2x.png */,
 				77DEF7B5157ED8390057C06D /* PinchIt-Info.plist */,
 				77DEF7B6157ED8390057C06D /* InfoPlist.strings */,
 				77DEF7B9157ED8390057C06D /* main.m */,
@@ -190,7 +190,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				77DEF7B8157ED8390057C06D /* InfoPlist.strings in Resources */,
-				F146FBFF16EF6B3A00418391 /* Default-568h@2x.png in Resources */,
 				F146FC0716EF772500418391 /* Bookshelf-568h@2x~iphone.jpg in Resources */,
 				F146FC0816EF772500418391 /* Bookshelf-Landscape@2x~ipad.jpg in Resources */,
 				F146FC0916EF772500418391 /* Bookshelf-Landscape~ipad.jpg in Resources */,
@@ -199,6 +198,7 @@
 				F146FC0C16EF772500418391 /* Bookshelf@2x~ipad.jpg in Resources */,
 				F146FC0D16EF772500418391 /* Bookshelf~ipad.jpg in Resources */,
 				F146FC0F16EF77CB00418391 /* CustomizeBookshelf.png in Resources */,
+				F138C08E16F05F5000D58ACD /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
