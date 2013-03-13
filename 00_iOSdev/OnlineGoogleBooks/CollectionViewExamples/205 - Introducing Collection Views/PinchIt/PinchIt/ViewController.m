@@ -105,16 +105,16 @@
     
 //    UIImage *patternImage = [UIImage imageWithContentsOfFile:
 //                             [[NSBundle mainBundle] pathForResource:@"Bookshelf" ofType:@"jpg"]];
-    UIImage *patternImage = [UIImage imageNamed:@"CustomizeBookshelf"];
+    UIImage *patternImage = [UIImage imageNamed:@"WoodTile"];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
-                             
+    
     [self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"MY_CELL"];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)view
      numberOfItemsInSection:(NSInteger)section;
 {
-    return 63;
+    return 64;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv

@@ -18,14 +18,26 @@
 		77DEF7CF157ED94C0057C06D /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DEF7CE157ED94C0057C06D /* Cell.m */; };
 		77DEF7D1157EDCFF0057C06D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DEF7D0157EDCFF0057C06D /* QuartzCore.framework */; };
 		F138C08E16F05F5000D58ACD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F138C08D16F05F5000D58ACD /* Default-568h@2x.png */; };
-		F146FC0716EF772500418391 /* Bookshelf-568h@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F146FC0016EF772500418391 /* Bookshelf-568h@2x~iphone.jpg */; };
-		F146FC0816EF772500418391 /* Bookshelf-Landscape@2x~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F146FC0116EF772500418391 /* Bookshelf-Landscape@2x~ipad.jpg */; };
-		F146FC0916EF772500418391 /* Bookshelf-Landscape~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F146FC0216EF772500418391 /* Bookshelf-Landscape~ipad.jpg */; };
-		F146FC0A16EF772500418391 /* Bookshelf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F146FC0316EF772500418391 /* Bookshelf.jpg */; };
-		F146FC0B16EF772500418391 /* Bookshelf@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F146FC0416EF772500418391 /* Bookshelf@2x.jpg */; };
-		F146FC0C16EF772500418391 /* Bookshelf@2x~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F146FC0516EF772500418391 /* Bookshelf@2x~ipad.jpg */; };
-		F146FC0D16EF772500418391 /* Bookshelf~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F146FC0616EF772500418391 /* Bookshelf~ipad.jpg */; };
-		F146FC0F16EF77CB00418391 /* CustomizeBookshelf.png in Resources */ = {isa = PBXBuildFile; fileRef = F146FC0E16EF77CB00418391 /* CustomizeBookshelf.png */; };
+		F15AF12016F068B000A83B39 /* WoodTile@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF11C16F068B000A83B39 /* WoodTile@2x~ipad.png */; };
+		F15AF12116F068B000A83B39 /* WoodTile@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF11D16F068B000A83B39 /* WoodTile@2x~iphone.png */; };
+		F15AF12216F068B000A83B39 /* WoodTile~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF11E16F068B000A83B39 /* WoodTile~ipad.png */; };
+		F15AF12316F068B000A83B39 /* WoodTile~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF11F16F068B000A83B39 /* WoodTile~iphone.png */; };
+		F15AF12F16F0690900A83B39 /* Shelf-Hybrid@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF12516F0690900A83B39 /* Shelf-Hybrid@2x~ipad.png */; };
+		F15AF13016F0690900A83B39 /* Shelf-Hybrid~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF12616F0690900A83B39 /* Shelf-Hybrid~ipad.png */; };
+		F15AF13116F0690900A83B39 /* Shelf-Landscape-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF12716F0690900A83B39 /* Shelf-Landscape-568h@2x~iphone.png */; };
+		F15AF13216F0690900A83B39 /* Shelf-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF12816F0690900A83B39 /* Shelf-Landscape@2x~ipad.png */; };
+		F15AF13316F0690900A83B39 /* Shelf-Landscape@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF12916F0690900A83B39 /* Shelf-Landscape@2x~iphone.png */; };
+		F15AF13416F0690900A83B39 /* Shelf-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF12A16F0690900A83B39 /* Shelf-Landscape~ipad.png */; };
+		F15AF13516F0690900A83B39 /* Shelf-Landscape~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF12B16F0690900A83B39 /* Shelf-Landscape~iphone.png */; };
+		F15AF13616F0690900A83B39 /* Shelf@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF12C16F0690900A83B39 /* Shelf@2x~ipad.png */; };
+		F15AF13716F0690900A83B39 /* Shelf@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF12D16F0690900A83B39 /* Shelf@2x~iphone.png */; };
+		F15AF13816F0690900A83B39 /* Shelf~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF12E16F0690900A83B39 /* Shelf~ipad.png */; };
+		F15AF14016F0693F00A83B39 /* NavBar-Landscape@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF13A16F0693F00A83B39 /* NavBar-Landscape@2x~iphone.png */; };
+		F15AF14116F0693F00A83B39 /* NavBar-Landscape~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF13B16F0693F00A83B39 /* NavBar-Landscape~iphone.png */; };
+		F15AF14216F0693F00A83B39 /* NavBar@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF13C16F0693F00A83B39 /* NavBar@2x~ipad.png */; };
+		F15AF14316F0693F00A83B39 /* NavBar@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF13D16F0693F00A83B39 /* NavBar@2x~iphone.png */; };
+		F15AF14416F0693F00A83B39 /* NavBar~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF13E16F0693F00A83B39 /* NavBar~ipad.png */; };
+		F15AF14516F0693F00A83B39 /* NavBar~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15AF13F16F0693F00A83B39 /* NavBar~iphone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,14 +60,26 @@
 		77DEF7CE157ED94C0057C06D /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		77DEF7D0157EDCFF0057C06D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F138C08D16F05F5000D58ACD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		F146FC0016EF772500418391 /* Bookshelf-568h@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bookshelf-568h@2x~iphone.jpg"; sourceTree = "<group>"; };
-		F146FC0116EF772500418391 /* Bookshelf-Landscape@2x~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bookshelf-Landscape@2x~ipad.jpg"; sourceTree = "<group>"; };
-		F146FC0216EF772500418391 /* Bookshelf-Landscape~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bookshelf-Landscape~ipad.jpg"; sourceTree = "<group>"; };
-		F146FC0316EF772500418391 /* Bookshelf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bookshelf.jpg; sourceTree = "<group>"; };
-		F146FC0416EF772500418391 /* Bookshelf@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bookshelf@2x.jpg"; sourceTree = "<group>"; };
-		F146FC0516EF772500418391 /* Bookshelf@2x~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bookshelf@2x~ipad.jpg"; sourceTree = "<group>"; };
-		F146FC0616EF772500418391 /* Bookshelf~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bookshelf~ipad.jpg"; sourceTree = "<group>"; };
-		F146FC0E16EF77CB00418391 /* CustomizeBookshelf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CustomizeBookshelf.png; sourceTree = "<group>"; };
+		F15AF11C16F068B000A83B39 /* WoodTile@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WoodTile@2x~ipad.png"; sourceTree = "<group>"; };
+		F15AF11D16F068B000A83B39 /* WoodTile@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WoodTile@2x~iphone.png"; sourceTree = "<group>"; };
+		F15AF11E16F068B000A83B39 /* WoodTile~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WoodTile~ipad.png"; sourceTree = "<group>"; };
+		F15AF11F16F068B000A83B39 /* WoodTile~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WoodTile~iphone.png"; sourceTree = "<group>"; };
+		F15AF12516F0690900A83B39 /* Shelf-Hybrid@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf-Hybrid@2x~ipad.png"; sourceTree = "<group>"; };
+		F15AF12616F0690900A83B39 /* Shelf-Hybrid~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf-Hybrid~ipad.png"; sourceTree = "<group>"; };
+		F15AF12716F0690900A83B39 /* Shelf-Landscape-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf-Landscape-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		F15AF12816F0690900A83B39 /* Shelf-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		F15AF12916F0690900A83B39 /* Shelf-Landscape@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf-Landscape@2x~iphone.png"; sourceTree = "<group>"; };
+		F15AF12A16F0690900A83B39 /* Shelf-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf-Landscape~ipad.png"; sourceTree = "<group>"; };
+		F15AF12B16F0690900A83B39 /* Shelf-Landscape~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf-Landscape~iphone.png"; sourceTree = "<group>"; };
+		F15AF12C16F0690900A83B39 /* Shelf@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf@2x~ipad.png"; sourceTree = "<group>"; };
+		F15AF12D16F0690900A83B39 /* Shelf@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf@2x~iphone.png"; sourceTree = "<group>"; };
+		F15AF12E16F0690900A83B39 /* Shelf~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf~ipad.png"; sourceTree = "<group>"; };
+		F15AF13A16F0693F00A83B39 /* NavBar-Landscape@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar-Landscape@2x~iphone.png"; sourceTree = "<group>"; };
+		F15AF13B16F0693F00A83B39 /* NavBar-Landscape~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar-Landscape~iphone.png"; sourceTree = "<group>"; };
+		F15AF13C16F0693F00A83B39 /* NavBar@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar@2x~ipad.png"; sourceTree = "<group>"; };
+		F15AF13D16F0693F00A83B39 /* NavBar@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar@2x~iphone.png"; sourceTree = "<group>"; };
+		F15AF13E16F0693F00A83B39 /* NavBar~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar~ipad.png"; sourceTree = "<group>"; };
+		F15AF13F16F0693F00A83B39 /* NavBar~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar~iphone.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,21 +145,57 @@
 		77DEF7B4157ED8390057C06D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F15AF13916F0692C00A83B39 /* Navbar */,
+				F15AF12416F068F300A83B39 /* Shelf */,
+				F15AF11B16F0687C00A83B39 /* WoodTile */,
 				F138C08D16F05F5000D58ACD /* Default-568h@2x.png */,
-				F146FC0E16EF77CB00418391 /* CustomizeBookshelf.png */,
-				F146FC0016EF772500418391 /* Bookshelf-568h@2x~iphone.jpg */,
-				F146FC0116EF772500418391 /* Bookshelf-Landscape@2x~ipad.jpg */,
-				F146FC0216EF772500418391 /* Bookshelf-Landscape~ipad.jpg */,
-				F146FC0316EF772500418391 /* Bookshelf.jpg */,
-				F146FC0416EF772500418391 /* Bookshelf@2x.jpg */,
-				F146FC0516EF772500418391 /* Bookshelf@2x~ipad.jpg */,
-				F146FC0616EF772500418391 /* Bookshelf~ipad.jpg */,
 				77DEF7B5157ED8390057C06D /* PinchIt-Info.plist */,
 				77DEF7B6157ED8390057C06D /* InfoPlist.strings */,
 				77DEF7B9157ED8390057C06D /* main.m */,
 				77DEF7BB157ED8390057C06D /* PinchIt-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F15AF11B16F0687C00A83B39 /* WoodTile */ = {
+			isa = PBXGroup;
+			children = (
+				F15AF11C16F068B000A83B39 /* WoodTile@2x~ipad.png */,
+				F15AF11D16F068B000A83B39 /* WoodTile@2x~iphone.png */,
+				F15AF11E16F068B000A83B39 /* WoodTile~ipad.png */,
+				F15AF11F16F068B000A83B39 /* WoodTile~iphone.png */,
+			);
+			name = WoodTile;
+			sourceTree = "<group>";
+		};
+		F15AF12416F068F300A83B39 /* Shelf */ = {
+			isa = PBXGroup;
+			children = (
+				F15AF12516F0690900A83B39 /* Shelf-Hybrid@2x~ipad.png */,
+				F15AF12616F0690900A83B39 /* Shelf-Hybrid~ipad.png */,
+				F15AF12716F0690900A83B39 /* Shelf-Landscape-568h@2x~iphone.png */,
+				F15AF12816F0690900A83B39 /* Shelf-Landscape@2x~ipad.png */,
+				F15AF12916F0690900A83B39 /* Shelf-Landscape@2x~iphone.png */,
+				F15AF12A16F0690900A83B39 /* Shelf-Landscape~ipad.png */,
+				F15AF12B16F0690900A83B39 /* Shelf-Landscape~iphone.png */,
+				F15AF12C16F0690900A83B39 /* Shelf@2x~ipad.png */,
+				F15AF12D16F0690900A83B39 /* Shelf@2x~iphone.png */,
+				F15AF12E16F0690900A83B39 /* Shelf~ipad.png */,
+			);
+			name = Shelf;
+			sourceTree = "<group>";
+		};
+		F15AF13916F0692C00A83B39 /* Navbar */ = {
+			isa = PBXGroup;
+			children = (
+				F15AF13A16F0693F00A83B39 /* NavBar-Landscape@2x~iphone.png */,
+				F15AF13B16F0693F00A83B39 /* NavBar-Landscape~iphone.png */,
+				F15AF13C16F0693F00A83B39 /* NavBar@2x~ipad.png */,
+				F15AF13D16F0693F00A83B39 /* NavBar@2x~iphone.png */,
+				F15AF13E16F0693F00A83B39 /* NavBar~ipad.png */,
+				F15AF13F16F0693F00A83B39 /* NavBar~iphone.png */,
+			);
+			name = Navbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,15 +250,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				77DEF7B8157ED8390057C06D /* InfoPlist.strings in Resources */,
-				F146FC0716EF772500418391 /* Bookshelf-568h@2x~iphone.jpg in Resources */,
-				F146FC0816EF772500418391 /* Bookshelf-Landscape@2x~ipad.jpg in Resources */,
-				F146FC0916EF772500418391 /* Bookshelf-Landscape~ipad.jpg in Resources */,
-				F146FC0A16EF772500418391 /* Bookshelf.jpg in Resources */,
-				F146FC0B16EF772500418391 /* Bookshelf@2x.jpg in Resources */,
-				F146FC0C16EF772500418391 /* Bookshelf@2x~ipad.jpg in Resources */,
-				F146FC0D16EF772500418391 /* Bookshelf~ipad.jpg in Resources */,
-				F146FC0F16EF77CB00418391 /* CustomizeBookshelf.png in Resources */,
 				F138C08E16F05F5000D58ACD /* Default-568h@2x.png in Resources */,
+				F15AF12016F068B000A83B39 /* WoodTile@2x~ipad.png in Resources */,
+				F15AF12116F068B000A83B39 /* WoodTile@2x~iphone.png in Resources */,
+				F15AF12216F068B000A83B39 /* WoodTile~ipad.png in Resources */,
+				F15AF12316F068B000A83B39 /* WoodTile~iphone.png in Resources */,
+				F15AF12F16F0690900A83B39 /* Shelf-Hybrid@2x~ipad.png in Resources */,
+				F15AF13016F0690900A83B39 /* Shelf-Hybrid~ipad.png in Resources */,
+				F15AF13116F0690900A83B39 /* Shelf-Landscape-568h@2x~iphone.png in Resources */,
+				F15AF13216F0690900A83B39 /* Shelf-Landscape@2x~ipad.png in Resources */,
+				F15AF13316F0690900A83B39 /* Shelf-Landscape@2x~iphone.png in Resources */,
+				F15AF13416F0690900A83B39 /* Shelf-Landscape~ipad.png in Resources */,
+				F15AF13516F0690900A83B39 /* Shelf-Landscape~iphone.png in Resources */,
+				F15AF13616F0690900A83B39 /* Shelf@2x~ipad.png in Resources */,
+				F15AF13716F0690900A83B39 /* Shelf@2x~iphone.png in Resources */,
+				F15AF13816F0690900A83B39 /* Shelf~ipad.png in Resources */,
+				F15AF14016F0693F00A83B39 /* NavBar-Landscape@2x~iphone.png in Resources */,
+				F15AF14116F0693F00A83B39 /* NavBar-Landscape~iphone.png in Resources */,
+				F15AF14216F0693F00A83B39 /* NavBar@2x~ipad.png in Resources */,
+				F15AF14316F0693F00A83B39 /* NavBar@2x~iphone.png in Resources */,
+				F15AF14416F0693F00A83B39 /* NavBar~ipad.png in Resources */,
+				F15AF14516F0693F00A83B39 /* NavBar~iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
