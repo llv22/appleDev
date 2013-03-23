@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
 
-@interface MSDetailViewController : UICollectionViewController <UISplitViewControllerDelegate>
+@interface MSDetailViewController : UICollectionViewController <UISplitViewControllerDelegate, EKEventEditViewDelegate, UIViewControllerRestoration, UIDataSourceModelAssociation>
+
 
 @property (strong, nonatomic) id detailItem;
 

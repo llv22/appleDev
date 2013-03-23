@@ -10,8 +10,11 @@
 
 @class MSDetailViewController;
 
-@interface MSMasterViewController : UIViewController
+@interface MSMasterViewController : UIViewController<UITextFieldDelegate>
 
 @property (strong, nonatomic) MSDetailViewController *detailViewController;
+@property (retain, nonatomic) IBOutlet UISegmentedControl *segSearchZipOrKeyword;
+@property (retain, nonatomic) IBOutlet UISegmentedControl *segSearchGroupsOrEvents;
+@property (retain, nonatomic) IBOutlet UITextField *tfSearchText;
 
 @end

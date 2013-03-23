@@ -8,33 +8,30 @@
 
 #import "MSMasterViewController.h"
 
-#import "MSDetailViewController.h"
+const NSString* apiKey = @"6c274f6254523d5f2b10174a68761031";
 
 @interface MSMasterViewController () {
-    NSMutableArray *_objects;
 }
+
+- (void)doSearch;
+- (void)writeToResultsFile:(NSString*)stringToStore;
+
 @end
 
 @implementation MSMasterViewController
+@synthesize segSearchZipOrKeyword;
+@synthesize segSearchGroupsOrEvents;
+@synthesize tfSearchText;
 
 - (void)awakeFromNib
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//        self.clearsSelectionOnViewWillAppear = NO;
-        self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
-    }
     [super awakeFromNib];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = (MSDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    [self setTitle:@"Search"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,83 +40,77 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
+    return (UIInterfaceOrientationIsPortrait(interfaceOrientation));
+}
+
+#pragma mark - searchTextField search and activate focus
+//desc - make focus on the tfSearchText control
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tfSearchText becomeFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
+{
+    [self doSearch];
+    [textField resignFirstResponder];
+    return NO;
+}
+
+#pragma mark - private method (doSearch and store string into local file)
+- (void)doSearch{
+    NSString *groupsOrEvents = self.segSearchGroupsOrEvents.selectedSegmentIndex == 0 ? @"groups" : @"2/open_events";
+    NSString *zipOrKeyword = self.segSearchZipOrKeyword.selectedSegmentIndex == 0 ? @"zip" : @"topic";
+    NSString *query = [NSString stringWithFormat:
+                       @"https://api.meetup.com/%@?key=%@&sign=true&%@=%@",
+                       groupsOrEvents,
+                       apiKey,
+                       zipOrKeyword,
+                       tfSearchText.text];
+    NSError *error = nil;
+    NSURL *url = [NSURL URLWithString:query];
+    NSHTTPURLResponse *retRep = nil;
+    NSData *respData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:url]
+                                             returningResponse:&retRep
+                                                         error:&error];
+    if (error) {
+        NSLog(@"ERROR: %@", error);
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
-#pragma mark - Table View
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return _objects.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
-    return cell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    else{
+        NSString *resultsJSON = [[NSString alloc]initWithData:respData encoding:NSASCIIStringEncoding];
+        [self writeToResultsFile:resultsJSON];
     }
 }
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSDate *object = _objects[indexPath.row];
-        self.detailViewController.detailItem = object;
+- (void)writeToResultsFile:(NSString *)stringToStore{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *path = documentsDirectoryPath;
+    
+    NSError *error = nil;
+    [[NSFileManager defaultManager]createDirectoryAtPath:path
+                             withIntermediateDirectories:YES
+                                              attributes:nil
+                                                   error:&error];
+    if (error) {
+        NSLog(@"Dir Error: %@", error);
+    }
+    path = [NSString stringWithFormat:@"%@/%@", path, @"results.json"];
+    [stringToStore writeToFile:path
+                    atomically:YES
+                      encoding:NSUTF8StringEncoding
+                         error:&error];
+    if (error) {
+        NSLog(@"Write Error: %@", error);
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSDate *object = _objects[indexPath.row];
-//        [[segue destinationViewController] setDetailItem:object];
     }
 }
 
