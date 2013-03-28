@@ -41,8 +41,10 @@ static NSDateFormatter *dateFormatter;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	// Do any additional setup after loading the view typically from a nib.
     [self setTitle:@"Results"];
+    // desc - set itself as view controller restoration
+    self.restorationClass = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,6 +90,8 @@ static NSDateFormatter *dateFormatter;
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier
                                                                                 forIndexPath:indexPath];
+    
+    cell.contentView.backgroundColor = [UIColor darkGrayColor];
     NSDictionary *item = [self->displayItems objectAtIndex:indexPath.row];
     NSString *photoURL = [item objectForKey:@"photo_url"];
     NSDecimalNumber *time = [item objectForKey:@"time"];
@@ -130,7 +134,7 @@ static NSDateFormatter *dateFormatter;
             [lblDate setLineBreakMode:NSLineBreakByWordWrapping];
             [lblDate setTextAlignment:NSTextAlignmentCenter];
             [lblDate setTextColor:[UIColor whiteColor]];
-//            [lblDate setBackgroundColor:[UIColor blackColor]];
+            [lblDate setBackgroundColor:[UIColor blackColor]];
             [lblDate setText:dateStr];
             [iv addSubview:lblDate];
         }
