@@ -17,6 +17,10 @@
 -(NSString*) readResultsFile;
 @end
 
+static NSString *CellIdentifier = @"ResultsCell";
+//desc - for instance based dateformatter
+static NSDateFormatter *dateFormatter;
+
 @implementation MSDetailViewController
 
 #pragma mark - Managing the detail item
@@ -69,15 +73,69 @@
 }
 
 #pragma mark - uicollectionview delegate
--(NSInteger)    collectionView:(UICollectionView *)collectionView
-        numberOfItemsInSection:(NSInteger)section{
+-(NSInteger)collectionView:(UICollectionView *)collectionView
+    numberOfItemsInSection:(NSInteger)section{
     NSString* resultString = [self readResultsFile];
     NSDictionary* resultsDict = [resultString JSONValue];
     if (resultsDict) {
-        displayItems = [resultsDict objectForKey:@"results"];
+        self->displayItems = [resultsDict objectForKey:@"results"];
     }
     
-    return [displayItems count];
+    return [self->displayItems count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier
+                                                                                forIndexPath:indexPath];
+    NSDictionary *item = [self->displayItems objectAtIndex:indexPath.row];
+    NSString *photoURL = [item objectForKey:@"photo_url"];
+    NSDecimalNumber *time = [item objectForKey:@"time"];
+    
+    UIImageView *iv = nil;
+    UILabel *lbl = nil;
+    
+    for (UIView *v in cell.contentView.subviews) {
+        if ([v isKindOfClass:[UIImageView class]]) {
+            iv = (UIImageView*)v;
+            //desc - runtime delegate
+            [iv.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        }
+        else if ([v isKindOfClass:[UILabel class]]){
+            lbl = (UILabel*)v;
+        }
+    }
+    [iv setImage:nil];
+    [lbl setText:[item objectForKey:@"name"]];
+    
+    if (photoURL) {
+        if ([photoURL length] > 0) {
+            [iv setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:photoURL]]]];
+        }
+    }
+    else if(time){
+        if ([time floatValue] > 0){
+            if (!dateFormatter) {
+                dateFormatter = [[NSDateFormatter alloc]init];
+                [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+                [dateFormatter setDateFormat:@"M/d/YY H:MM"];
+            }
+            // desc - formatted elase time
+            NSDate *eventDate = [NSDate dateWithTimeIntervalSince1970:[time floatValue]/1000];
+            NSString *dateStr = [dateFormatter stringFromDate:eventDate];
+            
+            UILabel *lblDate = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 90, 90)];
+            [lblDate setNumberOfLines:2];
+            [lblDate setFont:[UIFont boldSystemFontOfSize:22]];
+            [lblDate setLineBreakMode:NSLineBreakByWordWrapping];
+            [lblDate setTextAlignment:NSTextAlignmentCenter];
+            [lblDate setTextColor:[UIColor whiteColor]];
+//            [lblDate setBackgroundColor:[UIColor blackColor]];
+            [lblDate setText:dateStr];
+            [iv addSubview:lblDate];
+        }
+    }
+    return cell;
 }
 
 #pragma mark - Split view
