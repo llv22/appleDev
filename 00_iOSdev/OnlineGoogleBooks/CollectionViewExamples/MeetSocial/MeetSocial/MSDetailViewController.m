@@ -6,10 +6,15 @@
 //  Copyright (c) 2013 Ding Orlando. All rights reserved.
 //
 
+#import "SBJson.h"
 #import "MSDetailViewController.h"
 
-@interface MSDetailViewController ()
+@interface MSDetailViewController (){
+    NSArray *displayItems;
+}
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+// desc - methods list
+-(NSString*) readResultsFile;
 @end
 
 @implementation MSDetailViewController
@@ -33,12 +38,46 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self setTitle:@"Results"];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (UIInterfaceOrientationIsPortrait(interfaceOrientation));
+}
+
+#pragma mark - private methods
+-(NSString*) readResultsFile{
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docmentsDirectory = [path objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"%@/results.json", docmentsDirectory];
+    NSError *error;
+    NSString *content = [[NSString alloc]initWithContentsOfFile:fileName
+                                                   usedEncoding:nil
+                                                          error:&error];
+    if (error) {
+        NSLog(@"read error - %@", error);
+        return nil;
+    }
+    return content;
+}
+
+#pragma mark - uicollectionview delegate
+-(NSInteger)    collectionView:(UICollectionView *)collectionView
+        numberOfItemsInSection:(NSInteger)section{
+    NSString* resultString = [self readResultsFile];
+    NSDictionary* resultsDict = [resultString JSONValue];
+    if (resultsDict) {
+        displayItems = [resultsDict objectForKey:@"results"];
+    }
+    
+    return [displayItems count];
 }
 
 #pragma mark - Split view

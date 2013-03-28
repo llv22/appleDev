@@ -98,6 +98,7 @@ const NSString* apiKey = @"6c274f6254523d5f2b10174a68761031";
     if (error) {
         NSLog(@"Dir Error: %@", error);
     }
+    // desc - path content : /Users/llv22/Library/Application Support/iPhone Simulator/6.1/Applications/7E3E22BC-8A84-4976-97FC-47FC42D358CE/Documents/results.json
     path = [NSString stringWithFormat:@"%@/%@", path, @"results.json"];
     [stringToStore writeToFile:path
                     atomically:YES
