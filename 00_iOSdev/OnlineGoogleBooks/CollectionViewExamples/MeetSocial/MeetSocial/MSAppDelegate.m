@@ -20,7 +20,53 @@
     }
     return YES;
 }
-							
+
+#pragma mark - application restoration
+
+- (BOOL)            application:(UIApplication *)application
+  shouldRestoreApplicationState:(NSCoder *)coder{
+    return YES;
+}
+
+- (BOOL)            application:(UIApplication *)application
+     shouldSaveApplicationState:(NSCoder *)coder{
+    return YES;
+}
+
+- (UIViewController*)           application:(UIApplication *)application
+viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents
+                                      coder:(NSCoder *)coder{
+    UIViewController* theController = nil;
+    NSString *lastID = [identifierComponents lastObject];
+    NSLog(@"Restoring: %@", lastID);
+    if (!lastID) {
+        return nil;
+    }
+    
+    if ([lastID isEqualToString:@"MSNavCon"]) {
+        theController = _window.rootViewController;
+    }
+    else if([lastID isEqualToString:@"MSSearchInput"]){
+        theController = [[(UINavigationController*)_window.rootViewController viewControllers] objectAtIndex:0];
+    }
+    NSLog(@"restored controller: %@", theController);
+    return theController;
+}
+
+- (void)                application:(UIApplication *)application
+ willEncodeRestorableStateWithCoder:(NSCoder *)coder{
+    [coder encodeFloat:1.0 forKey:@"MSVersion"];
+}
+
+- (void)                application:(UIApplication *)application
+  didDecodeRestorableStateWithCoder:(NSCoder *)coder{
+    float curVer = [[NSUserDefaults standardUserDefaults] floatForKey:@"MSVersion"];
+    float lastVer = [coder decodeFloatForKey:@"MSVersion"];
+    if (curVer != lastVer) {
+        NSLog(@"standardUserDefault version isn't 1.0 in coder");
+    }
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

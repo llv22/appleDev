@@ -44,7 +44,7 @@ static NSDateFormatter *dateFormatter;
 	// Do any additional setup after loading the view typically from a nib.
     [self setTitle:@"Results"];
     // desc - set itself as view controller restoration
-    self.restorationClass = self;
+    self.restorationClass = [self class];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,6 +59,7 @@ static NSDateFormatter *dateFormatter;
 }
 
 #pragma mark - private methods
+
 -(NSString*) readResultsFile{
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docmentsDirectory = [path objectAtIndex:0];
@@ -75,6 +76,7 @@ static NSDateFormatter *dateFormatter;
 }
 
 #pragma mark - uicollectionview delegate
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView
     numberOfItemsInSection:(NSInteger)section{
     NSString* resultString = [self readResultsFile];
@@ -140,6 +142,39 @@ static NSDateFormatter *dateFormatter;
         }
     }
     return cell;
+}
+
+#pragma mark - restoration controller delegate
+
+// desc - must-implementation for restoration class
++ (UIViewController *) viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents
+                                                             coder:(NSCoder *)coder{
+    UIStoryboard *sb = [coder decodeObjectForKey:UIStateRestorationViewControllerStoryboardKey];
+    NSString *lastID = [identifierComponents lastObject];
+    if (sb) {
+        return (MSDetailViewController*)[sb instantiateViewControllerWithIdentifier:lastID];
+    }
+    return nil;
+}
+
+- (NSString*) modelIdentifierForElementAtIndexPath:(NSIndexPath *)idx
+                                            inView:(UIView *)view{
+    NSDictionary *item = [self->displayItems objectAtIndex:idx.row];
+    NSLog(@"modelID: %@", [NSString stringWithFormat:@"%@", [item objectForKey:@"id"]]);
+    return [NSString stringWithFormat:@"%@", [item objectForKey:@"id"]];
+}
+
+- (NSIndexPath*) indexPathForElementWithModelIdentifier:(NSString *)identifier
+                                                 inView:(UIView *)view{
+    NSLog(@"ip for model id: %@", identifier);
+    int cnt = 0;
+    for (NSDictionary *item in self->displayItems) {
+        if ([[item objectForKey:@"id"] isEqualToString:identifier]) {
+            return [NSIndexPath indexPathForRow:cnt inSection:0];
+            cnt++;
+        }
+    }
+    return nil;
 }
 
 #pragma mark - Split view
