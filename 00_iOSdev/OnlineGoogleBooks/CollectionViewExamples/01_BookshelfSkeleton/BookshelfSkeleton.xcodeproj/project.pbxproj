@@ -39,6 +39,7 @@
 		F143DBD71706DE4500818924 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F143DBD91706DE4500818924 /* BKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKViewController.h; sourceTree = "<group>"; };
 		F143DBDA1706DE4500818924 /* BKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKViewController.m; sourceTree = "<group>"; };
+		F143DBE11706E5E200818924 /* readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = readme.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		F143DBAF1706DE4400818924 = {
 			isa = PBXGroup;
 			children = (
+				F143DBE11706E5E200818924 /* readme.rtf */,
 				F143DBC11706DE4400818924 /* BookshelfSkeleton */,
 				F143DBBA1706DE4400818924 /* Frameworks */,
 				F143DBB91706DE4400818924 /* Products */,
@@ -313,6 +315,7 @@
 				F143DBE01706DE4500818924 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
