@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BKViewController : UIViewController
+@interface BKViewController : UICollectionViewController
 
 @end

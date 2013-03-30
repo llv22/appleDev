@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Ding Orlando. All rights reserved.
 //
 
+#import "BKViewController.h"
 #import "BKAppDelegate.h"
 
 @implementation BKAppDelegate
@@ -13,6 +14,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    UICollectionViewFlowLayout* lineLayout = [[UICollectionViewFlowLayout alloc] init];
+    self.viewController = [[BKViewController alloc] initWithCollectionViewLayout:lineLayout];
+    
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
