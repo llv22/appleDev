@@ -21,6 +21,11 @@
 	2) uicollectionview for parsing nsstring node\
 		-> line wrap for uicollection cell - set suitable cell width, otherwise the background will be uncovered out for label above\
 	3) restorationclass for current detailed controller view to avoid recall json api\
+	Design storyboard ID =>\
+		NavigationController - Restoration ID : MSNavCon\
+		MSMasterViewController - Storyboard ID & Restoration ID : MSSearchInput\
+		MSDetailViewController - Storyboard ID & Restoration ID : MSResults\
+\
 	=> Application - MSAppDelegate + 
 \f3\fs22 \CocoaLigature0 - (\cf4 void\cf0 )application:(\cf5 UIApplication\cf0  *)application didDecodeRestorableStateWithCoder:(\cf5 NSCoder\cf0  *)coder
 \f0\fs24 \CocoaLigature1 \
@@ -35,4 +40,7 @@
 \cf0 	=> MSMasterViewController\
 		*) 
 \f3\fs22 \CocoaLigature0 - (\cf4 void\cf0 )encodeRestorableStateWithCoder:(\cf5 NSCoder\cf0  *)coder\
-		  - (\cf4 void\cf0 )decodeRestorableStateWithCoder:(\cf5 NSCoder\cf0  *)coder }
+		  - (\cf4 void\cf0 )decodeRestorableStateWithCoder:(\cf5 NSCoder\cf0  *)coder \
+\
+
+\f0\fs24 \CocoaLigature1 3, Extends to iPad version for storyboard [pending for BookShelf based on UICollectionView evaluation]}

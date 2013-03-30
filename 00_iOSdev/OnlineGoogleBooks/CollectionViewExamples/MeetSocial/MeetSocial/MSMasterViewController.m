@@ -112,7 +112,33 @@ const NSString* apiKey = @"6c274f6254523d5f2b10174a68761031";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        //desc - delegate for storyboard push with id
+        NSLog(@"Navigate to details");
     }
+}
+
+#pragma mark - decode/encode the status of UIController
+#define kSearchGorE @"SearchGorE"
+#define kSearchZorK @"SearchZorK"
+#define kSearchText @"SearchText"
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
+    [super encodeRestorableStateWithCoder:coder];
+    NSLog(@"saving GorE: %d", segSearchGroupsOrEvents.selectedSegmentIndex);
+    [coder encodeInt:segSearchGroupsOrEvents.selectedSegmentIndex forKey:kSearchGorE];
+    [coder encodeInt:segSearchZipOrKeyword.selectedSegmentIndex forKey:kSearchZorK];
+    [coder encodeObject:tfSearchText.text forKey:kSearchText];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
+    [super decodeRestorableStateWithCoder:coder];
+    NSLog(@"GorE: %d", [coder decodeIntegerForKey:kSearchGorE]);
+    [segSearchGroupsOrEvents setSelectedSegmentIndex:
+     [coder decodeIntegerForKey:kSearchGorE]];
+    [segSearchZipOrKeyword setSelectedSegmentIndex:
+     [coder decodeIntegerForKey:kSearchZorK]];
+    [tfSearchText setText:
+     [coder decodeObjectForKey:kSearchText]];
 }
 
 @end

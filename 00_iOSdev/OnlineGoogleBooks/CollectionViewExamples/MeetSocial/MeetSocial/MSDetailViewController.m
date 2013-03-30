@@ -11,10 +11,15 @@
 
 @interface MSDetailViewController (){
     NSArray *displayItems;
+    NSDictionary *selectedItem;
 }
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 // desc - methods list
--(NSString*) readResultsFile;
+- (NSString*) readResultsFile;
+- (void) share;
+- (bool) isAuthorizedForEntityType:(EKEntityType)type;
+- (void) createCalItem;
+- (void) createReminderItem;
 @end
 
 static NSString *CellIdentifier = @"ResultsCell";
@@ -175,6 +180,199 @@ static NSDateFormatter *dateFormatter;
         }
     }
     return nil;
+}
+
+- (void)    collectionView:(UICollectionView *)collectionView
+  didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    self->selectedItem = [self->displayItems objectAtIndex:indexPath.row];
+    NSString *url = [self->selectedItem objectForKey:@"link"];
+    
+    UIAlertView *av = nil;
+    // desc - delegate to method
+    //    -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+    if (url) {
+        av = [[UIAlertView alloc]initWithTitle:@"Details"
+                                       message:@"Would you like to..."
+                                      delegate:self
+                             cancelButtonTitle:@"Cancel"
+                             otherButtonTitles:@"See Group Page", @"Share", nil];
+    }
+    else{
+        av = [[UIAlertView alloc]initWithTitle:@"Details"
+                                       message:@"Would you like to..."
+                                      delegate:self
+                             cancelButtonTitle:@"Cancel"
+                             otherButtonTitles:@"See Event Page", @"Share", @"Create Cal Item", @"Create Reminder", nil];
+    }
+    [av show];
+}
+
+- (void)    alertView:(UIAlertView *)alertView
+ clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        return;
+    }
+    if (buttonIndex == 2) {
+        [self share];
+    }
+    else{
+        NSString *url =  [self->selectedItem objectForKey:@"link"];
+        
+        if (url) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        }
+        else{
+            if (buttonIndex == 1) {
+                NSString *url = [self->selectedItem objectForKey:@"event_url"];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+            }
+            else{
+                if (buttonIndex == 3) {
+                    if ([self isAuthorizedForEntityType:EKEntityTypeEvent]) {
+                        [self createCalItem];
+                    }
+                }
+                else{
+                    if ([self isAuthorizedForEntityType:EKEntityTypeReminder]) {
+                        [self createReminderItem];
+                    }
+                }
+            }
+        }
+    }
+}
+
+#pragma mark - alertView click use functionatility
+- (void) share{
+    NSString *url = [self->selectedItem objectForKey:@"link"];
+    NSString *textToShare = [self->selectedItem objectForKey:@"name"];
+    
+    UIImage *imageToShare = nil;
+    NSArray *activityItems = nil;
+    if (url) {
+        NSString *photoURL = [self->selectedItem objectForKey:@"photo_url"];
+        imageToShare = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:photoURL]]];
+        activityItems = @[textToShare, url, imageToShare];
+    }
+    else{
+        url = [self->selectedItem objectForKey:@"event_url"];
+        
+        NSDecimalNumber *time = [self->selectedItem objectForKey:@"time"];
+        NSDate *eventDate = [NSDate dateWithTimeIntervalSince1970:[time floatValue]/1000];
+        NSString *dateStr = [dateFormatter stringFromDate:eventDate];
+        
+        activityItems = @[textToShare, url, dateStr];
+    }
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems
+                                                                            applicationActivities:nil];
+    [self presentViewController:activityVC
+                       animated:YES
+                     completion:nil];
+}
+
+// desc - if events is authorized
+-(bool)isAuthorizedForEntityType:(EKEntityType)type{
+    EKAuthorizationStatus authStatus = [EKEventStore authorizationStatusForEntityType:type];
+    if (authStatus != EKAuthorizationStatusAuthorized) {
+        [[EKEventStore alloc]requestAccessToEntityType:EKEntityTypeEvent
+                                            completion:^(BOOL granted, NSError *error) {
+            if (granted) {
+                if (type == EKEntityTypeEvent) {
+                    [self createCalItem];
+                }
+                else{
+                    [self createReminderItem];
+                }
+            }
+            else{
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Permissions"
+                                                             message:@"If you deny the app permissions, you can not \
+                                                                        create calendar events.\n\nYou can \
+                                                                        change your permissiongs in the Settings \
+                                                                        app under Privacy."
+                                                            delegate:nil
+                                                   cancelButtonTitle:nil
+                                                   otherButtonTitles:@"OK", nil];
+                [av show];
+            }
+        }];
+        return NO;
+    }
+    return YES;
+}
+
+// desc - calender item
+- (void) createCalItem{
+    EKEventStore *eStore = [[EKEventStore alloc]init];
+    
+    EKEvent *event = [EKEvent eventWithEventStore:eStore];
+    [event setCalendar:[eStore defaultCalendarForNewEvents]];
+    [event setTitle:[self->selectedItem objectForKey:@"name"]];
+    
+    NSDecimalNumber *time = [self->selectedItem objectForKey:@"time"];
+    NSDate *eventDate = [NSDate dateWithTimeIntervalSince1970:[time floatValue]/1000];
+    [event setStartDate:eventDate];
+    [event setEndDate:eventDate];
+    NSError *error = nil;
+    [eStore saveEvent:event
+                 span:EKSpanThisEvent
+               commit:YES
+                error:&error];
+    
+    if (error) {
+        NSLog(@"Saving createCalItem: %@", error);
+    }
+    
+    EKEventEditViewController *editEvent = [[EKEventEditViewController alloc]init];
+    // desc - delegate to EKEventEditViewController Event delegate line 337
+    [editEvent setEditViewDelegate:self];
+    [editEvent setEvent:event];
+    [self presentViewController:editEvent
+                       animated:YES
+                     completion:nil];
+}
+
+// desc - reminder item
+- (void) createReminderItem{
+    EKEventStore *eStore = [[EKEventStore alloc]init];
+    
+    NSDecimalNumber *time = [self->selectedItem objectForKey:@"time"];
+    NSDate *eventDate = [NSDate dateWithTimeIntervalSince1970:[time floatValue]/1000];
+    
+    EKReminder *reminder = [EKReminder reminderWithEventStore:eStore];
+    NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit)
+                                           fromDate:eventDate];
+    [comps setDay:[comps day]];
+    [comps setMonth:[comps month]];
+    [comps setYear:[comps year]];
+    
+    [reminder setCalendar:[eStore defaultCalendarForNewReminders]];
+    [reminder setTitle:[self->selectedItem objectForKey:@"name"]];
+    [reminder setDueDateComponents:comps];
+    
+    NSError *error = nil;
+    [eStore saveReminder:reminder
+                  commit:YES
+                   error:&error];
+    if (error) {
+        NSLog(@"Saving createReminderItem: %@", error);
+    }
+    
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Reminder"
+                                                 message:@"Reminder created!"
+                                                delegate:nil
+                                       cancelButtonTitle:nil
+                                       otherButtonTitles:@"OK", nil];
+    [av show];
+}
+
+// desc - EKEventEditViewController Event delegate
+- (void)eventEditViewController:(EKEventEditViewController *)controller
+          didCompleteWithAction:(EKEventEditViewAction)action{
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
 }
 
 #pragma mark - Split view

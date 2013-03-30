@@ -7,7 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="11">
             <objects>
-                <navigationController id="3" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="MSNavCon" id="3" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -22,7 +22,7 @@
         <!--Master View Controller-->
         <scene sceneID="SlX-a9-SyV">
             <objects>
-                <viewController id="vbC-o5-QY9" customClass="MSMasterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MSSearchInput" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vbC-o5-QY9" customClass="MSMasterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="84d-Yn-MBs">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -32,7 +32,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="vbC-o5-QY9" id="RT5-ZF-tVA"/>
-                                    <segue destination="Pp4-9J-DfO" kind="push" id="FiS-s3-M5o"/>
+                                    <segue destination="Pp4-9J-DfO" kind="push" identifier="showDetail" id="FiS-s3-M5o"/>
                                 </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zer-0I-jFO">
@@ -76,7 +76,7 @@
         <!--Detail View Controller-->
         <scene sceneID="2tO-tP-2ow">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="Pp4-9J-DfO" customClass="MSDetailViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="MSResults" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pp4-9J-DfO" customClass="MSDetailViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="v5y-ZJ-3nl">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
