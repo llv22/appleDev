@@ -1,0 +1,320 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F143DBBC1706DE4400818924 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F143DBBB1706DE4400818924 /* UIKit.framework */; };
+		F143DBBE1706DE4400818924 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F143DBBD1706DE4400818924 /* Foundation.framework */; };
+		F143DBC01706DE4400818924 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F143DBBF1706DE4400818924 /* CoreGraphics.framework */; };
+		F143DBC61706DE4400818924 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F143DBC41706DE4400818924 /* InfoPlist.strings */; };
+		F143DBC81706DE4400818924 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F143DBC71706DE4400818924 /* main.m */; };
+		F143DBCC1706DE4500818924 /* BKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F143DBCB1706DE4500818924 /* BKAppDelegate.m */; };
+		F143DBCE1706DE4500818924 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F143DBCD1706DE4500818924 /* Default.png */; };
+		F143DBD01706DE4500818924 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F143DBCF1706DE4500818924 /* Default@2x.png */; };
+		F143DBD21706DE4500818924 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F143DBD11706DE4500818924 /* Default-568h@2x.png */; };
+		F143DBD51706DE4500818924 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F143DBD31706DE4500818924 /* MainStoryboard_iPhone.storyboard */; };
+		F143DBD81706DE4500818924 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F143DBD61706DE4500818924 /* MainStoryboard_iPad.storyboard */; };
+		F143DBDB1706DE4500818924 /* BKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143DBDA1706DE4500818924 /* BKViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F143DBB81706DE4400818924 /* BookshelfSkeleton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookshelfSkeleton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F143DBBB1706DE4400818924 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F143DBBD1706DE4400818924 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F143DBBF1706DE4400818924 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F143DBC31706DE4400818924 /* BookshelfSkeleton-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BookshelfSkeleton-Info.plist"; sourceTree = "<group>"; };
+		F143DBC51706DE4400818924 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F143DBC71706DE4400818924 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F143DBC91706DE4400818924 /* BookshelfSkeleton-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookshelfSkeleton-Prefix.pch"; sourceTree = "<group>"; };
+		F143DBCA1706DE4400818924 /* BKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKAppDelegate.h; sourceTree = "<group>"; };
+		F143DBCB1706DE4500818924 /* BKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKAppDelegate.m; sourceTree = "<group>"; };
+		F143DBCD1706DE4500818924 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F143DBCF1706DE4500818924 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F143DBD11706DE4500818924 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F143DBD41706DE4500818924 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		F143DBD71706DE4500818924 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		F143DBD91706DE4500818924 /* BKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKViewController.h; sourceTree = "<group>"; };
+		F143DBDA1706DE4500818924 /* BKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F143DBB51706DE4400818924 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F143DBBC1706DE4400818924 /* UIKit.framework in Frameworks */,
+				F143DBBE1706DE4400818924 /* Foundation.framework in Frameworks */,
+				F143DBC01706DE4400818924 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F143DBAF1706DE4400818924 = {
+			isa = PBXGroup;
+			children = (
+				F143DBC11706DE4400818924 /* BookshelfSkeleton */,
+				F143DBBA1706DE4400818924 /* Frameworks */,
+				F143DBB91706DE4400818924 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F143DBB91706DE4400818924 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F143DBB81706DE4400818924 /* BookshelfSkeleton.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F143DBBA1706DE4400818924 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F143DBBB1706DE4400818924 /* UIKit.framework */,
+				F143DBBD1706DE4400818924 /* Foundation.framework */,
+				F143DBBF1706DE4400818924 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F143DBC11706DE4400818924 /* BookshelfSkeleton */ = {
+			isa = PBXGroup;
+			children = (
+				F143DBCA1706DE4400818924 /* BKAppDelegate.h */,
+				F143DBCB1706DE4500818924 /* BKAppDelegate.m */,
+				F143DBD31706DE4500818924 /* MainStoryboard_iPhone.storyboard */,
+				F143DBD61706DE4500818924 /* MainStoryboard_iPad.storyboard */,
+				F143DBD91706DE4500818924 /* BKViewController.h */,
+				F143DBDA1706DE4500818924 /* BKViewController.m */,
+				F143DBC21706DE4400818924 /* Supporting Files */,
+			);
+			path = BookshelfSkeleton;
+			sourceTree = "<group>";
+		};
+		F143DBC21706DE4400818924 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F143DBC31706DE4400818924 /* BookshelfSkeleton-Info.plist */,
+				F143DBC41706DE4400818924 /* InfoPlist.strings */,
+				F143DBC71706DE4400818924 /* main.m */,
+				F143DBC91706DE4400818924 /* BookshelfSkeleton-Prefix.pch */,
+				F143DBCD1706DE4500818924 /* Default.png */,
+				F143DBCF1706DE4500818924 /* Default@2x.png */,
+				F143DBD11706DE4500818924 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F143DBB71706DE4400818924 /* BookshelfSkeleton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F143DBDE1706DE4500818924 /* Build configuration list for PBXNativeTarget "BookshelfSkeleton" */;
+			buildPhases = (
+				F143DBB41706DE4400818924 /* Sources */,
+				F143DBB51706DE4400818924 /* Frameworks */,
+				F143DBB61706DE4400818924 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BookshelfSkeleton;
+			productName = BookshelfSkeleton;
+			productReference = F143DBB81706DE4400818924 /* BookshelfSkeleton.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F143DBB01706DE4400818924 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BK;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Ding Orlando";
+			};
+			buildConfigurationList = F143DBB31706DE4400818924 /* Build configuration list for PBXProject "BookshelfSkeleton" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F143DBAF1706DE4400818924;
+			productRefGroup = F143DBB91706DE4400818924 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F143DBB71706DE4400818924 /* BookshelfSkeleton */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F143DBB61706DE4400818924 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F143DBC61706DE4400818924 /* InfoPlist.strings in Resources */,
+				F143DBCE1706DE4500818924 /* Default.png in Resources */,
+				F143DBD01706DE4500818924 /* Default@2x.png in Resources */,
+				F143DBD21706DE4500818924 /* Default-568h@2x.png in Resources */,
+				F143DBD51706DE4500818924 /* MainStoryboard_iPhone.storyboard in Resources */,
+				F143DBD81706DE4500818924 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F143DBB41706DE4400818924 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F143DBC81706DE4400818924 /* main.m in Sources */,
+				F143DBCC1706DE4500818924 /* BKAppDelegate.m in Sources */,
+				F143DBDB1706DE4500818924 /* BKViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F143DBC41706DE4400818924 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F143DBC51706DE4400818924 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F143DBD31706DE4500818924 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F143DBD41706DE4500818924 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		F143DBD61706DE4500818924 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F143DBD71706DE4500818924 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F143DBDC1706DE4500818924 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F143DBDD1706DE4500818924 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F143DBDF1706DE4500818924 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BookshelfSkeleton/BookshelfSkeleton-Prefix.pch";
+				INFOPLIST_FILE = "BookshelfSkeleton/BookshelfSkeleton-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F143DBE01706DE4500818924 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BookshelfSkeleton/BookshelfSkeleton-Prefix.pch";
+				INFOPLIST_FILE = "BookshelfSkeleton/BookshelfSkeleton-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F143DBB31706DE4400818924 /* Build configuration list for PBXProject "BookshelfSkeleton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F143DBDC1706DE4500818924 /* Debug */,
+				F143DBDD1706DE4500818924 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F143DBDE1706DE4500818924 /* Build configuration list for PBXNativeTarget "BookshelfSkeleton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F143DBDF1706DE4500818924 /* Debug */,
+				F143DBE01706DE4500818924 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F143DBB01706DE4400818924 /* Project object */;
+}
