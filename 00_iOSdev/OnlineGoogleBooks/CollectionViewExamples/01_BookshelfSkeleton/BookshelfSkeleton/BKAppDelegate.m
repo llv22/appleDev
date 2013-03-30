@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Ding Orlando. All rights reserved.
 //
 
-#import "BKViewController.h"
+#import "BKNavViewController.h"
 #import "BKAppDelegate.h"
 
 @implementation BKAppDelegate
@@ -15,12 +15,12 @@
 {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    UICollectionViewFlowLayout* lineLayout = [[UICollectionViewFlowLayout alloc] init];
-    self.viewController = [[BKViewController alloc] initWithCollectionViewLayout:lineLayout];
-    
-    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    self.rootViewController = [[BKNavViewController alloc]init];
+    self.navigationController = [[UINavigationController alloc]initWithRootViewController:self.rootViewController];
+//    [self.window addSubview:self.navigationController.view];
+    self.window.rootViewController = self.navigationController;
     return YES;
 }
 							

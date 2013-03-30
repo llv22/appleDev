@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class BKViewController;
+@class BKNavViewController;
 
 @interface BKAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) BKViewController *viewController;
+@property (strong, nonatomic) BKNavViewController *rootViewController;
+@property (strong, nonatomic) UINavigationController *navigationController;
+
 
 @end

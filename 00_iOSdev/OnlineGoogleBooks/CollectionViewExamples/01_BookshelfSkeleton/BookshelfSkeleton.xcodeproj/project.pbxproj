@@ -16,7 +16,13 @@
 		F143DBCE1706DE4500818924 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F143DBCD1706DE4500818924 /* Default.png */; };
 		F143DBD01706DE4500818924 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F143DBCF1706DE4500818924 /* Default@2x.png */; };
 		F143DBD21706DE4500818924 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F143DBD11706DE4500818924 /* Default-568h@2x.png */; };
-		F143DBDB1706DE4500818924 /* BKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143DBDA1706DE4500818924 /* BKViewController.m */; };
+		F143DBDB1706DE4500818924 /* BKNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143DBDA1706DE4500818924 /* BKNavViewController.m */; };
+		F15DFB851706FD19005A7CAE /* NavBar-Landscape@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15DFB7F1706FD19005A7CAE /* NavBar-Landscape@2x~iphone.png */; };
+		F15DFB861706FD19005A7CAE /* NavBar-Landscape~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15DFB801706FD19005A7CAE /* NavBar-Landscape~iphone.png */; };
+		F15DFB871706FD19005A7CAE /* NavBar@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15DFB811706FD19005A7CAE /* NavBar@2x~ipad.png */; };
+		F15DFB881706FD19005A7CAE /* NavBar@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15DFB821706FD19005A7CAE /* NavBar@2x~iphone.png */; };
+		F15DFB891706FD19005A7CAE /* NavBar~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15DFB831706FD19005A7CAE /* NavBar~ipad.png */; };
+		F15DFB8A1706FD19005A7CAE /* NavBar~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15DFB841706FD19005A7CAE /* NavBar~iphone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,9 +39,15 @@
 		F143DBCD1706DE4500818924 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F143DBCF1706DE4500818924 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		F143DBD11706DE4500818924 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		F143DBD91706DE4500818924 /* BKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKViewController.h; sourceTree = "<group>"; };
-		F143DBDA1706DE4500818924 /* BKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKViewController.m; sourceTree = "<group>"; };
+		F143DBD91706DE4500818924 /* BKNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKNavViewController.h; sourceTree = "<group>"; };
+		F143DBDA1706DE4500818924 /* BKNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKNavViewController.m; sourceTree = "<group>"; };
 		F143DBE11706E5E200818924 /* readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = readme.rtf; sourceTree = "<group>"; };
+		F15DFB7F1706FD19005A7CAE /* NavBar-Landscape@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar-Landscape@2x~iphone.png"; sourceTree = "<group>"; };
+		F15DFB801706FD19005A7CAE /* NavBar-Landscape~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar-Landscape~iphone.png"; sourceTree = "<group>"; };
+		F15DFB811706FD19005A7CAE /* NavBar@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar@2x~ipad.png"; sourceTree = "<group>"; };
+		F15DFB821706FD19005A7CAE /* NavBar@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar@2x~iphone.png"; sourceTree = "<group>"; };
+		F15DFB831706FD19005A7CAE /* NavBar~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar~ipad.png"; sourceTree = "<group>"; };
+		F15DFB841706FD19005A7CAE /* NavBar~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar~iphone.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +97,8 @@
 			children = (
 				F143DBCA1706DE4400818924 /* BKAppDelegate.h */,
 				F143DBCB1706DE4500818924 /* BKAppDelegate.m */,
-				F143DBD91706DE4500818924 /* BKViewController.h */,
-				F143DBDA1706DE4500818924 /* BKViewController.m */,
+				F143DBD91706DE4500818924 /* BKNavViewController.h */,
+				F143DBDA1706DE4500818924 /* BKNavViewController.m */,
 				F143DBC21706DE4400818924 /* Supporting Files */,
 			);
 			path = BookshelfSkeleton;
@@ -95,6 +107,7 @@
 		F143DBC21706DE4400818924 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F15DFB7D1706FD19005A7CAE /* UIResources */,
 				F143DBC31706DE4400818924 /* BookshelfSkeleton-Info.plist */,
 				F143DBC41706DE4400818924 /* InfoPlist.strings */,
 				F143DBC71706DE4400818924 /* main.m */,
@@ -104,6 +117,27 @@
 				F143DBD11706DE4500818924 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F15DFB7D1706FD19005A7CAE /* UIResources */ = {
+			isa = PBXGroup;
+			children = (
+				F15DFB7E1706FD19005A7CAE /* NavigationBars */,
+			);
+			path = UIResources;
+			sourceTree = "<group>";
+		};
+		F15DFB7E1706FD19005A7CAE /* NavigationBars */ = {
+			isa = PBXGroup;
+			children = (
+				F15DFB7F1706FD19005A7CAE /* NavBar-Landscape@2x~iphone.png */,
+				F15DFB801706FD19005A7CAE /* NavBar-Landscape~iphone.png */,
+				F15DFB811706FD19005A7CAE /* NavBar@2x~ipad.png */,
+				F15DFB821706FD19005A7CAE /* NavBar@2x~iphone.png */,
+				F15DFB831706FD19005A7CAE /* NavBar~ipad.png */,
+				F15DFB841706FD19005A7CAE /* NavBar~iphone.png */,
+			);
+			path = NavigationBars;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +196,12 @@
 				F143DBCE1706DE4500818924 /* Default.png in Resources */,
 				F143DBD01706DE4500818924 /* Default@2x.png in Resources */,
 				F143DBD21706DE4500818924 /* Default-568h@2x.png in Resources */,
+				F15DFB851706FD19005A7CAE /* NavBar-Landscape@2x~iphone.png in Resources */,
+				F15DFB861706FD19005A7CAE /* NavBar-Landscape~iphone.png in Resources */,
+				F15DFB871706FD19005A7CAE /* NavBar@2x~ipad.png in Resources */,
+				F15DFB881706FD19005A7CAE /* NavBar@2x~iphone.png in Resources */,
+				F15DFB891706FD19005A7CAE /* NavBar~ipad.png in Resources */,
+				F15DFB8A1706FD19005A7CAE /* NavBar~iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +214,7 @@
 			files = (
 				F143DBC81706DE4400818924 /* main.m in Sources */,
 				F143DBCC1706DE4500818924 /* BKAppDelegate.m in Sources */,
-				F143DBDB1706DE4500818924 /* BKViewController.m in Sources */,
+				F143DBDB1706DE4500818924 /* BKNavViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
