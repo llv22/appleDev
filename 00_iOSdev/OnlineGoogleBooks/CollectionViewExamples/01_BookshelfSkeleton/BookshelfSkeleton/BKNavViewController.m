@@ -12,6 +12,9 @@ NSString* const strShelfTitle = @"BookShelf";
 
 @interface BKNavViewController ()
 
+- (void)setupNavBar;
+- (void)setupShelf;
+
 - (void)editAction:(id)leftButtonItem;
 - (void)catalogAction:(id)rightButtonItem;
 
@@ -22,7 +25,24 @@ NSString* const strShelfTitle = @"BookShelf";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
+    [self setupNavBar];
+    [self setupShelf];
+    
+    self.title = strShelfTitle;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - setup of bookshelf style (background)
+
+// desc - navigation bar
+- (void)setupNavBar{
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar"] forBarMetrics:UIBarMetricsDefault];
     UIBarButtonItem *leftEdit = [[UIBarButtonItem alloc]initWithTitle:@"Edit"
                                                                 style:UIBarButtonItemStyleBordered
@@ -36,14 +56,13 @@ NSString* const strShelfTitle = @"BookShelf";
                                                                    action:@selector(catalogAction:)];
     self.navigationItem.rightBarButtonItem = rightCatalog;
     [self.navigationItem.rightBarButtonItem setTintColor:[UIColor brownColor]];
-    
-    self.title = strShelfTitle;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupShelf{
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"WoodTile"]];
+//    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WoodTile"]];
+//    [self.view addSubview:backgroundImage];
+//    [self.view sendSubviewToBack:backgroundImage];
 }
 
 #pragma mark - auto-rotation

@@ -11,10 +11,6 @@
 		F1106A841708353D00251825 /* woodBackLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1106A7C1708353D00251825 /* woodBackLeft@2x.png */; };
 		F1106A851708353D00251825 /* woodBackRight.png in Resources */ = {isa = PBXBuildFile; fileRef = F1106A7D1708353D00251825 /* woodBackRight.png */; };
 		F1106A861708353D00251825 /* woodBackRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1106A7E1708353D00251825 /* woodBackRight@2x.png */; };
-		F1106A871708353D00251825 /* WoodTile@2x~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1106A7F1708353D00251825 /* WoodTile@2x~ipad.jpg */; };
-		F1106A881708353D00251825 /* WoodTile@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1106A801708353D00251825 /* WoodTile@2x~iphone.jpg */; };
-		F1106A891708353D00251825 /* WoodTile~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1106A811708353D00251825 /* WoodTile~ipad.jpg */; };
-		F1106A8A1708353D00251825 /* WoodTile~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1106A821708353D00251825 /* WoodTile~iphone.jpg */; };
 		F1106A971708354800251825 /* Shelf-Hybrid@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F1106A8C1708354800251825 /* Shelf-Hybrid@2x~ipad.png */; };
 		F1106A981708354800251825 /* Shelf-Hybrid~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F1106A8D1708354800251825 /* Shelf-Hybrid~ipad.png */; };
 		F1106A991708354800251825 /* Shelf-Landscape-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F1106A8E1708354800251825 /* Shelf-Landscape-568h@2x~iphone.png */; };
@@ -32,9 +28,6 @@
 		F143DBC61706DE4400818924 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F143DBC41706DE4400818924 /* InfoPlist.strings */; };
 		F143DBC81706DE4400818924 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F143DBC71706DE4400818924 /* main.m */; };
 		F143DBCC1706DE4500818924 /* BKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F143DBCB1706DE4500818924 /* BKAppDelegate.m */; };
-		F143DBCE1706DE4500818924 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F143DBCD1706DE4500818924 /* Default.png */; };
-		F143DBD01706DE4500818924 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F143DBCF1706DE4500818924 /* Default@2x.png */; };
-		F143DBD21706DE4500818924 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F143DBD11706DE4500818924 /* Default-568h@2x.png */; };
 		F143DBDB1706DE4500818924 /* BKNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143DBDA1706DE4500818924 /* BKNavViewController.m */; };
 		F15DFB851706FD19005A7CAE /* NavBar-Landscape@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15DFB7F1706FD19005A7CAE /* NavBar-Landscape@2x~iphone.png */; };
 		F15DFB861706FD19005A7CAE /* NavBar-Landscape~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15DFB801706FD19005A7CAE /* NavBar-Landscape~iphone.png */; };
@@ -42,6 +35,11 @@
 		F15DFB881706FD19005A7CAE /* NavBar@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15DFB821706FD19005A7CAE /* NavBar@2x~iphone.png */; };
 		F15DFB891706FD19005A7CAE /* NavBar~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F15DFB831706FD19005A7CAE /* NavBar~ipad.png */; };
 		F15DFB8A1706FD19005A7CAE /* NavBar~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F15DFB841706FD19005A7CAE /* NavBar~iphone.png */; };
+		F18AE8B4170861FB00361ECA /* WoodTile@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F18AE8B0170861FB00361ECA /* WoodTile@2x~ipad.png */; };
+		F18AE8B5170861FB00361ECA /* WoodTile@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F18AE8B1170861FB00361ECA /* WoodTile@2x~iphone.png */; };
+		F18AE8B6170861FB00361ECA /* WoodTile~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F18AE8B2170861FB00361ECA /* WoodTile~ipad.png */; };
+		F18AE8B7170861FB00361ECA /* WoodTile~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F18AE8B3170861FB00361ECA /* WoodTile~iphone.png */; };
+		F18AE8C3170862A300361ECA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F18AE8C2170862A300361ECA /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,10 +47,6 @@
 		F1106A7C1708353D00251825 /* woodBackLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "woodBackLeft@2x.png"; sourceTree = "<group>"; };
 		F1106A7D1708353D00251825 /* woodBackRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woodBackRight.png; sourceTree = "<group>"; };
 		F1106A7E1708353D00251825 /* woodBackRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "woodBackRight@2x.png"; sourceTree = "<group>"; };
-		F1106A7F1708353D00251825 /* WoodTile@2x~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "WoodTile@2x~ipad.jpg"; sourceTree = "<group>"; };
-		F1106A801708353D00251825 /* WoodTile@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "WoodTile@2x~iphone.jpg"; sourceTree = "<group>"; };
-		F1106A811708353D00251825 /* WoodTile~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "WoodTile~ipad.jpg"; sourceTree = "<group>"; };
-		F1106A821708353D00251825 /* WoodTile~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "WoodTile~iphone.jpg"; sourceTree = "<group>"; };
 		F1106A8C1708354800251825 /* Shelf-Hybrid@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf-Hybrid@2x~ipad.png"; sourceTree = "<group>"; };
 		F1106A8D1708354800251825 /* Shelf-Hybrid~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf-Hybrid~ipad.png"; sourceTree = "<group>"; };
 		F1106A8E1708354800251825 /* Shelf-Landscape-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shelf-Landscape-568h@2x~iphone.png"; sourceTree = "<group>"; };
@@ -76,7 +70,6 @@
 		F143DBCB1706DE4500818924 /* BKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKAppDelegate.m; sourceTree = "<group>"; };
 		F143DBCD1706DE4500818924 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F143DBCF1706DE4500818924 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		F143DBD11706DE4500818924 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F143DBD91706DE4500818924 /* BKNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKNavViewController.h; sourceTree = "<group>"; };
 		F143DBDA1706DE4500818924 /* BKNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKNavViewController.m; sourceTree = "<group>"; };
 		F143DBE11706E5E200818924 /* readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = readme.rtf; sourceTree = "<group>"; };
@@ -86,6 +79,11 @@
 		F15DFB821706FD19005A7CAE /* NavBar@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar@2x~iphone.png"; sourceTree = "<group>"; };
 		F15DFB831706FD19005A7CAE /* NavBar~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar~ipad.png"; sourceTree = "<group>"; };
 		F15DFB841706FD19005A7CAE /* NavBar~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar~iphone.png"; sourceTree = "<group>"; };
+		F18AE8B0170861FB00361ECA /* WoodTile@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WoodTile@2x~ipad.png"; sourceTree = "<group>"; };
+		F18AE8B1170861FB00361ECA /* WoodTile@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WoodTile@2x~iphone.png"; sourceTree = "<group>"; };
+		F18AE8B2170861FB00361ECA /* WoodTile~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WoodTile~ipad.png"; sourceTree = "<group>"; };
+		F18AE8B3170861FB00361ECA /* WoodTile~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WoodTile~iphone.png"; sourceTree = "<group>"; };
+		F18AE8C2170862A300361ECA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +107,10 @@
 				F1106A7C1708353D00251825 /* woodBackLeft@2x.png */,
 				F1106A7D1708353D00251825 /* woodBackRight.png */,
 				F1106A7E1708353D00251825 /* woodBackRight@2x.png */,
-				F1106A7F1708353D00251825 /* WoodTile@2x~ipad.jpg */,
-				F1106A801708353D00251825 /* WoodTile@2x~iphone.jpg */,
-				F1106A811708353D00251825 /* WoodTile~ipad.jpg */,
-				F1106A821708353D00251825 /* WoodTile~iphone.jpg */,
+				F18AE8B0170861FB00361ECA /* WoodTile@2x~ipad.png */,
+				F18AE8B1170861FB00361ECA /* WoodTile@2x~iphone.png */,
+				F18AE8B2170861FB00361ECA /* WoodTile~ipad.png */,
+				F18AE8B3170861FB00361ECA /* WoodTile~iphone.png */,
 			);
 			path = MainFrames;
 			sourceTree = "<group>";
@@ -185,7 +183,7 @@
 				F143DBC91706DE4400818924 /* BookshelfSkeleton-Prefix.pch */,
 				F143DBCD1706DE4500818924 /* Default.png */,
 				F143DBCF1706DE4500818924 /* Default@2x.png */,
-				F143DBD11706DE4500818924 /* Default-568h@2x.png */,
+				F18AE8C2170862A300361ECA /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -266,9 +264,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F143DBC61706DE4400818924 /* InfoPlist.strings in Resources */,
-				F143DBCE1706DE4500818924 /* Default.png in Resources */,
-				F143DBD01706DE4500818924 /* Default@2x.png in Resources */,
-				F143DBD21706DE4500818924 /* Default-568h@2x.png in Resources */,
 				F15DFB851706FD19005A7CAE /* NavBar-Landscape@2x~iphone.png in Resources */,
 				F15DFB861706FD19005A7CAE /* NavBar-Landscape~iphone.png in Resources */,
 				F15DFB871706FD19005A7CAE /* NavBar@2x~ipad.png in Resources */,
@@ -279,10 +274,6 @@
 				F1106A841708353D00251825 /* woodBackLeft@2x.png in Resources */,
 				F1106A851708353D00251825 /* woodBackRight.png in Resources */,
 				F1106A861708353D00251825 /* woodBackRight@2x.png in Resources */,
-				F1106A871708353D00251825 /* WoodTile@2x~ipad.jpg in Resources */,
-				F1106A881708353D00251825 /* WoodTile@2x~iphone.jpg in Resources */,
-				F1106A891708353D00251825 /* WoodTile~ipad.jpg in Resources */,
-				F1106A8A1708353D00251825 /* WoodTile~iphone.jpg in Resources */,
 				F1106A971708354800251825 /* Shelf-Hybrid@2x~ipad.png in Resources */,
 				F1106A981708354800251825 /* Shelf-Hybrid~ipad.png in Resources */,
 				F1106A991708354800251825 /* Shelf-Landscape-568h@2x~iphone.png in Resources */,
@@ -294,6 +285,11 @@
 				F1106A9F1708354800251825 /* Shelf@2x~iphone.png in Resources */,
 				F1106AA01708354800251825 /* Shelf~ipad.png in Resources */,
 				F1106AA11708354800251825 /* Shelf~iphone.png in Resources */,
+				F18AE8B4170861FB00361ECA /* WoodTile@2x~ipad.png in Resources */,
+				F18AE8B5170861FB00361ECA /* WoodTile@2x~iphone.png in Resources */,
+				F18AE8B6170861FB00361ECA /* WoodTile~ipad.png in Resources */,
+				F18AE8B7170861FB00361ECA /* WoodTile~iphone.png in Resources */,
+				F18AE8C3170862A300361ECA /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

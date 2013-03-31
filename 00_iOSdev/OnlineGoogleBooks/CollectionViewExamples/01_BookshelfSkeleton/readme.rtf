@@ -36,5 +36,25 @@
 
 \f0\fs24 \cf0 \CocoaLigature1 	*) auto-rotation for BKNavViewController (How-to inherit/overwrite for sub-view?)\
 	solution: \
-	\
-	}
+\pard\tx529\pardeftab529\pardirnatural
+
+\f1\fs22 \cf0 \CocoaLigature0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab529\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1 	*) add background for bookshelf\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 	=> http://stackoverflow.com/questions/3478908/uiviewcontroller-background-image\
+	=> http://stackoverflow.com/questions/6595365/jpg-images-in-iphone-and-2x-images\
+	=> http://stackoverflow.com/questions/1964726/setting-views-background-image-in-iphone\
+	=> http://stackoverflow.com/questions/3478908/uiviewcontroller-background-image\
+	solution: 
+\f1\fs22 \CocoaLigature0 \
+\pard\tx529\pardeftab529\pardirnatural
+\cf0     \cf2 self\cf0 .\cf3 view\cf0 .\cf3 backgroundColor\cf0  = [[\cf3 UIColor\cf0  \cf4 alloc\cf0 ] \cf4 initWithPatternImage\cf0 :[\cf3 UIImage\cf0  \cf4 imageNamed\cf0 :\cf5 @"WoodTile"\cf0 ]];\
+\pard\tx529\pardeftab529\pardirnatural
+\cf6 //    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WoodTile"]];\cf0 \
+\cf6 //    [self.view addSubview:backgroundImage];\cf0 \
+\cf6 //    [self.view sendSubviewToBack:backgroundImage];
+\f0\fs24 \cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 	*) side-shadow effect}
