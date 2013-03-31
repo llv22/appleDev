@@ -46,6 +46,12 @@ NSString* const strShelfTitle = @"BookShelf";
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - auto-rotation
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
+    return (toInterfaceOrientation == UIInterfaceOrientationPortrait) || UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+}
+
 #pragma mark - UIBarButtonItem delegate
 
 - (void)editAction:(id)leftButtonItem{

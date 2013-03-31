@@ -1,38 +1,43 @@
+# ignore .DS_Store in root folder, recursive?
 .DS_Store
-01_Macdev/CocoaDev.xcworkspace/contents.xcworkspacedata
-01_Macdev/CocoaDev.xcworkspace/xcuserdata/llv22.xcuserdatad/UserInterfaceState.xcuserstate
-01_Macdev/17_DrawingFun/17_DrawingFun.xcodeproj/xcuserdata/
-01_Macdev/CocoaDev.xcworkspace/contents.xcworkspacedata/
-01_Macdev/Cocoa-4th/
-01_Macdev/Cocoa-4th/*
 00_iOSdev/.DS_Store
 01_Macdev/.DS_Store
 01_Macdev/CocoaDev.xcworkspace/contents.xcworkspacedata
-00_iOSdev/HouseHelper/HouseHelper.xcodeproj/project.xcworkspace/
-00_iOSdev/HouseHelper/HouseHelper.xcodeproj/xcuserdata/
-00_iOSdev/HouseHelper/HouseHelper.xcodeproj/xcuserdata
-00_iOSdev/ViewControllers/2.11_NavBarButton/2.11_NavBarButton.xcodeproj/project.xcworkspace/contents.xcworkspacedata
-00_iOSdev/ViewControllers/2.11_NavBarButton/2.11_NavBarButton.xcodeproj/project.xcworkspace/xcuserdata/
-00_iOSdev/ViewControllers/2.7_SingleViewController/2.7_SingleViewController.xcodeproj/project.xcworkspace/ 
-00_iOSdev/ViewControllers/2.11_NavBarButton/2.11_NavBarButton.xcodeproj/xcuserdata/llv22.xcuserdatad/xcdebugger/
-00_iOSdev/ViewControllers/3.3_TBData/3.3_TBData.xcodeproj/project.xcworkspace/
-01_Macdev/19_TypingTutor/19_TypingTutor.xcodeproj/xcuserdata/
-00_iOSdev/ViewControllers/2.11_NavBarButton/2.11_NavBarButton.xcodeproj/project.xcworkspace/xcuserdata/llv22.xcuserdatad/UserInterfaceState.xcuserstate
-00_iOSdev/OnlineGoogleBook/OnlineGoogleBook.xcodeproj/project.xcworkspace/
-00_iOSdev/OnlineGoogleBook/OnlineGoogleBook.xcodeproj/xcuserdata/
-00_iOSdev/OnlineGoogleBooks/OnlineGoogleBooks.xcworkspace/xcuserdata/llv22.xcuserdatad/UserInterfaceState.xcuserstate
+01_Macdev/CocoaDev.xcworkspace/xcuserdata/llv22.xcuserdatad/
+01_Macdev/CocoaDev.xcworkspace/contents.xcworkspacedata/
+# ignore local example code
+01_Macdev/Cocoa-4th/
 00_iOSdev/iOSGuideSamples/
 00_iOSdev/OfficalGuides/
-00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/Flickr Search/Flickr Search.xcodeproj/project.xcworkspace/xcuserdata/llv22.xcuserdatad/
-00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/Flickr Search/Flickr Search.xcodeproj/xcuserdata/llv22.xcuserdatad/
-00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/CollectionView-Simple/CollectionView.xcodeproj/project.xcworkspace/xcuserdata/llv22.xcuserdatad/UserInterfaceState.xcuserstate
-00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/205 - Introducing Collection Views/CircleLayout/CircleLayout.xcodeproj/project.xcworkspace/xcuserdata/llv22.xcuserdatad/UserInterfaceState.xcuserstate
-00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/DecorationView/DecorationView.xcodeproj/project.xcworkspace/
-00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/DecorationView/DecorationView.xcodeproj/xcuserdata/
-00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/before_iOS6.0/GSBookShelf/BookShelf.xcodeproj/project.xcworkspace/xcuserdata/llv22.xcuserdatad/UserInterfaceState.xcuserstate
-00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/before_iOS6.0/ShelfReader/ShelfReader.xcodeproj/project.xcworkspace/xcuserdata/llv22.xcuserdatad/UserInterfaceState.xcuserstate
-00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/MeetSocial/json/json-framework/SBJson.xcodeproj/project.xcworkspace/xcuserdata/llv22.xcuserdatad/UserInterfaceState.xcuserstate
-00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/MeetSocial/MeetSocial.xcodeproj/project.xcworkspace/
-00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/MeetSocial/MeetSocial.xcodeproj/xcuserdata/
+# Macdev
+01_Macdev/CocoaDev.xcworkspace/contents.xcworkspacedata
+01_Macdev/19_TypingTutor/19_TypingTutor.xcodeproj/xcuserdata/
+01_Macdev/17_DrawingFun/17_DrawingFun.xcodeproj/xcuserdata/
+# iOSdev
+00_iOSdev/HouseHelper/HouseHelper.xcodeproj/project.xcworkspace/
+00_iOSdev/HouseHelper/HouseHelper.xcodeproj/xcuserdata/
+00_iOSdev/ViewControllers/2.7_SingleViewController/2.7_SingleViewController.xcodeproj/project.xcworkspace/ 
+00_iOSdev/ViewControllers/2.11_NavBarButton/2.11_NavBarButton.xcodeproj/project.xcworkspace/xcuserdata/
+00_iOSdev/ViewControllers/2.11_NavBarButton/2.11_NavBarButton.xcodeproj/xcuserdata/llv22.xcuserdatad/xcdebugger/
+00_iOSdev/ViewControllers/2.11_NavBarButton/2.11_NavBarButton.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+00_iOSdev/ViewControllers/3.3_TBData/3.3_TBData.xcodeproj/project.xcworkspace/
+# OnlineGoogleBooks - js OnlineGoogleBook
+00_iOSdev/OnlineGoogleBook/OnlineGoogleBook.xcodeproj/project.xcworkspace/
+00_iOSdev/OnlineGoogleBook/OnlineGoogleBook.xcodeproj/xcuserdata/
+00_iOSdev/OnlineGoogleBooks/OnlineGoogleBooks.xcworkspace/xcuserdata/
+# OnlineGoogleBooks - 01_BookshelfSkeleton
 00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/01_BookshelfSkeleton/BookshelfSkeleton.xcodeproj/project.xcworkspace/xcuserdata/
 00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/01_BookshelfSkeleton/BookshelfSkeleton.xcodeproj/xcuserdata/
+# OnlineGoogleBooks - examples
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/Flickr Search/Flickr Search.xcodeproj/project.xcworkspace/xcuserdata/
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/Flickr Search/Flickr Search.xcodeproj/xcuserdata/
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/CollectionView-Simple/CollectionView.xcodeproj/project.xcworkspace/xcuserdata/
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/205 - Introducing Collection Views/CircleLayout/CircleLayout.xcodeproj/project.xcworkspace/xcuserdata/
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/DecorationView/DecorationView.xcodeproj/project.xcworkspace/
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/DecorationView/DecorationView.xcodeproj/xcuserdata/
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/before_iOS6.0/GSBookShelf/BookShelf.xcodeproj/project.xcworkspace/xcuserdata/
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/before_iOS6.0/ShelfReader/ShelfReader.xcodeproj/project.xcworkspace/xcuserdata/
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/MeetSocial/json/json-framework/SBJson.xcodeproj/project.xcworkspace/xcuserdata/
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/MeetSocial/MeetSocial.xcodeproj/project.xcworkspace/
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/MeetSocial/MeetSocial.xcodeproj/xcuserdata/
+00_iOSdev/OnlineGoogleBooks/CollectionViewExamples/PhotoCollectionView/CollectionViewTutorial.xcodeproj/project.xcworkspace/xcuserdata/

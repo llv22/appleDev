@@ -19,7 +19,6 @@
     
     self.rootViewController = [[BKNavViewController alloc]init];
     self.navigationController = [[UINavigationController alloc]initWithRootViewController:self.rootViewController];
-//    [self.window addSubview:self.navigationController.view];
     self.window.rootViewController = self.navigationController;
     return YES;
 }
