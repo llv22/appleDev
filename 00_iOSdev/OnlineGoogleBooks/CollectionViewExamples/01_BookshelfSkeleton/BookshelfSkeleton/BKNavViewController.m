@@ -60,9 +60,16 @@ NSString* const strShelfTitle = @"BookShelf";
 
 - (void)setupShelf{
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"WoodTile"]];
+//  desc - extend height of bookshelf to bottom of UI screen
 //    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WoodTile"]];
 //    [self.view addSubview:backgroundImage];
 //    [self.view sendSubviewToBack:backgroundImage];
+    
+    UIImageView *shadowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"topshelf side shading"]];
+    [shadowImage setAlpha:.92f];
+    [self.view addSubview:shadowImage];
+    [self.view bringSubviewToFront:shadowImage];
+
 }
 
 #pragma mark - auto-rotation

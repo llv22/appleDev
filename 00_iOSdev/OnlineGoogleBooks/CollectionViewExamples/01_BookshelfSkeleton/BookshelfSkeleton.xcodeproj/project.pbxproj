@@ -40,6 +40,10 @@
 		F18AE8B6170861FB00361ECA /* WoodTile~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F18AE8B2170861FB00361ECA /* WoodTile~ipad.png */; };
 		F18AE8B7170861FB00361ECA /* WoodTile~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F18AE8B3170861FB00361ECA /* WoodTile~iphone.png */; };
 		F18AE8C3170862A300361ECA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F18AE8C2170862A300361ECA /* Default-568h@2x.png */; };
+		F1A0C9EB1709AA9C00B41C64 /* topshelf side shading~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = F1A0C9E71709AA9C00B41C64 /* topshelf side shading~iPad.png */; };
+		F1A0C9EC1709AA9C00B41C64 /* topshelf side shading~iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1A0C9E81709AA9C00B41C64 /* topshelf side shading~iPad@2x.png */; };
+		F1A0C9ED1709AA9C00B41C64 /* topshelf side shading~iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = F1A0C9E91709AA9C00B41C64 /* topshelf side shading~iPhone.png */; };
+		F1A0C9EE1709AA9C00B41C64 /* topshelf side shading~iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1A0C9EA1709AA9C00B41C64 /* topshelf side shading~iPhone@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +88,10 @@
 		F18AE8B2170861FB00361ECA /* WoodTile~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WoodTile~ipad.png"; sourceTree = "<group>"; };
 		F18AE8B3170861FB00361ECA /* WoodTile~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WoodTile~iphone.png"; sourceTree = "<group>"; };
 		F18AE8C2170862A300361ECA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F1A0C9E71709AA9C00B41C64 /* topshelf side shading~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topshelf side shading~iPad.png"; sourceTree = "<group>"; };
+		F1A0C9E81709AA9C00B41C64 /* topshelf side shading~iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topshelf side shading~iPad@2x.png"; sourceTree = "<group>"; };
+		F1A0C9E91709AA9C00B41C64 /* topshelf side shading~iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topshelf side shading~iPhone.png"; sourceTree = "<group>"; };
+		F1A0C9EA1709AA9C00B41C64 /* topshelf side shading~iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topshelf side shading~iPhone@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +199,7 @@
 		F15DFB7D1706FD19005A7CAE /* UIResources */ = {
 			isa = PBXGroup;
 			children = (
+				F1A0C9E61709AA9C00B41C64 /* SideShadows */,
 				F1106A8B1708354800251825 /* Shelfs */,
 				F1106A7A1708353D00251825 /* MainFrames */,
 				F15DFB7E1706FD19005A7CAE /* NavigationBars */,
@@ -209,6 +218,17 @@
 				F15DFB841706FD19005A7CAE /* NavBar~iphone.png */,
 			);
 			path = NavigationBars;
+			sourceTree = "<group>";
+		};
+		F1A0C9E61709AA9C00B41C64 /* SideShadows */ = {
+			isa = PBXGroup;
+			children = (
+				F1A0C9E71709AA9C00B41C64 /* topshelf side shading~iPad.png */,
+				F1A0C9E81709AA9C00B41C64 /* topshelf side shading~iPad@2x.png */,
+				F1A0C9E91709AA9C00B41C64 /* topshelf side shading~iPhone.png */,
+				F1A0C9EA1709AA9C00B41C64 /* topshelf side shading~iPhone@2x.png */,
+			);
+			path = SideShadows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +310,10 @@
 				F18AE8B6170861FB00361ECA /* WoodTile~ipad.png in Resources */,
 				F18AE8B7170861FB00361ECA /* WoodTile~iphone.png in Resources */,
 				F18AE8C3170862A300361ECA /* Default-568h@2x.png in Resources */,
+				F1A0C9EB1709AA9C00B41C64 /* topshelf side shading~iPad.png in Resources */,
+				F1A0C9EC1709AA9C00B41C64 /* topshelf side shading~iPad@2x.png in Resources */,
+				F1A0C9ED1709AA9C00B41C64 /* topshelf side shading~iPhone.png in Resources */,
+				F1A0C9EE1709AA9C00B41C64 /* topshelf side shading~iPhone@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
